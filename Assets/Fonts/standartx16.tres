@@ -3,4 +3,5 @@
 [ext_resource path="res://Assets/Fonts/W95FA.otf" type="DynamicFontData" id=1]
 
 [resource]
+size = 14
 font_data = ExtResource( 1 )

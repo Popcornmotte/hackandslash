@@ -1,3 +1,52 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://crt_material.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Sprites/placeholder.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/debug.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Windows/taskBar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Windows/button.png" type="Texture" id=5]
 
 [node name="Desktop" type="Node2D"]
+
+[node name="wallpaper" type="Sprite" parent="."]
+position = Vector2( 512, 299.5 )
+scale = Vector2( 0.969697, 1.01178 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CRTShader" type="Sprite" parent="."]
+material = ExtResource( 1 )
+position = Vector2( 512, 300 )
+scale = Vector2( 32, 18.75 )
+z_index = 1000
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Taskbar" type="NinePatchRect" parent="."]
+margin_top = 568.0
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 4 )
+patch_margin_top = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="NinePatchRect" parent="Taskbar"]
+margin_right = 96.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="Taskbar/Start"]
+margin_right = 56.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

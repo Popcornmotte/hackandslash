@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Styles/greyFlat.tres" type="StyleBox" id=1]
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sprites/Windows/windowInner.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Windows/window.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Windows/smolButton.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Windows/smolButtonPressed.png" type="Texture" id=5]
 
 [node name="window" type="Control"]
 anchor_right = 1.0
@@ -9,10 +13,66 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-custom_styles/panel = ExtResource( 1 )
+[node name="OuterFrame" type="NinePatchRect" parent="."]
+margin_right = 400.0
+margin_bottom = 384.0
+texture = ExtResource( 3 )
+patch_margin_left = 3
+patch_margin_top = 21
+patch_margin_right = 3
+patch_margin_bottom = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ProgramName" type="Label" parent="OuterFrame"]
+margin_left = 3.71023
+margin_top = 3.89202
+margin_right = 44.7102
+margin_bottom = 19.892
+custom_fonts/font = ExtResource( 1 )
+text = "Debug"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="TextureButton" parent="OuterFrame"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.671
+margin_top = 4.71063
+margin_right = -4.67096
+margin_bottom = 18.7106
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="X" type="Label" parent="OuterFrame/CloseButton"]
+margin_right = 15.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = " X"
+
+[node name="InnerFrame" type="NinePatchRect" parent="OuterFrame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 24.0
+margin_right = -8.0
+margin_bottom = -8.0
+texture = ExtResource( 2 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="OuterFrame/InnerFrame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
