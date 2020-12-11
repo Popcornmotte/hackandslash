@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="HackAndSlash"
 run/main_scene="res://Scenes/Desktop.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Sprites/icon2x64.png"
 
 [autoload]
 
