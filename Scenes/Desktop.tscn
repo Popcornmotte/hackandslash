@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://crt_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/placeholder.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/debug.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Sprites/Windows/taskBar.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Windows/button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Sprites/Windows/startButton.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Windows/startButtonPressed.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Desktop.gd" type="Script" id=9]
 
 [node name="Desktop" type="Node2D"]
+script = ExtResource( 9 )
 
 [node name="wallpaper" type="Sprite" parent="."]
 position = Vector2( 512, 299.5 )
@@ -33,10 +38,11 @@ margin_bottom = 600.0
 texture = ExtResource( 4 )
 patch_margin_top = 6
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="NinePatchRect" parent="Taskbar"]
+[node name="Start" type="MarginContainer" parent="Taskbar"]
 margin_right = 96.0
 margin_bottom = 32.0
 __meta__ = {
@@ -44,9 +50,35 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="Taskbar/Start"]
-margin_right = 56.0
+margin_right = 96.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Time" type="NinePatchRect" parent="Taskbar"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -71.0
+margin_bottom = 36.0
+texture = ExtResource( 5 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 7
+patch_margin_bottom = 7
+
+[node name="Label" type="Label" parent="Taskbar/Time"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "04:20"
+align = 1
