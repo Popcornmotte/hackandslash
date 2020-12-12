@@ -1,3 +1,101 @@
-[gd_scene format=2]
+[gd_scene load_steps=9 format=2]
 
-[node name="LogIn" type="Node2D"]
+[ext_resource path="res://Assets/Sprites/Windows/window.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Sprites/Windows/button.png" type="Texture" id=3]
+[ext_resource path="res://Styles/textField.tres" type="StyleBox" id=4]
+[ext_resource path="res://Scripts/LogIn.gd" type="Script" id=5]
+[ext_resource path="res://crt_material.tres" type="Material" id=6]
+[ext_resource path="res://Assets/Sprites/debug.png" type="Texture" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="LogIn" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CRTShader" type="Sprite" parent="."]
+material = ExtResource( 6 )
+position = Vector2( 512, 300 )
+scale = Vector2( 32, 18.75 )
+z_index = 100
+texture = ExtResource( 7 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -168.0
+margin_top = -72.0
+margin_right = 168.0
+margin_bottom = 72.0
+texture = ExtResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 23
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="TextEdit" parent="NinePatchRect"]
+margin_left = 136.0
+margin_top = 44.0
+margin_right = 248.0
+margin_bottom = 68.0
+custom_styles/read_only = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_readonly = Color( 0, 0, 0, 1 )
+text = "Username"
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Password" type="TextEdit" parent="NinePatchRect"]
+margin_left = 136.0
+margin_top = 84.0
+margin_right = 248.0
+margin_bottom = 108.0
+custom_styles/read_only = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_readonly = Color( 0, 0, 0, 1 )
+text = "************"
+readonly = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect"]
+margin_left = 256.0
+margin_top = 108.0
+margin_right = 328.0
+margin_bottom = 140.0
+texture = ExtResource( 3 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 7
+patch_margin_bottom = 7
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LogInButton" type="Button" parent="NinePatchRect/NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Log In"
+flat = true
+__meta__ = {
+"_edit_lock_": true
+}
+[connection signal="pressed" from="NinePatchRect/NinePatchRect/LogInButton" to="." method="_on_LogInButton_pressed"]
