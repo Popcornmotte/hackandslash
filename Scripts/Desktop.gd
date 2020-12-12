@@ -3,12 +3,18 @@ extends Node2D
 var heavyClick = preload("res://Assets/Sounds/heavyClick.wav")
 var time
 var jingle = preload("res://Assets/Sounds/loginJingle0.wav")
+var wincount = 0 
+const zeroPos = Vector2(256,100)
 
 func _ready():
 	Audio.playSfx(jingle)
 	Input.set_custom_mouse_cursor(load("res://Assets/Sprites/mouse.png"),Input.CURSOR_ARROW)
 	pass
 
+func getpos():
+	wincount+=1
+	$winPos.position=zeroPos+Vector2(wincount*5,wincount*5)
+	return $winPos.position
 
 func _process(delta):
 	time = OS.get_datetime()

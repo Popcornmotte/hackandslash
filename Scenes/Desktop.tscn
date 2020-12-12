@@ -204,5 +204,8 @@ position = Vector2( 64, 192 )
 icon = "http"
 PROGRAM = "res://Assets/ObjectScenes/HackingGames/CircleMatching/CircleMatch.tscn"
 title = "HTTP_WORM"
+
+[node name="winPos" type="Position2D" parent="."]
+position = Vector2( 256, 100 )
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/ShutDown" to="." method="_on_ShutDown_pressed"]

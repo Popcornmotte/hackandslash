@@ -13,6 +13,7 @@ export var test = false
 export var testScene : String
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	position = get_parent().getpos()
 	$OuterFrame/ProgramName.text = windowName
 	if test:
 		loadContent(testScene)
@@ -28,6 +29,9 @@ func _process(delta):
 		global_position = get_global_mouse_position() + pos
 	pass
 
+func close():
+	get_parent().wincount -= 1
+	queue_free()
 
 func _on_Button_button_down():
 	dragging = true
@@ -41,5 +45,5 @@ func _on_Button_button_up():
 
 
 func _on_CloseButton_pressed():
-	queue_free()
+	close()
 	pass # Replace with function body.
