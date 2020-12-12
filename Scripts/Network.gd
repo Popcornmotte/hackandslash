@@ -129,9 +129,11 @@ func _on_join_pressed():
 	
 	
 	#USE FUNCTIONS
-func sendText(s):
-	rpc("receiveText",s)
+func sendText(function,arg):
+	rpc("receiveText",function,arg)
 	
-remote func receiveText(s):
-	if global.active_console != null:
-		global.active_console.printout(s)
+remote func receiveText(path,function,arg):
+	match function:
+		"chat":
+			if global.active_console != null:
+				global.active_console.printout(arg)

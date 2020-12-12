@@ -72,7 +72,7 @@ func parse(s : String):
 				text = global.username+": "
 				for s in cmd:
 					text+=s+" "
-				Network.sendText(text)
+				Network.sendText("chat",text)
 	printout(text)
 	pass
 
