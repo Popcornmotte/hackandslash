@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/startMenuOptions.png-06b4ce70b0b265dba0f756b99e10e6eb.stex"
+path="res://.import/Find1.png-b793dc208695a670b68921a5cdd9d93b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Windows/startMenuOptions.png"
-dest_files=[ "res://.import/startMenuOptions.png-06b4ce70b0b265dba0f756b99e10e6eb.stex" ]
+source_file="res://Assets/Sprites/Windows/StarMenuButtons/Find1.png"
+dest_files=[ "res://.import/Find1.png-b793dc208695a670b68921a5cdd9d93b.stex" ]
 
 [params]
 

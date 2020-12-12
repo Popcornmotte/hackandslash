@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://crt_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/placeholder.png" type="Texture" id=2]
@@ -9,6 +9,17 @@
 [ext_resource path="res://Assets/Sprites/Windows/startButton.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Windows/startButtonPressed.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/Desktop.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/ShutDown2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Windows/startMenu.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/ShutDown1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/Run2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/Run1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/Settings1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/Settings2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/Find1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/Find2.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/Help2.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/Help1.png" type="Texture" id=20]
 
 [node name="Desktop" type="Node2D"]
 script = ExtResource( 9 )
@@ -22,7 +33,6 @@ __meta__ = {
 }
 
 [node name="CRTShader" type="Sprite" parent="."]
-visible = false
 material = ExtResource( 1 )
 position = Vector2( 512, 300 )
 scale = Vector2( 32, 18.75 )
@@ -50,7 +60,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="Taskbar/Start"]
+[node name="StartButton" type="TextureButton" parent="Taskbar/Start"]
 margin_right = 96.0
 margin_bottom = 32.0
 texture_normal = ExtResource( 7 )
@@ -69,6 +79,9 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 7
 patch_margin_bottom = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Taskbar/Time"]
 anchor_left = 0.5
@@ -83,3 +96,60 @@ custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "04:20"
 align = 1
+
+[node name="StartMenu" type="TextureRect" parent="."]
+visible = false
+margin_top = 400.0
+margin_right = 164.0
+margin_bottom = 575.0
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="StartMenu"]
+anchor_right = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="TextureButton" parent="StartMenu/Buttons"]
+margin_right = 164.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+
+[node name="Find" type="TextureButton" parent="StartMenu/Buttons"]
+margin_top = 32.0
+margin_right = 164.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+
+[node name="Help" type="TextureButton" parent="StartMenu/Buttons"]
+margin_top = 64.0
+margin_right = 164.0
+margin_bottom = 96.0
+texture_normal = ExtResource( 20 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+
+[node name="Run" type="TextureButton" parent="StartMenu/Buttons"]
+margin_top = 96.0
+margin_right = 164.0
+margin_bottom = 128.0
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+
+[node name="ShutDown" type="TextureButton" parent="StartMenu/Buttons"]
+margin_top = 128.0
+margin_right = 164.0
+margin_bottom = 175.0
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+[connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]

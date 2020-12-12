@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/startMenuOptionsWithText.png-bc898c9a52120605ddef1849bd6148b4.stex"
+path="res://.import/Pinny100.png-c726567c2e7d488796c59bd0d8fb5b83.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Windows/startMenuOptionsWithText.png"
-dest_files=[ "res://.import/startMenuOptionsWithText.png-bc898c9a52120605ddef1849bd6148b4.stex" ]
+source_file="res://Assets/Sprites/Windows/Pinny100.png"
+dest_files=[ "res://.import/Pinny100.png-c726567c2e7d488796c59bd0d8fb5b83.stex" ]
 
 [params]
 
