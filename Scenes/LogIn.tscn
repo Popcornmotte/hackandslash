@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Sprites/Windows/window.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Scripts/LogIn.gd" type="Script" id=5]
 [ext_resource path="res://crt_material.tres" type="Material" id=6]
 [ext_resource path="res://Assets/Sprites/debug.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/icons/pcLock.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/icons/key.png" type="Texture" id=9]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -19,6 +21,7 @@ __meta__ = {
 }
 
 [node name="CRTShader" type="Sprite" parent="."]
+visible = false
 material = ExtResource( 6 )
 position = Vector2( 512, 300 )
 scale = Vector2( 32, 18.75 )
@@ -43,7 +46,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Username" type="TextEdit" parent="NinePatchRect"]
+[node name="Username" type="LineEdit" parent="NinePatchRect"]
 margin_left = 136.0
 margin_top = 44.0
 margin_right = 248.0
@@ -51,15 +54,14 @@ margin_bottom = 68.0
 custom_styles/read_only = ExtResource( 4 )
 custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_readonly = Color( 0, 0, 0, 1 )
+custom_colors/font_color_uneditable = Color( 0, 0, 0, 1 )
 text = "Username"
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+editable = false
 
-[node name="Password" type="TextEdit" parent="NinePatchRect"]
+[node name="Password" type="LineEdit" parent="NinePatchRect"]
 margin_left = 136.0
 margin_top = 84.0
 margin_right = 248.0
@@ -67,10 +69,10 @@ margin_bottom = 108.0
 custom_styles/read_only = ExtResource( 4 )
 custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_readonly = Color( 0, 0, 0, 1 )
-text = "************"
-readonly = true
+custom_colors/font_color_uneditable = Color( 0, 0, 0, 1 )
+secret = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect"]
 margin_left = 256.0
@@ -98,4 +100,22 @@ flat = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+margin_top = 148.0
+margin_right = 336.0
+margin_bottom = 162.0
+custom_fonts/font = ExtResource( 2 )
+text = "Tip: Press F2 to disable the CRT-Shader"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="key" type="Sprite" parent="NinePatchRect"]
+position = Vector2( 72, 60 )
+texture = ExtResource( 9 )
+
+[node name="pc" type="Sprite" parent="NinePatchRect/key"]
+position = Vector2( 0, 32 )
+texture = ExtResource( 8 )
 [connection signal="pressed" from="NinePatchRect/NinePatchRect/LogInButton" to="." method="_on_LogInButton_pressed"]

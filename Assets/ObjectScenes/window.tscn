@@ -44,6 +44,9 @@ margin_right = -4.67096
 margin_bottom = 18.7106
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="X" type="Label" parent="OuterFrame/CloseButton"]
 margin_right = 15.0
@@ -90,5 +93,6 @@ margin_bottom = -8.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="OuterFrame/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="button_down" from="OuterFrame/Button" to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="OuterFrame/Button" to="." method="_on_Button_button_up"]

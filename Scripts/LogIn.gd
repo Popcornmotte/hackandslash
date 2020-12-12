@@ -11,7 +11,9 @@ func _ready():
 	Input.set_custom_mouse_cursor(load("res://Assets/Sprites/mouse.png"),Input.CURSOR_ARROW)
 	var path = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP)
 	var arr = path.split("\\")
-	$NinePatchRect/Username.text = arr[2]
+	if arr.size() >= 3:
+		global.username = arr[2]
+	$NinePatchRect/Username.text = global.username
 	pass # Replace with function body.
 
 

@@ -1,6 +1,7 @@
 extends Node
 
 const MAXRAM = 8
+var username = "not_found"
 var hp = 100
 var httpRam = 0
 var sshRam = 0

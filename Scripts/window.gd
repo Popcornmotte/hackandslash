@@ -38,3 +38,8 @@ func _on_Button_button_down():
 func _on_Button_button_up():
 	dragging = false
 	pass # Replace with function body.
+
+
+func _on_CloseButton_pressed():
+	queue_free()
+	pass # Replace with function body.
