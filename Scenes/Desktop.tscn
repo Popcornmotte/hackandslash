@@ -69,6 +69,8 @@ __meta__ = {
 [node name="StartButton" type="TextureButton" parent="Taskbar/Start"]
 margin_right = 96.0
 margin_bottom = 32.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 __meta__ = {
@@ -123,6 +125,8 @@ __meta__ = {
 [node name="Settings" type="TextureButton" parent="StartMenu/Buttons"]
 margin_right = 164.0
 margin_bottom = 32.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 15 )
 texture_pressed = ExtResource( 16 )
 texture_hover = ExtResource( 16 )
@@ -131,6 +135,8 @@ texture_hover = ExtResource( 16 )
 margin_top = 32.0
 margin_right = 164.0
 margin_bottom = 64.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 17 )
 texture_pressed = ExtResource( 18 )
 texture_hover = ExtResource( 18 )
@@ -139,6 +145,8 @@ texture_hover = ExtResource( 18 )
 margin_top = 64.0
 margin_right = 164.0
 margin_bottom = 96.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 19 )
 texture_hover = ExtResource( 19 )
@@ -147,6 +155,8 @@ texture_hover = ExtResource( 19 )
 margin_top = 96.0
 margin_right = 164.0
 margin_bottom = 128.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 14 )
 texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 13 )
@@ -155,6 +165,8 @@ texture_hover = ExtResource( 13 )
 margin_top = 128.0
 margin_right = 164.0
 margin_bottom = 175.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 12 )
 texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 10 )
@@ -173,10 +185,24 @@ z_index = -2
 
 [node name="trashbin" parent="Icons" instance=ExtResource( 23 )]
 position = Vector2( 64, 64 )
+title = "trash"
 
-[node name="Icon2" parent="Icons" instance=ExtResource( 23 )]
+[node name="console" parent="Icons" instance=ExtResource( 23 )]
 position = Vector2( 64, 128 )
 icon = "console"
 PROGRAM = "res://Assets/ObjectScenes/console.tscn"
+title = "console"
+
+[node name="SSH_Invader" parent="Icons" instance=ExtResource( 23 )]
+position = Vector2( 128, 64 )
+icon = "ssh"
+PROGRAM = "res://Assets/ObjectScenes/HackingGames/invaders.tscn"
+title = "SSH_Invader"
+
+[node name="HTTP_WORM" parent="Icons" instance=ExtResource( 23 )]
+position = Vector2( 64, 192 )
+icon = "http"
+PROGRAM = "res://Assets/ObjectScenes/HackingGames/CircleMatching/CircleMatch.tscn"
+title = "HTTP_WORM"
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/ShutDown" to="." method="_on_ShutDown_pressed"]
