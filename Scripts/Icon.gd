@@ -7,12 +7,14 @@ extends Node2D
 export var icon = "trashbin"
 export var PROGRAM : String
 export var doubleClickTime = 0.3
+export var title : String
 var firstClick = false
 var Window = load("res://Assets/ObjectScenes/window.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Label.text = title
 	$doubleclickTimer.wait_time = doubleClickTime
 	$AnimatedSprite.play(icon)
 	pass # Replace with function body.

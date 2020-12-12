@@ -42,6 +42,8 @@ margin_left = -20.671
 margin_top = 4.71063
 margin_right = -4.67096
 margin_bottom = 18.7106
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 __meta__ = {
@@ -61,7 +63,9 @@ __meta__ = {
 [node name="Button" type="Button" parent="OuterFrame"]
 margin_right = 376.0
 margin_bottom = 24.0
+focus_mode = 0
 custom_styles/focus = SubResource( 1 )
+enabled_focus_mode = 0
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false

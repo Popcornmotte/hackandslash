@@ -21,19 +21,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "1",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "8",
+"name": "1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -64,6 +59,11 @@ animations = [ {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "7",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "8",
 "speed": 5.0
 } ]
 
@@ -152,6 +152,8 @@ margin_bottom = 36.0
 [node name="sshUp" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ssh"]
 margin_right = 32.0
 margin_bottom = 16.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 
@@ -159,6 +161,8 @@ texture_pressed = ExtResource( 5 )
 margin_top = 20.0
 margin_right = 32.0
 margin_bottom = 36.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 3 )
 
@@ -170,6 +174,8 @@ margin_bottom = 36.0
 [node name="ftpUp" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ftp"]
 margin_right = 32.0
 margin_bottom = 16.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 
@@ -177,6 +183,8 @@ texture_pressed = ExtResource( 5 )
 margin_top = 20.0
 margin_right = 32.0
 margin_bottom = 36.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 3 )
 
@@ -188,6 +196,8 @@ margin_bottom = 36.0
 [node name="httpUp" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/http"]
 margin_right = 32.0
 margin_bottom = 16.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 
@@ -195,6 +205,8 @@ texture_pressed = ExtResource( 5 )
 margin_top = 20.0
 margin_right = 32.0
 margin_bottom = 36.0
+focus_mode = 0
+enabled_focus_mode = 0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 3 )
 
@@ -247,7 +259,9 @@ __meta__ = {
 [node name="Button" type="Button" parent="."]
 margin_right = 174.0
 margin_bottom = 27.0
+focus_mode = 0
 custom_styles/focus = SubResource( 4 )
+enabled_focus_mode = 0
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
