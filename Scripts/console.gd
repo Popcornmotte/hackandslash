@@ -72,7 +72,7 @@ func parse(s : String):
 				text = global.username+": "
 				for s in cmd:
 					text+=s+" "
-				rpc("remoteprintout",text)
+				Network.sendText(text)
 	printout(text)
 	pass
 

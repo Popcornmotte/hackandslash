@@ -129,6 +129,9 @@ func _on_join_pressed():
 	
 	
 	#USE FUNCTIONS
-sync func remotePrintout(s):
+func sendText(s):
+	rpc("receiveText",s)
+	
+remote func receiveText(s):
 	if global.active_console != null:
 		global.active_console.printout(s)
