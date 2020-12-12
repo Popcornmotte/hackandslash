@@ -9,6 +9,8 @@ var sshRam = 0
 var ftpRam = 0
 var ram = 0
 
+var invaderbullets = 0
+
 onready var address = "127.0.0.1"
 var port = DEFAULT_PORT
 var status =""
