@@ -38,6 +38,8 @@ func _process(delta):
 
 
 func _on_BulletSpace_area_exited(area):
-	currentBullets -= 1
-	get_parent().get_node("BulletCounter").play(str(3-currentBullets))
+	if("Bullet" in area.name):
+		area.queue_free()
+		currentBullets -= 1
+		get_parent().get_node("BulletCounter").play(str(3-currentBullets))
 	pass
