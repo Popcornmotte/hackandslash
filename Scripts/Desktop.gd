@@ -30,3 +30,8 @@ func _on_StartButton_pressed():
 	else:
 		$StartMenu.visible = true
 	pass # Replace with function body.
+
+
+func _on_ShutDown_pressed():
+	get_tree().quit()
+	pass # Replace with function body.

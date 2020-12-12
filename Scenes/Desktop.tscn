@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://crt_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/Wallpaper/hackN0.jpg" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Assets/Sprites/Windows/StarMenuButtons/Help1.png" type="Texture" id=20]
 [ext_resource path="res://Assets/ObjectScenes/RAMdist.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Assets/ObjectScenes/window.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Assets/ObjectScenes/Icon.tscn" type="PackedScene" id=23]
 
 [node name="Desktop" type="Node2D"]
 z_index = -100
@@ -30,6 +31,7 @@ script = ExtResource( 9 )
 [node name="wallpaper" type="Sprite" parent="."]
 position = Vector2( 512, 300 )
 scale = Vector2( 0.853333, 0.698487 )
+z_index = -1000
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -163,4 +165,17 @@ position = Vector2( 792, 24 )
 position = Vector2( 216, 80 )
 windowName = "Test"
 test = true
+testScene = "res://Assets/ObjectScenes/console.tscn"
+
+[node name="Icons" type="Node2D" parent="."]
+z_index = -2
+
+[node name="trashbin" parent="Icons" instance=ExtResource( 23 )]
+position = Vector2( 64, 64 )
+
+[node name="Icon2" parent="Icons" instance=ExtResource( 23 )]
+position = Vector2( 64, 128 )
+icon = "console"
+PROGRAM = "res://Assets/ObjectScenes/console.tscn"
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="StartMenu/Buttons/ShutDown" to="." method="_on_ShutDown_pressed"]
