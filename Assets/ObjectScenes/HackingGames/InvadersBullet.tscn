@@ -23,4 +23,3 @@ texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="area_entered" from="." to="." method="_on_Bullet_area_entered"]
