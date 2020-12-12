@@ -71,7 +71,7 @@ func parse(s : String):
 				text = global.username+": "
 				for s in cmd:
 					text+=s+" "
-				rpc("remoteprintout",text)
+				rpc("printout",text)
 	printout(text)
 	pass
 
