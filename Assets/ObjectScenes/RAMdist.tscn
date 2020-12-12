@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Sprites/Windows/RAMdist.png" type="Texture" id=2]
@@ -13,8 +13,11 @@
 [ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar7.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar4.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Windows/FTPlabel.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Windows/HTTPlabel.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/Windows/SSHlabel.png" type="Texture" id=16]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
@@ -41,14 +44,9 @@ animations = [ {
 "name": "5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [  ],
 "loop": true,
-"name": "2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "1",
+"name": "0",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -56,19 +54,24 @@ animations = [ {
 "name": "7",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "0",
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "2",
 "speed": 5.0
 } ]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=2]
 content_margin_top = 2.0
 content_margin_bottom = 2.0
 bg_color = Color( 0, 0, 0.501961, 1 )
 border_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.501961, 0.501961, 0.501961, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -108,16 +111,28 @@ margin_bottom = 366.0
 alignment = 1
 
 [node name="http" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Stats"]
-frames = SubResource( 3 )
+position = Vector2( 130, -178 )
+frames = SubResource( 1 )
 animation = "8"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ssh" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Stats"]
-frames = SubResource( 3 )
+position = Vector2( 30, -178 )
+frames = SubResource( 1 )
 animation = "8"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ftp" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Stats"]
-frames = SubResource( 3 )
+position = Vector2( 80, -178 )
+frames = SubResource( 1 )
 animation = "8"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 370.0
@@ -200,8 +215,29 @@ text = "0 / 8 MB"
 margin_top = 436.0
 margin_right = 160.0
 margin_bottom = 440.0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 max_value = 8.0
 value = 4.0
 percent_visible = false
+
+[node name="FTPlabel" type="Sprite" parent="."]
+position = Vector2( 138, 66 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="HTTPlabel" type="Sprite" parent="."]
+position = Vector2( 38, 66 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SSHlabel" type="Sprite" parent="."]
+position = Vector2( 88, 66 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_lock_": true
+}
