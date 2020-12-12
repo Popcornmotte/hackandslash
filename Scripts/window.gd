@@ -24,6 +24,9 @@ func loadContent(c : String):
 	content = CONTENT.instance()
 	$OuterFrame/InnerFrame/WindowContent.add_child(content)
 
+func setTitle(title):
+	$OuterFrame/ProgramName.text = title
+
 func _process(delta):
 	if dragging:
 		global_position = get_global_mouse_position() + pos

@@ -11,6 +11,7 @@ var ram = 0
 
 var invaderbullets = 0
 
+var focusedWindow = null
 var active_console
 #onready var host_button = $HostButton
 #onready var join_button = $JoinButton
