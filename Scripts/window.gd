@@ -20,7 +20,7 @@ func _ready():
 	pass # Replace with function body.
 
 func loadContent(c : String):
-	var CONTENT = load(c)
+	CONTENT = load(c)
 	content = CONTENT.instance()
 	$OuterFrame/InnerFrame/WindowContent.add_child(content)
 
