@@ -1,17 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Sprites/Windows/windowInner.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/Windows/window.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Sprites/Windows/smolButton.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Windows/smolButtonPressed.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/window.gd" type="Script" id=6]
 
-[node name="window" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="window" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="OuterFrame" type="NinePatchRect" parent="."]
 margin_right = 400.0
@@ -52,6 +51,9 @@ margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = " X"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="InnerFrame" type="NinePatchRect" parent="OuterFrame"]
 anchor_right = 1.0
@@ -76,3 +78,14 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
+
+[node name="Button" type="Button" parent="OuterFrame"]
+margin_right = 376.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 1 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="OuterFrame/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="OuterFrame/Button" to="." method="_on_Button_button_up"]

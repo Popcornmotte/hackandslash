@@ -1,5 +1,15 @@
 extends Node
 
-const MAXRAM = 16
+const MAXRAM = 8
 var hp = 100
-var ram = 16
+var httpRam = 0
+var sshRam = 0
+var ftpRam = 0
+var ram = 0
+
+func checkRam():
+	ram = httpRam+ftpRam+sshRam
+	if(ram < MAXRAM):
+		return true
+	else:
+		return false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Sprites/Windows/RAMdist.png" type="Texture" id=2]
@@ -16,9 +16,16 @@
 [ext_resource path="res://Assets/Sprites/Windows/FTPlabel.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Sprites/Windows/HTTPlabel.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Sprites/Windows/SSHlabel.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/RAMdist.gd" type="Script" id=17]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar3.png" type="Texture" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "8",
@@ -29,29 +36,9 @@ animations = [ {
 "name": "6",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "4",
-"speed": 5.0
-}, {
-"frames": [  ],
+"frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "5",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "7",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -59,9 +46,24 @@ animations = [ {
 "name": "1",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "7",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "4",
 "speed": 5.0
 } ]
 
@@ -79,8 +81,9 @@ border_color = Color( 0, 0, 0, 1 )
 
 [node name="RAMdist" type="TextureRect"]
 margin_right = 176.0
-margin_bottom = 400.0
+margin_bottom = 480.0
 texture = ExtResource( 2 )
+script = ExtResource( 17 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -141,36 +144,18 @@ margin_bottom = 406.0
 custom_constants/separation = 19
 alignment = 1
 
-[node name="http" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
+[node name="ssh" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
 margin_left = 13.0
 margin_right = 45.0
 margin_bottom = 36.0
 
-[node name="Button" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/http"]
+[node name="sshUp" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ssh"]
 margin_right = 32.0
 margin_bottom = 16.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 
-[node name="Button2" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/http"]
-margin_top = 20.0
-margin_right = 32.0
-margin_bottom = 36.0
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 3 )
-
-[node name="ssh" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 64.0
-margin_right = 96.0
-margin_bottom = 36.0
-
-[node name="Button" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ssh"]
-margin_right = 32.0
-margin_bottom = 16.0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-
-[node name="Button2" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ssh"]
+[node name="sshDown" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ssh"]
 margin_top = 20.0
 margin_right = 32.0
 margin_bottom = 36.0
@@ -178,17 +163,35 @@ texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 3 )
 
 [node name="ftp" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 115.0
-margin_right = 147.0
+margin_left = 64.0
+margin_right = 96.0
 margin_bottom = 36.0
 
-[node name="Button" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ftp"]
+[node name="ftpUp" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ftp"]
 margin_right = 32.0
 margin_bottom = 16.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 
-[node name="Button2" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ftp"]
+[node name="ftpDown" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ftp"]
+margin_top = 20.0
+margin_right = 32.0
+margin_bottom = 36.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 3 )
+
+[node name="http" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_left = 115.0
+margin_right = 147.0
+margin_bottom = 36.0
+
+[node name="httpUp" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/http"]
+margin_right = 32.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="httpDown" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/http"]
 margin_top = 20.0
 margin_right = 32.0
 margin_bottom = 36.0
@@ -218,26 +221,31 @@ margin_bottom = 440.0
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
 max_value = 8.0
-value = 4.0
 percent_visible = false
 
 [node name="FTPlabel" type="Sprite" parent="."]
-position = Vector2( 138, 66 )
+position = Vector2( 88, 67 )
 texture = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="HTTPlabel" type="Sprite" parent="."]
-position = Vector2( 38, 66 )
+position = Vector2( 139, 67 )
 texture = ExtResource( 15 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="SSHlabel" type="Sprite" parent="."]
-position = Vector2( 88, 66 )
+position = Vector2( 38, 67 )
 texture = ExtResource( 16 )
 __meta__ = {
 "_edit_lock_": true
 }
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ssh/sshUp" to="." method="_on_sshUp_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ssh/sshDown" to="." method="_on_sshDown_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ftp/ftpUp" to="." method="_on_ftpUp_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ftp/ftpDown" to="." method="_on_ftpDown_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/http/httpUp" to="." method="_on_httpUp_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/http/httpDown" to="." method="_on_httpDown_pressed"]
