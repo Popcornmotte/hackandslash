@@ -1,0 +1,216 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/gamma0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/delta0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/alpha1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/alpha0.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/beta1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/beta0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/gamma1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/HackingGames/cannonGameBG.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/delta1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Windows/button.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Windows/buttonPressed.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Scripts/SimonSays.gd" type="Script" id=13]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+} ]
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 10 )
+region_rect = Rect2( 5, 5, 22, 22 )
+margin_left = 1.49475
+margin_right = 2.15908
+margin_top = 1.32867
+margin_bottom = 2.32517
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 11 )
+region_rect = Rect2( 5, 5, 22, 22 )
+margin_left = 2.32517
+margin_right = 2.32517
+margin_top = 2.49125
+margin_bottom = 2.32517
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="Game" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nullButton" type="AnimatedSprite" parent="."]
+frames = SubResource( 9 )
+
+[node name="Box" type="NinePatchRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 8 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="alpha" type="Button" parent="Box"]
+margin_left = 16.0
+margin_top = 128.0
+margin_right = 80.0
+margin_bottom = 192.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="AnimatedSprite" parent="Box/alpha"]
+position = Vector2( 32, 32 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 1 )
+animation = "0"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="beta" type="Button" parent="Box"]
+margin_left = 96.0
+margin_top = 128.0
+margin_right = 160.0
+margin_bottom = 192.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="AnimatedSprite" parent="Box/beta"]
+position = Vector2( 32, 32 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+animation = "0"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="gamma" type="Button" parent="Box"]
+margin_left = 176.0
+margin_top = 128.0
+margin_right = 240.0
+margin_bottom = 192.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="AnimatedSprite" parent="Box/gamma"]
+position = Vector2( 32, 32 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "0"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="delta" type="Button" parent="Box"]
+margin_left = 256.0
+margin_top = 128.0
+margin_right = 320.0
+margin_bottom = 192.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="AnimatedSprite" parent="Box/delta"]
+position = Vector2( 32, 32 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 4 )
+animation = "0"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="start" type="Button" parent="Box"]
+margin_left = 64.0
+margin_top = 72.0
+margin_right = 256.0
+margin_bottom = 112.0
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Are you human?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Box/alpha" to="." method="_on_alpha_button_down"]
+[connection signal="button_up" from="Box/alpha" to="." method="_on_alpha_button_up"]
+[connection signal="button_down" from="Box/beta" to="." method="_on_beta_button_down"]
+[connection signal="button_up" from="Box/beta" to="." method="_on_beta_button_up"]
+[connection signal="button_down" from="Box/gamma" to="." method="_on_gamma_button_down"]
+[connection signal="button_up" from="Box/gamma" to="." method="_on_gamma_button_up"]
+[connection signal="button_down" from="Box/delta" to="." method="_on_delta_button_down"]
+[connection signal="button_up" from="Box/delta" to="." method="_on_delta_button_up"]
+[connection signal="button_down" from="Box/start" to="." method="_on_start_button_down"]
