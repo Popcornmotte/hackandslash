@@ -20,7 +20,7 @@ func _ready():
 	printout(text)
 	pass # Replace with function body.
 
-func printout(s):
+sync func printout(s):
 	out.text = str(out.text,"\n",s,"\n")
 puppet func remotePrintout(s):
 	out.text = str(out.text,"\n",s,"\n")
