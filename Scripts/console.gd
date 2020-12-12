@@ -52,7 +52,7 @@ func parse(s : String):
 				text = "Too few/much arguments!\nUsage:\nhost [IP] [PORT]\n"\
 				+"leave [PORT] empty for default_port"
 		"join":
-			if cmd.size() == 3:
+			if cmd.size() == 3 or cmd.size() == 2:
 				global.address = cmd[1]
 				if cmd.size() == 3:
 					global.port = int(cmd[2])

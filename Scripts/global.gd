@@ -50,10 +50,10 @@ func _player_connected(_id):
 	#var pong = load("res://pong.tscn").instance()
 	# Connect deferred so we can safely erase it from the callback.
 	#pong.connect("game_finished", self, "_end_game", [], CONNECT_DEFERRED)
-	
+	print("player connected")
 	#get_tree().get_root().add_child(pong)
 	if active_console != null:
-		active_console.printout("valid opponent found! Now attacking:\n"+_id)
+		active_console.printout("valid opponent found! Now attacking:\n"+str(_id))
 
 
 
