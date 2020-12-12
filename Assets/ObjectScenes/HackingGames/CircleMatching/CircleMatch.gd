@@ -10,12 +10,25 @@ var yn = 0
 var vel : Vector2
 var dist : Vector2
 var streak = 0.0
+var resets = 0
 
 func _ready():
 	pass 
 
 func win():
-	
+	get_parent().get_parent().get_parent().get_parent().close()
+	pass
+
+func reset():
+	if(resets >= 2): win()
+	resets += 1
+	radius = 4-resets
+	winRadius = .7 - (.1 * resets)
+	$GameBox/SmallCircle.position = Vector2(70,100)
+	$GameBox/LargeCircle.scale = Vector2(radius,radius)
+	$GameBox/TargetCircle.scale = Vector2(winRadius, winRadius)
+	$GameBox/ProgressBar.value = resets
+	vel = Vector2(0,0)
 	pass
 
 func _process(delta):
@@ -31,7 +44,7 @@ func _process(delta):
 	vel = lerp(vel, speed * Vector2(xp + xn, yp + yn), delta * 2)
 	
 	dist = $GameBox/SmallCircle.global_position - $GameBox/LargeCircle.global_position
-	vel += dist * delta * 80/dist.length()
+	vel += dist * delta * (80 + resets * 10)/dist.length()
 	
 	if(dist.length() > 160):
 		vel -= dist.normalized() * vel.length()
@@ -45,6 +58,6 @@ func _process(delta):
 		streak = 0
 	
 	if(radius <= winRadius):
-		win()
+		reset()
 	
 	pass
