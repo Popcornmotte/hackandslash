@@ -23,9 +23,7 @@ func _ready():
 func printout(s):
 	out.text = str(out.text,"\n",s)
 	out.scroll_vertical = 99999
-remote func remotePrintout(s):
-	out.text = str(out.text,"\n",s)
-	out.scroll_vertical = 99999
+
 
 func help():
 	var text = "Commands:\n"\
@@ -46,25 +44,25 @@ func parse(s : String):
 			help()
 		"host":
 			if cmd.size() == 3 or cmd.size() == 2:
-				global.address = cmd[1]
+				Network.address = cmd[1]
 				if cmd.size() == 3:
-					global.port = int(cmd[2])
+					Network.port = int(cmd[2])
 				else:
-					global.port = global.DEFAULT_PORT
-				global._on_host_pressed()
-				text = global.status
+					Network.port = Network.DEFAULT_PORT
+				Network._on_host_pressed()
+				text = Network.status
 			else:
 				text = "Too few/much arguments!\nUsage:\nhost [IP] [PORT]\n"\
 				+"leave [PORT] empty for default_port"
 		"join":
 			if cmd.size() == 3 or cmd.size() == 2:
-				global.address = cmd[1]
+				Network.address = cmd[1]
 				if cmd.size() == 3:
-					global.port = int(cmd[2])
+					Network.port = int(cmd[2])
 				else:
-					global.port = global.DEFAULT_PORT
-				global._on_join_pressed()
-				text = global.status
+					Network.port = Network.DEFAULT_PORT
+				Network._on_join_pressed()
+				text = Network.status
 			else:
 				text = "Too few/much arguments!\nUsage:\njoin [IP] [PORT]\n"\
 				+"leave [PORT] empty for default_port"
