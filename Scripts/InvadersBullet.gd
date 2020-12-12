@@ -17,3 +17,11 @@ func _process(delta):
 	rotation = vel.angle() + deg2rad(90)
 	pass
 
+
+
+func _on_Bullet_area_entered(area):
+	if "Wall" in area.name:
+		global.invaderbullets -= 1
+		get_parent().get_node("GameBox/BulletCounter").play(str(3-global.invaderbullets))
+		queue_free()
+	pass # Replace with function body.

@@ -26,9 +26,9 @@ func _process(delta):
 	currentDeg = max(min(currentDeg + (turnR + turnL) * delta, maxDeg),-maxDeg)
 	set_rotation(deg2rad(currentDeg))
 	
-	if(currentBullets < 3 && Input.is_action_just_pressed("ui_accept")):
-		currentBullets += 1
-		get_parent().get_node("BulletCounter").play(str(3-currentBullets))
+	if(global.invaderbullets < 3 && Input.is_action_just_pressed("ui_accept")):
+		global.invaderbullets += 1
+		get_parent().get_node("BulletCounter").play(str(3-global.invaderbullets))
 		var bulletInstance = bullet.instance()
 		get_parent().get_parent().add_child(bulletInstance)
 		bulletInstance.set_global_position($SpawnPos.global_position)
@@ -36,10 +36,3 @@ func _process(delta):
 	
 	pass
 
-
-func _on_BulletSpace_area_exited(area):
-	if("Bullet" in area.name):
-		area.queue_free()
-		currentBullets -= 1
-		get_parent().get_node("BulletCounter").play(str(3-currentBullets))
-	pass

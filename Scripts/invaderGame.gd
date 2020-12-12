@@ -1,12 +1,8 @@
 extends Control
 
-var enemies = 3
+var count = 2
 
-func subEnemy():
-	enemies -= 1
-	if(enemies <= 0):
-		win()
-	pass
+
 
 func win():
 	pass
