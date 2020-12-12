@@ -1,0 +1,140 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sprites/Windows/RAMdist.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Windows/downArrowPressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Windows/upArrow.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Windows/upArrowPressed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Windows/downArrow.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+bg_color = Color( 0, 0, 0.501961, 1 )
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+border_width_left = 1
+border_width_top = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="RAMdist" type="TextureRect"]
+margin_right = 176.0
+margin_bottom = 400.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 8.0
+margin_top = 32.0
+margin_right = 168.0
+margin_bottom = 472.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 160.0
+margin_bottom = 440.0
+alignment = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stats" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 366.0
+margin_right = 160.0
+margin_bottom = 366.0
+alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 370.0
+margin_right = 160.0
+margin_bottom = 406.0
+custom_constants/separation = 19
+alignment = 1
+
+[node name="http" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_left = 13.0
+margin_right = 45.0
+margin_bottom = 36.0
+
+[node name="Button" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/http"]
+margin_right = 32.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Button2" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/http"]
+margin_top = 20.0
+margin_right = 32.0
+margin_bottom = 36.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 3 )
+
+[node name="ssh" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_left = 64.0
+margin_right = 96.0
+margin_bottom = 36.0
+
+[node name="Button" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ssh"]
+margin_right = 32.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Button2" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ssh"]
+margin_top = 20.0
+margin_right = 32.0
+margin_bottom = 36.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 3 )
+
+[node name="ftp" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
+margin_left = 115.0
+margin_right = 147.0
+margin_bottom = 36.0
+
+[node name="Button" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ftp"]
+margin_right = 32.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Button2" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ftp"]
+margin_top = 20.0
+margin_right = 32.0
+margin_bottom = 36.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 3 )
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+margin_top = 410.0
+margin_right = 160.0
+margin_bottom = 414.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 418.0
+margin_right = 160.0
+margin_bottom = 432.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0 / 8 MB"
+
+[node name="RAMavailable" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+margin_top = 436.0
+margin_right = 160.0
+margin_bottom = 440.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+max_value = 8.0
+value = 4.0
+percent_visible = false
