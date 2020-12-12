@@ -52,7 +52,7 @@ func _process(delta):
 	pass
 
 func win():
-	get_parent().get_parent().get_parent().get_parent().queue_free()
+	get_parent().get_parent().get_parent().get_parent().close()
 	pass
 
 func buttonInput(var index):
