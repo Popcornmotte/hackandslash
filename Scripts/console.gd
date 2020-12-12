@@ -22,6 +22,8 @@ func _ready():
 
 func printout(s):
 	out.text = str(out.text,"\n",s,"\n")
+puppet func remotePrintout(s):
+	out.text = str(out.text,"\n",s,"\n")
 
 func help():
 	var text = "Commands:\n"\
@@ -63,6 +65,13 @@ func parse(s : String):
 			else:
 				text = "Too few/much arguments!\nUsage:\njoin [IP] [PORT]\n"\
 				+"leave [PORT] empty for default_port"
+		"chat":
+			if cmd.size() >= 2:
+				cmd.remove(0)
+				text = global.username+": "
+				for s in cmd:
+					text+=s+" "
+				rpc("remoteprintout",text)
 	printout(text)
 	pass
 
