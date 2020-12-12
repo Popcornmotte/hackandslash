@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/loginJingle1.wav-741a2d002702295e5121909e5b3ce27f.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/loginJingle1.wav"
+dest_files=[ "res://.import/loginJingle1.wav-741a2d002702295e5121909e5b3ce27f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

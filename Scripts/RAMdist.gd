@@ -1,12 +1,19 @@
-extends TextureRect
+extends Sprite
 
-
+var dragging = false
+var pos : Vector2
 
 func _ready():
 	$MarginContainer/VBoxContainer/Stats/http.play(str(global.httpRam))
 	$MarginContainer/VBoxContainer/Stats/ftp.play(str(global.ftpRam))
 	$MarginContainer/VBoxContainer/Stats/ssh.play(str(global.sshRam))
 	pass 
+
+
+func _process(delta):
+	if dragging:
+		global_position = get_global_mouse_position() + pos
+	pass
 
 
 func updateRam():
@@ -54,4 +61,15 @@ func _on_ftpDown_pressed():
 		global.ftpRam -= 1
 		$MarginContainer/VBoxContainer/Stats/ftp.play(str(global.ftpRam))
 		updateRam()
+	pass # Replace with function body.
+
+
+func _on_Button_button_down():
+	dragging = true
+	pos = global_position - get_global_mouse_position()
+	pass # Replace with function body.
+
+
+func _on_Button_button_up():
+	dragging = false
 	pass # Replace with function body.

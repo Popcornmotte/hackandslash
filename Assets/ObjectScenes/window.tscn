@@ -55,6 +55,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Button" type="Button" parent="OuterFrame"]
+margin_right = 376.0
+margin_bottom = 24.0
+custom_styles/focus = SubResource( 1 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="InnerFrame" type="NinePatchRect" parent="OuterFrame"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -71,19 +80,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="OuterFrame/InnerFrame"]
+[node name="WindowContent" type="MarginContainer" parent="OuterFrame/InnerFrame"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
-
-[node name="Button" type="Button" parent="OuterFrame"]
-margin_right = 376.0
-margin_bottom = 24.0
-custom_styles/focus = SubResource( 1 )
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

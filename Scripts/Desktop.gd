@@ -2,8 +2,10 @@ extends Node2D
 
 var heavyClick = preload("res://Assets/Sounds/heavyClick.wav")
 var time
+var jingle = preload("res://Assets/Sounds/loginJingle0.wav")
 
 func _ready():
+	Audio.playSfx(jingle)
 	Input.set_custom_mouse_cursor(load("res://Assets/Sprites/mouse.png"),Input.CURSOR_ARROW)
 	pass
 

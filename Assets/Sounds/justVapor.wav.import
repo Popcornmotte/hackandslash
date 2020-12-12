@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/justVapor.wav-0418d75c909f5a5255a150f06c83aff0.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/justVapor.wav"
+dest_files=[ "res://.import/justVapor.wav-0418d75c909f5a5255a150f06c83aff0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Sprites/Windows/RAMdist.png" type="Texture" id=2]
@@ -21,6 +21,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
 "frames": [  ],
 "loop": true,
 "name": "0",
@@ -41,9 +46,14 @@ animations = [ {
 "name": "3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "1",
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -54,16 +64,6 @@ animations = [ {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "7",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "4",
 "speed": 5.0
 } ]
 
@@ -79,14 +79,14 @@ border_width_left = 1
 border_width_top = 1
 border_color = Color( 0, 0, 0, 1 )
 
-[node name="RAMdist" type="TextureRect"]
-margin_right = 176.0
-margin_bottom = 480.0
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="RAMdist" type="Sprite"]
 texture = ExtResource( 2 )
+centered = false
 script = ExtResource( 17 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -243,9 +243,31 @@ texture = ExtResource( 16 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Button" type="Button" parent="."]
+margin_right = 174.0
+margin_bottom = 27.0
+custom_styles/focus = SubResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 46.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "Firewall Port Protection"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ssh/sshUp" to="." method="_on_sshUp_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ssh/sshDown" to="." method="_on_sshDown_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ftp/ftpUp" to="." method="_on_ftpUp_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ftp/ftpDown" to="." method="_on_ftpDown_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/http/httpUp" to="." method="_on_httpUp_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/http/httpDown" to="." method="_on_httpDown_pressed"]
+[connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
