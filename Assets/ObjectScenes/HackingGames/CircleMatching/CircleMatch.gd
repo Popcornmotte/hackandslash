@@ -33,6 +33,8 @@ func _process(delta):
 	dist = $GameBox/SmallCircle.global_position - $GameBox/LargeCircle.global_position
 	vel += dist * delta * 80/dist.length()
 	
+	if(dist.length() > 160):
+		vel -= dist.normalized() * vel.length()
 	$GameBox/SmallCircle.translate(delta * vel)
 	
 	if(dist.length()/32 < radius):
