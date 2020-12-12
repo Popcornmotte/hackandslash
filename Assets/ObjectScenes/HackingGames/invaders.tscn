@@ -15,10 +15,10 @@
 [ext_resource path="res://Assets/Sprites/HackingGames/bulletCounter2.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Sprites/HackingGames/bulletCounter3.png" type="Texture" id=14]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 150 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
@@ -26,7 +26,7 @@ animations = [ {
 "speed": 1.0
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
@@ -36,14 +36,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -84,7 +84,18 @@ collision_layer = 4
 script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBox/BulletSpace"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="InvaderSpace" type="Area2D" parent="GameBox"]
+position = Vector2( 184, 168 )
+collision_layer = 4
+script = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBox/InvaderSpace"]
+shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -124,7 +135,7 @@ __meta__ = {
 [node name="RightArrow" type="AnimatedSprite" parent="GameBox"]
 position = Vector2( 240, 312 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 frame = 1
 playing = true
 __meta__ = {
@@ -134,7 +145,7 @@ __meta__ = {
 [node name="LeftArrow" type="AnimatedSprite" parent="GameBox"]
 position = Vector2( 128, 312 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 frame = 1
 playing = true
 flip_h = true
@@ -145,7 +156,7 @@ __meta__ = {
 [node name="SpaceBar" type="AnimatedSprite" parent="GameBox"]
 position = Vector2( 184, 312 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -165,5 +176,6 @@ position = Vector2( 72, 112 )
 
 [node name="Invader2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 256, 88 )
-[connection signal="area_exited" from="GameBox/BulletSpace" to="GameBox/BulletSpace" method="_on_BulletSpace_area_exited"]
 [connection signal="area_exited" from="GameBox/BulletSpace" to="GameBox/Barrel" method="_on_BulletSpace_area_exited"]
+[connection signal="area_exited" from="GameBox/BulletSpace" to="GameBox/BulletSpace" method="_on_BulletSpace_area_exited"]
+[connection signal="area_exited" from="GameBox/InvaderSpace" to="Invader" method="_on_InvaderSpace_area_exited"]

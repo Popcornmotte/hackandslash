@@ -18,6 +18,7 @@ animations = [ {
 [node name="Invader" type="Area2D"]
 scale = Vector2( 2, 2 )
 collision_layer = 2147483650
+collision_mask = 5
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -25,6 +26,5 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 [connection signal="area_entered" from="." to="." method="_on_Invader_area_entered"]
