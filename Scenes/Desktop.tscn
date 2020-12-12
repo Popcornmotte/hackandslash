@@ -38,7 +38,6 @@ __meta__ = {
 }
 
 [node name="CRTShader" type="Sprite" parent="."]
-visible = false
 material = ExtResource( 1 )
 position = Vector2( 512, 300 )
 scale = Vector2( 32, 18.75 )

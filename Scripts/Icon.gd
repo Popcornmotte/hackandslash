@@ -30,6 +30,7 @@ func _on_Button_pressed():
 		var window = Window.instance()
 		get_parent().get_parent().add_child(window)
 		window.loadContent(PROGRAM)
+		window.setTitle(title)
 		firstClick = false
 	else:
 		firstClick = true
