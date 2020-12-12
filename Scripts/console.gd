@@ -20,16 +20,19 @@ func _ready():
 	printout(text)
 	pass # Replace with function body.
 
-sync func printout(s):
-	out.text = str(out.text,"\n",s,"\n")
-puppet func remotePrintout(s):
-	out.text = str(out.text,"\n",s,"\n")
+func printout(s):
+	out.text = str(out.text,"\n",s)
+	out.scroll_vertical = 99999
+remote func remotePrintout(s):
+	out.text = str(out.text,"\n",s)
+	out.scroll_vertical = 99999
 
 func help():
 	var text = "Commands:\n"\
 	+"help: this\n"\
 	+"host [IP] [PORT] : Host a match\n"\
-	+"join [IP] [PORT] : Join a match\n"
+	+"join [IP] [PORT] : Join a match\n"\
+	+"chat [TEXT] : chat"
 	printout(text)
 
 func parse(s : String):
@@ -71,7 +74,7 @@ func parse(s : String):
 				text = global.username+": "
 				for s in cmd:
 					text+=s+" "
-				rpc("printout",text)
+				rpc("remoteprintout",text)
 	printout(text)
 	pass
 
