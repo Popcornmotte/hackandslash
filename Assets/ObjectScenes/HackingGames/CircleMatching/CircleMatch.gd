@@ -13,6 +13,9 @@ var streak = 0.0
 var resets = 0
 
 func _ready():
+	randomize()
+	var newPos = Vector2(100-randi()%200,100-randi()%200)
+	$GameBox/SmallCircle.position = $GameBox/LargeCircle.position + newPos.normalized() * 160
 	pass 
 
 func win():
@@ -24,7 +27,8 @@ func reset():
 	resets += 1
 	radius = 4-resets
 	winRadius = .7 - (.1 * resets)
-	$GameBox/SmallCircle.position = Vector2(70,100)
+	var newPos = Vector2(100-randi()%200,100-randi()%200)
+	$GameBox/SmallCircle.position = $GameBox/LargeCircle.position + newPos.normalized() * 160
 	$GameBox/LargeCircle.scale = Vector2(radius,radius)
 	$GameBox/TargetCircle.scale = Vector2(winRadius, winRadius)
 	$GameBox/ProgressBar.value = resets
