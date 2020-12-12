@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Sprites/Windows/RAMdist.png" type="Texture" id=2]
@@ -6,6 +6,61 @@
 [ext_resource path="res://Assets/Sprites/Windows/upArrow.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Windows/upArrowPressed.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/Windows/downArrow.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar6.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar8.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar5.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar7.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar4.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar1.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "8",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "7",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+} ]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_top = 2.0
@@ -51,6 +106,18 @@ margin_top = 366.0
 margin_right = 160.0
 margin_bottom = 366.0
 alignment = 1
+
+[node name="http" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Stats"]
+frames = SubResource( 3 )
+animation = "8"
+
+[node name="ssh" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Stats"]
+frames = SubResource( 3 )
+animation = "8"
+
+[node name="ftp" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Stats"]
+frames = SubResource( 3 )
+animation = "8"
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 370.0
