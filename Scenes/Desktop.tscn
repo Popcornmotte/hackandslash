@@ -24,6 +24,7 @@
 [ext_resource path="res://Assets/ObjectScenes/window.tscn" type="PackedScene" id=22]
 
 [node name="Desktop" type="Node2D"]
+z_index = -100
 script = ExtResource( 9 )
 
 [node name="wallpaper" type="Sprite" parent="."]
@@ -160,4 +161,6 @@ position = Vector2( 792, 24 )
 
 [node name="window" parent="." instance=ExtResource( 22 )]
 position = Vector2( 216, 80 )
+windowName = "Test"
+test = true
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]
