@@ -21,9 +21,24 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "0",
+"name": "5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "7",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "8",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -41,29 +56,14 @@ animations = [ {
 "name": "3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "4",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [  ],
 "loop": true,
-"name": "5",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "7",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "8",
+"name": "0",
 "speed": 5.0
 } ]
 
@@ -275,6 +275,7 @@ margin_bottom = 20.0
 custom_fonts/font = ExtResource( 1 )
 text = "Firewall Port Protection"
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ssh/sshUp" to="." method="_on_sshUp_pressed"]

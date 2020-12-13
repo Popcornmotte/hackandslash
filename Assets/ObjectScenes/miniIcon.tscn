@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Sprites/icons/sshInvaders.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/icons/worm.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scripts/miniIcon.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Sprites/Windows/button.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sprites/Windows/buttonPressed.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/icons/firewall.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -25,6 +26,11 @@ animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "ftp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "firewall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -66,5 +72,5 @@ texture_pressed = ExtResource( 9 )
 position = Vector2( 16, 16 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 2 )
-animation = "trashbin"
+animation = "firewall"
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
