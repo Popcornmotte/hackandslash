@@ -1,15 +1,15 @@
 extends Node2D
 
 var existant = false
-var margin1 = 40
-var margin2 = 70
+var margin1 = 30
+var margin2 = 60
 
 func updateVis(hp):
-	if(hp > margin2):
+	if(hp < margin1):
 		$Base.play(str(2))
 		$Base.play(str(2))
 		return
-	if(hp > margin2):
+	if(hp < margin2):
 		$Base.play(str(1))
 		$Base.play(str(1))
 	pass
