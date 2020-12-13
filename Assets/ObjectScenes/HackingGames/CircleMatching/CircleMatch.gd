@@ -15,6 +15,7 @@ var paused = false
 var sec = 0
 var allocatedRam = 4
 func _ready():
+	global.sendTip("http")
 	randomize()
 	var newPos = Vector2(100-randi()%200,100-randi()%200)
 	$GameBox/SmallCircle.position = $GameBox/LargeCircle.position + newPos.normalized() * 160
@@ -30,11 +31,11 @@ func win():
 	else:
 		bonus = 1
 	global.sendDmg("http:"+str(bonus))
-	global.ram += 4
 	get_parent().get_parent().get_parent().get_parent().close()
 	pass
 
 func reset():
+	Audio.playSfx(load("res://Assets/Sounds/chirp.wav"))
 	if(resets >= 2): win()
 	resets += 1
 	radius = 4-resets

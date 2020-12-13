@@ -11,6 +11,9 @@ func checkWin():
 		win()
 	pass
 
+func _ready():
+	global.sendTip("ssh")
+
 func win():
 	Audio.playSfx(load("res://Assets/Sounds/accept.wav"))
 	var bonus
@@ -21,7 +24,6 @@ func win():
 	else:
 		bonus = 1
 	global.sendDmg("ssh:"+str(bonus))
-	global.ram += 4
 	get_parent().get_parent().get_parent().get_parent().close()
 	pass
 	

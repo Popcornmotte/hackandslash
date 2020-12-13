@@ -144,3 +144,19 @@ remote func receiveText(function,arg):
 			global.win()
 		"spam":
 			global.desktop.spamAds(int(arg))
+		"tip":
+			if global.hackradar != null:
+				var p
+				match arg:
+					"ssh":
+						p=0
+					"ftp":
+						p=1
+					"http":
+						p=2
+				global.hackradar.setTarget(p)
+
+
+
+
+

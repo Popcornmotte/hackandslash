@@ -9,6 +9,7 @@ var clickable = true
 var invaderbullets = 0
 var desktop
 var firewall
+var hackradar
 var focusedWindow = null
 var active_console
 
@@ -48,6 +49,9 @@ func sendSpam(sec):
 	else:
 		amount+=0
 	Network.sendText("spam",str(amount))
+
+func sendTip(port):
+	Network.sendText("tip",port)
 
 func win():
 	desktop.win()

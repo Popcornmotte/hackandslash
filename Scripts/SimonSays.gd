@@ -13,6 +13,7 @@ var beep = preload("res://Assets/Sounds/beep.wav")
 var sec = 0
 var allocatedRam = 4
 func _ready():
+	global.sendTip("ftp")
 	randomize()
 	pass
 
@@ -72,7 +73,6 @@ func win():
 	else:
 		bonus = 1
 	global.sendDmg("ftp:"+str(bonus))
-	global.ram += 4
 	get_parent().get_parent().get_parent().get_parent().close()
 	pass
 
@@ -85,6 +85,7 @@ func buttonInput(var index):
 		else:
 			repcounter = 0
 		if(repcounter >= sequence.size()):
+			Audio.playSfx(load("res://Assets/Sounds/accept.wav"))
 			if(sequence.size() >= 6):
 				win()
 				phase = 0

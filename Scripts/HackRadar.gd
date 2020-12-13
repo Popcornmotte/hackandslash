@@ -6,6 +6,9 @@ var currentRot = 0
 var rotVel = 0
 var paused = false
 
+func _ready():
+	global.hackradar = self
+
 func setRam(var value):
 	allocatedRam = value
 	pass
