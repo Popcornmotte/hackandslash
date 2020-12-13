@@ -7,7 +7,7 @@ var hp = 100
 var ram = 0
 var clickable = true
 var invaderbullets = 0
-
+var desktop
 var focusedWindow = null
 var active_console
 

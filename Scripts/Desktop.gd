@@ -9,6 +9,7 @@ const WINDOW = preload("res://Assets/ObjectScenes/window.tscn")
 const zeroPos = Vector2(256,100)
 
 func _ready():
+	global.desktop = self
 	Audio.playSfx(jingle)
 	Input.set_custom_mouse_cursor(load("res://Assets/Sprites/mouse.png"),Input.CURSOR_ARROW)
 	pass
