@@ -3,13 +3,13 @@ extends Node2D
 var dialogue#= ["das ist jetzt wohl die erste page schätze ich.", "und das hier scheint die zweite zu sein."]
 var page = 0
 var label
-var clickSound = load("res://Assets/Sounds/click0.wav")
+var clickSound = load("res://Assets/Sounds/singleKey.wav")
 var running = false #fuer testzwecke direkt auf true
 #var label = $Polygon2D/MarginContainer/RichTextLabel
 func _ready():
-	visible = false
-	global.speechBox = self
-	$Polygon2D/MarginContainer/RichTextLabel.visible_characters = 0
+	#visible = false
+	#global.speechBox = self
+	#$SpeechBubble/Text.visible_characters = 0
 	#label.text = dialogue[page]
 	#set_process_input(true)
 	pass # Replace with function body.
@@ -31,23 +31,27 @@ func loadDialogue(var filepath) -> Dictionary:
 	pass
 
 func start(var filepath):
-	global.inDialogue = true
+	#global.inDialogue = true
+	get_tree().paused = true
 	Audio.playSfx(clickSound)
-	$Polygon2D/MarginContainer/RichTextLabel.visible_characters = 0
+	$SpeechBubble/Text.visible_characters = 0
 	visible = true
 	running = true;
 	$Timer.start();
 	dialogue = loadDialogue(filepath);
-	$Polygon2D/MarginContainer/RichTextLabel.text = dialogue.get(str(page)).get("text")
+	$SpeechBubble/Text.text = dialogue.get(str(page)).get("text")
 	pass
 
 func _process(_delta):
 	if running:
-		$Polygon2D/Name.text = dialogue.get(str(page)).get("name");
-		$Polygon2D/Name/Portrait.play($Polygon2D/Name.text);
+#		$Polygon2D/Name.text = dialogue.get(str(page)).get("name");
+#		$Polygon2D/Name/Portrait.play($Polygon2D/Name.text);
 		if Input.is_action_just_pressed("ui_accept"):
 			Audio.playSfx(clickSound)
-			label = $Polygon2D/MarginContainer/RichTextLabel
+			label = $SpeechBubble/Text
+			page+=1
+			dialogue.size()
+			label.text = dialogue.get(str(page)).get("text") 
 			if label.visible_characters >= label.get_total_character_count():
 				#var temp = page
 				if (page) < dialogue.size()-1:
@@ -62,13 +66,13 @@ func _process(_delta):
 					label.visible_characters = 0;
 					$Timer.stop();
 					running = false;
-				
+
 			else:
 				label.visible_characters = label.get_total_character_count();
 
 
 
 func _on_Timer_timeout():
-	$Polygon2D/MarginContainer/RichTextLabel.visible_characters+=1
+	$SpeechBubble/Text.visible_characters+=1
 	#$AudioClick.play()
 	pass # Replace with function body.

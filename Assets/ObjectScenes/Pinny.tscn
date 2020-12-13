@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Assets/Sprites/Windows/Pinny/pinnyEyes1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Windows/Pinny/pinnyEyes2.png" type="Texture" id=2]
@@ -14,6 +14,17 @@
 [ext_resource path="res://Scripts/Pinny.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Assets/Sprites/Windows/Pinny/speechBubble.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/speechbubble.gd" type="Script" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -74,18 +85,66 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="StyleBoxEmpty" id=4]
-
-[sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=8]
-
 [node name="Pinny" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 12 )
+
+[node name="DialogueManager" type="Polygon2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="SpeechBubble" type="NinePatchRect" parent="DialogueManager"]
+margin_left = -232.0
+margin_top = -64.0
+margin_right = -48.0
+margin_bottom = 8.0
+texture = ExtResource( 14 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 10
+patch_margin_bottom = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X" type="Button" parent="DialogueManager/SpeechBubble"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.0
+margin_top = -4.0
+margin_right = -1.0
+margin_bottom = 16.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = ExtResource( 13 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="DialogueManager/SpeechBubble"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -16.0
+margin_bottom = -8.0
+custom_fonts/normal_font = ExtResource( 13 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Hi! I'm Pinny!
+Navigate to 'Help' in the Start-menu for an introduction to Hack&&/ !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueManager"]
+wait_time = 0.05
 
 [node name="Carpet" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
@@ -110,57 +169,8 @@ playing = true
 
 [node name="AppearanceTimer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 autostart = true
-
-[node name="SpeechBubble" type="NinePatchRect" parent="."]
-margin_left = -232.0
-margin_top = -64.0
-margin_right = -48.0
-margin_bottom = 8.0
-texture = ExtResource( 14 )
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 10
-patch_margin_bottom = 7
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="X" type="Button" parent="SpeechBubble"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -20.0
-margin_top = -4.0
-margin_right = -1.0
-margin_bottom = 16.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-custom_fonts/font = ExtResource( 13 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
-text = "x"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Text" type="RichTextLabel" parent="SpeechBubble"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 4.0
-margin_right = -16.0
-margin_bottom = -8.0
-custom_fonts/normal_font = ExtResource( 13 )
-custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "Hi! I'm Pinny!
-Press F1 for an introduction to Hack&&/ !"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[connection signal="button_down" from="DialogueManager/SpeechBubble/X" to="." method="_on_X_button_down"]
+[connection signal="timeout" from="DialogueManager/Timer" to="DialogueManager" method="_on_Timer_timeout"]
 [connection signal="timeout" from="AppearanceTimer" to="." method="_on_AppearanceTimer_timeout"]
-[connection signal="button_down" from="SpeechBubble/X" to="." method="_on_X_button_down"]
