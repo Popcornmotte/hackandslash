@@ -11,9 +11,6 @@ func checkWin():
 		win()
 	pass
 
-func _ready():
-	global.sendTip("ssh")
-
 func win():
 	Audio.playSfx(load("res://Assets/Sounds/accept.wav"))
 	var bonus
@@ -37,6 +34,7 @@ func pause(b:bool):
 		paused = false
 
 func _ready():
+	global.sendTip("ssh")
 	spawnEnemy()
 	spawnEnemy()
 	spawnEnemy()

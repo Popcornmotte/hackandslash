@@ -15,6 +15,7 @@ func updateVis(hp):
 	pass
 
 func _ready():
+	global.pinny = self
 	$Carpet.play(str(-1))
 	$Base.play(str(-1))
 	$Eyes.play(str(-1))

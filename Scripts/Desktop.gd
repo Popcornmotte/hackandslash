@@ -45,6 +45,7 @@ func spamAds(amount):
 	pass
 
 func win():
+	Audio.playMusic(load("res://Assets/Sounds/VaporJingle.wav"))
 	var win = load("res://Assets/ObjectScenes/winScreen.tscn").instance()
 	win.winScreen = true
 	#window.loadContent("res://Assets/ObjectScenes/winScreen.tscn")

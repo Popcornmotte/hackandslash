@@ -10,6 +10,7 @@ var invaderbullets = 0
 var desktop
 var firewall
 var hackradar
+var pinny
 var focusedWindow = null
 var active_console
 
@@ -34,6 +35,7 @@ func dmg(arg): #arg-format beispiel: "http:2"
 			var dmg = (4*int(args[1])+6)-firewall.ftpRam*4
 			if dmg >= 0:
 				hp -= dmg
+	pinny.updateVis(hp)
 	if hp <= 0:
 		crash()
 

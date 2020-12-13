@@ -14,7 +14,7 @@ func _ready():
 	assert(file.file_exists(FILEPATH))
 	file.open(FILEPATH, file.READ);
 	text = file.get_as_text()
-	$CanvasLayer/RichTextLabel.text =text
+	$RichTextLabel.text =text
 	pass # Replace with function body.
 
 
