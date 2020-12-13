@@ -8,13 +8,22 @@ var dragging = false
 var pos : Vector2
 var content
 var CONTENT 
+var icon = "trashbin"
+const MINIICON = preload("res://Assets/ObjectScenes/miniIcon.tscn")
+var miniIcon
 export var windowName : String
 export var test = false
 export var testScene : String
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	position = get_parent().getpos()
 	$OuterFrame/ProgramName.text = windowName
+	miniIcon = MINIICON.instance()
+	miniIcon.setWindow(self)
+	miniIcon.setIcon(icon)
+	#print(icon)
+	get_parent().get_node("Taskbar/minimizedWindows").add_child(miniIcon)
 	if test:
 		loadContent(testScene)
 	pass # Replace with function body.
@@ -48,6 +57,7 @@ func _process(delta):
 
 func close():
 	get_parent().wincount -= 1
+	miniIcon.kill()
 	queue_free()
 	
 
