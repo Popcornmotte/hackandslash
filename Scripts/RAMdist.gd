@@ -6,10 +6,20 @@ const MINIICON = preload("res://Assets/ObjectScenes/miniIcon.tscn")
 var miniIcon
 var icon = "firewall"
 
+var httpRam = 0
+var sshRam = 0
+var ftpRam = 0
+
+func checkFRam():
+	if (httpRam+sshRam+ftpRam < 8 && global.checkRam(1)):
+		return true
+	else:
+		return false
+
 func _ready():
-	$MarginContainer/VBoxContainer/Stats/http.play(str(global.httpRam))
-	$MarginContainer/VBoxContainer/Stats/ftp.play(str(global.ftpRam))
-	$MarginContainer/VBoxContainer/Stats/ssh.play(str(global.sshRam))
+	$MarginContainer/VBoxContainer/Stats/http.play(str(httpRam))
+	$MarginContainer/VBoxContainer/Stats/ftp.play(str(ftpRam))
+	$MarginContainer/VBoxContainer/Stats/ssh.play(str(sshRam))
 	miniIcon = MINIICON.instance()
 	miniIcon.setWindow(self)
 	get_parent().get_node("Taskbar/minimizedWindows").add_child(miniIcon)
@@ -23,49 +33,55 @@ func _process(delta):
 
 
 func updateRam():
-	global.checkRam()
-	$MarginContainer/VBoxContainer/RAMavailable.value = global.ram
-	$MarginContainer/VBoxContainer/Label.text = str(global.ram)+"/8 MB"
+	#checkFRam()
+	$MarginContainer/VBoxContainer/RAMavailable.value = httpRam+sshRam+ftpRam
+	$MarginContainer/VBoxContainer/Label.text = str(httpRam+sshRam+ftpRam)+"/8 MB"
 
 func _on_httpUp_pressed():
-	if global.checkRam():
-		global.httpRam += 1
-		$MarginContainer/VBoxContainer/Stats/http.play(str(global.httpRam))
+	if checkFRam():
+		httpRam += 1
+		global.ram += 1
+		$MarginContainer/VBoxContainer/Stats/http.play(str(httpRam))
 		updateRam()
 	pass # Replace with function body.
 
 func _on_httpDown_pressed():
-	if global.httpRam > 0:
-		global.httpRam -= 1
-		$MarginContainer/VBoxContainer/Stats/http.play(str(global.httpRam))
+	if httpRam > 0:
+		httpRam -= 1
+		global.ram -= 1
+		$MarginContainer/VBoxContainer/Stats/http.play(str(httpRam))
 		updateRam()
 	pass # Replace with function body.
 
 func _on_sshUp_pressed():
-	if global.checkRam():
-		global.sshRam += 1
-		$MarginContainer/VBoxContainer/Stats/ssh.play(str(global.sshRam))
+	if checkFRam():
+		sshRam += 1
+		global.ram += 1
+		$MarginContainer/VBoxContainer/Stats/ssh.play(str(sshRam))
 		updateRam()
 	pass # Replace with function body.
 
 func _on_sshDown_pressed():
-	if global.sshRam > 0:
-		global.sshRam -= 1
-		$MarginContainer/VBoxContainer/Stats/ssh.play(str(global.sshRam))
+	if sshRam > 0:
+		sshRam -= 1
+		global.ram -= 1
+		$MarginContainer/VBoxContainer/Stats/ssh.play(str(sshRam))
 		updateRam()
 	pass # Replace with function body.
 
 func _on_ftpUp_pressed():
-	if global.checkRam():
-		global.ftpRam += 1
-		$MarginContainer/VBoxContainer/Stats/ftp.play(str(global.ftpRam))
+	if checkFRam():
+		ftpRam += 1
+		global.ram += 1
+		$MarginContainer/VBoxContainer/Stats/ftp.play(str(ftpRam))
 		updateRam()
 	pass # Replace with function body.
 
 func _on_ftpDown_pressed():
-	if global.ftpRam > 0:
-		global.ftpRam -= 1
-		$MarginContainer/VBoxContainer/Stats/ftp.play(str(global.ftpRam))
+	if ftpRam > 0:
+		ftpRam -= 1
+		global.ram -= 1
+		$MarginContainer/VBoxContainer/Stats/ftp.play(str(ftpRam))
 		updateRam()
 	pass # Replace with function body.
 

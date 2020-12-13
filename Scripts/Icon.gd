@@ -23,15 +23,30 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func checkEnoughRam():
+	match icon:
+		"http":
+			return global.checkRam(4)
+		"ssh":
+			return global.checkRam(4)
+		"ftp":
+			return global.checkRam(4)
+		_:
+			return true
 
+func notEnoughRam():
+	pass
 
 func _on_Button_pressed():
 	if firstClick: #bedeutet der first click war gerade, also jetzt nach dem zweiten wenn true
-		var window = Window.instance()
-		window.icon = $AnimatedSprite.animation
-		get_parent().get_parent().add_child(window)
-		window.loadContent(PROGRAM)
-		window.setTitle(title)
+		if checkEnoughRam():
+			var window = Window.instance()
+			window.icon = $AnimatedSprite.animation
+			get_parent().get_parent().add_child(window)
+			window.loadContent(PROGRAM)
+			window.setTitle(title)
+		else:
+			notEnoughRam()
 		firstClick = false
 	else:
 		firstClick = true

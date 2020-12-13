@@ -11,13 +11,15 @@ var CONTENT
 var icon = "trashbin"
 const MINIICON = preload("res://Assets/ObjectScenes/miniIcon.tscn")
 var miniIcon
+export var ad = false
 export var windowName : String
 export var test = false
 export var testScene : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position = get_parent().getpos()
+	if !ad:
+		position = get_parent().getpos()
 	$OuterFrame/ProgramName.text = windowName
 	miniIcon = MINIICON.instance()
 	miniIcon.setWindow(self)
