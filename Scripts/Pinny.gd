@@ -30,3 +30,8 @@ func appearance():
 
 func _on_AppearanceTimer_timeout():
 	appearance()
+
+
+func _on_X_button_down():
+	$SpeechBubble.visible = false
+	pass
