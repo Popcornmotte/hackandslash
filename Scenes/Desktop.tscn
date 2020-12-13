@@ -212,6 +212,7 @@ z_index = -2
 
 [node name="trashbin" parent="Icons" instance=ExtResource( 23 )]
 position = Vector2( 64, 64 )
+PROGRAM = "res://Assets/ObjectScenes/trash.tscn"
 title = "trash"
 
 [node name="console" parent="Icons" instance=ExtResource( 23 )]

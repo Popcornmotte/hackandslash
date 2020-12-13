@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/speechbubble.gd" type="Script" id=1]
+
+[node name="speechbubble" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 3.8147e-06, 4.76837e-07 )
+scale = Vector2( 1.02941, 0.9375 )
+color = Color( 1, 1, 1, 0.290196 )
+polygon = PoolVector2Array( 2.05715, 0, 341.943, -5.08626e-07, 341.943, 128, 2.05715, 128 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Polygon2D"]
+margin_left = 8.0
+margin_top = 9.0
+margin_right = 334.0
+margin_bottom = 119.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D/MarginContainer"]
+margin_right = 326.0
+margin_bottom = 110.0
+
+[node name="Timer" type="Timer" parent="."]

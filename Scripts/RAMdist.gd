@@ -2,11 +2,17 @@ extends Sprite
 
 var dragging = false
 var pos : Vector2
+const MINIICON = preload("res://Assets/ObjectScenes/miniIcon.tscn")
+var miniIcon
+var icon = "firewall"
 
 func _ready():
 	$MarginContainer/VBoxContainer/Stats/http.play(str(global.httpRam))
 	$MarginContainer/VBoxContainer/Stats/ftp.play(str(global.ftpRam))
 	$MarginContainer/VBoxContainer/Stats/ssh.play(str(global.sshRam))
+	miniIcon = MINIICON.instance()
+	miniIcon.setWindow(self)
+	get_parent().get_node("Taskbar/minimizedWindows").add_child(miniIcon)
 	pass 
 
 
@@ -64,7 +70,20 @@ func _on_ftpDown_pressed():
 	pass # Replace with function body.
 
 
+func pauseContent(b:bool):
+	pass
+
 func _on_Button_button_down():
+	raise()
+	get_tree().set_input_as_handled()
+	if true:#global.clickable:
+		if global.focusedWindow != null:
+			global.focusedWindow.z_index = 0
+			global.focusedWindow.pauseContent(true)
+			print(str(global.focusedWindow))
+		global.focusedWindow = self
+		pauseContent(false)
+		z_index = 10
 	dragging = true
 	pos = global_position - get_global_mouse_position()
 	pass # Replace with function body.

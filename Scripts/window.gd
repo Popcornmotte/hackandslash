@@ -68,7 +68,7 @@ func _input(event):
 func pauseContent(b:bool):
 	if b:
 		$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(true)
-		print("wuhuu")
+		#print("wuhuu")
 	else:
 		$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(false)
 	pass
