@@ -26,8 +26,9 @@ func _ready():
 
 
 func _on_Button_pressed():
-	if firstClick:
+	if firstClick: #bedeutet der first click war gerade, also jetzt nach dem zweiten wenn true
 		var window = Window.instance()
+		window.icon = $AnimatedSprite.animation
 		get_parent().get_parent().add_child(window)
 		window.loadContent(PROGRAM)
 		window.setTitle(title)
