@@ -32,7 +32,7 @@ func _process(delta):
 				if(cooldown > 0):
 					cooldown -= delta
 				else:
-					$Box/Progress.value = sequence.size()
+					$Box/Progress.value = sequence.size()-1
 					#print_debug("bleep, " + str(precounter))
 					cooldown = topCooldown
 					if(sequence.size() <= precounter):
