@@ -25,3 +25,18 @@ func _process(delta):
 	currentRot += max(min(rotVel * delta * 10, 5*delta),-5*delta)
 	$Box/Pointer.rotation_degrees = lerp($Box/Pointer.rotation_degrees + currentRot, targetRot, delta*(allocatedRam*allocatedRam)/4)
 	pass
+
+
+func _on_RAMup_button_down():
+	if (allocatedRam < 8 && global.checkRam(1)):
+		global.ram += 1
+		allocatedRam += 1
+		$Box/BarBackground/RAM.play(str(allocatedRam))
+	pass
+
+func _on_RAMdown_button_down():
+	if (allocatedRam > 0):
+		global.ram -= 1
+		allocatedRam -= 1
+		$Box/BarBackground/RAM.play(str(allocatedRam))
+	pass
