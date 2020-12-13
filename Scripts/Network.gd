@@ -132,7 +132,7 @@ func _on_join_pressed():
 func sendText(function,arg):
 	rpc("receiveText",function,arg)
 	
-remote func receiveText(path,function,arg):
+remote func receiveText(function,arg):
 	match function:
 		"chat":
 			if global.active_console != null:
@@ -142,3 +142,5 @@ remote func receiveText(path,function,arg):
 			pass
 		"youwon":
 			global.win()
+		"spam":
+			global.desktop.spamAds(int(arg))

@@ -8,6 +8,7 @@ var ram = 0
 var clickable = true
 var invaderbullets = 0
 var desktop
+var firewall
 var focusedWindow = null
 var active_console
 
@@ -21,16 +22,32 @@ func dmg(arg): #arg-format beispiel: "http:2"
 	var args = arg.split(":")
 	match args[0]:
 		"http":
-			hp -= 4*int(args[1])
+			var dmg = (4*int(args[1])+6)-firewall.httpRam*4
+			if dmg >= 0:
+				hp -= dmg
 		"ssh":
-			hp -= 4*int(args[1])
+			var dmg = (4*int(args[1])+6)-firewall.sshRam*4
+			if dmg >= 0:
+				hp -= dmg
 		"ftp":
-			hp -= 4*int(args[1])
+			var dmg = (4*int(args[1])+6)-firewall.ftpRam*4
+			if dmg >= 0:
+				hp -= dmg
 	if hp <= 0:
 		crash()
 
 func sendDmg(arg):
 	Network.sendText("dmg",arg)
+
+func sendSpam(sec):
+	var amount = 3
+	if sec < 2:
+		amount+=3
+	elif sec < 4:
+		amount+=1
+	else:
+		amount+=0
+	Network.sendText("spam",str(amount))
 
 func win():
 	desktop.win()

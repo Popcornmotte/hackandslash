@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sprites/black.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/adSpam.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Fonts/W95FA.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 6
+font_data = ExtResource( 4 )
+
+[node name="adSpam" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -728.0
+margin_bottom = -272.0
+mouse_filter = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="Output" type="RichTextLabel" parent="NinePatchRect"]
+anchor_right = 1.0
+margin_bottom = 328.0
+grow_vertical = 0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 1 )
+
+[node name="Input" type="LineEdit" parent="NinePatchRect"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -32.0
+custom_fonts/font = ExtResource( 1 )
+placeholder_text = ">"
+placeholder_alpha = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_entered" from="NinePatchRect/Input" to="." method="_on_Input_text_entered"]

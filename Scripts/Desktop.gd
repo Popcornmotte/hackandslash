@@ -20,6 +20,7 @@ func getpos():
 	return $winPos.position
 
 func _process(delta):
+	$Label.text = "HP: "+str(global.hp)
 	time = OS.get_datetime()
 	$Taskbar/Time/Label.text = str(time.hour).pad_zeros(2)+":"+str(time.minute).pad_zeros(2)
 	
@@ -30,8 +31,8 @@ func _process(delta):
 			$CRTShader.visible = false
 		else:
 			$CRTShader.visible = true
-	if Input.is_action_just_pressed("ui_focus_next"):
-		win()
+#	if Input.is_action_just_pressed("ui_focus_next"):
+#		win()
 	pass
 
 func spamAds(amount):

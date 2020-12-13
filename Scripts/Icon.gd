@@ -35,6 +35,7 @@ func checkEnoughRam():
 			missing = 4
 			return global.checkRam(4)
 		_:
+			missing = 0
 			return true
 
 func notEnoughRam(m):
@@ -44,6 +45,7 @@ func notEnoughRam(m):
 func _on_Button_pressed():
 	if firstClick: #bedeutet der first click war gerade, also jetzt nach dem zweiten wenn true
 		if checkEnoughRam():
+			global.ram += missing
 			var window = Window.instance()
 			window.icon = $AnimatedSprite.animation
 			get_parent().get_parent().add_child(window)

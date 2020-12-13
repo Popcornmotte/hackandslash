@@ -17,6 +17,7 @@ func checkFRam():
 		return false
 
 func _ready():
+	global.firewall = self
 	$MarginContainer/VBoxContainer/Stats/http.play(str(httpRam))
 	$MarginContainer/VBoxContainer/Stats/ftp.play(str(ftpRam))
 	$MarginContainer/VBoxContainer/Stats/ssh.play(str(sshRam))

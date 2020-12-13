@@ -61,13 +61,14 @@ func _process(delta):
 
 func win():
 	var bonus
-	if sec < 3.5:
+	if sec < 8:
 		bonus = 3
-	elif sec < 5:
+	elif sec < 12:
 		bonus = 2
 	else:
 		bonus = 1
 	global.sendDmg("ftp:"+str(bonus))
+	global.ram += 4
 	get_parent().get_parent().get_parent().get_parent().close()
 	pass
 
