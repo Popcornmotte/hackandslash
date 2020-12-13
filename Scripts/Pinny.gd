@@ -18,15 +18,24 @@ func _ready():
 	$Carpet.play(str(-1))
 	$Base.play(str(-1))
 	$Eyes.play(str(-1))
-	$SpeechBubble.visible = false
+	$DialogueManager/SpeechBubble.visible = false
 	pass
 
 func appearance():
 	$Carpet.play(str(0))
 	$Base.play(str(0))
 	$Eyes.play(str(0))
-	$SpeechBubble.visible = true
+	$DialogueManager/SpeechBubble.visible = true
 	pass
 
 func _on_AppearanceTimer_timeout():
 	appearance()
+
+func startHelpDialogue():
+	$DialogueManager.start("res://Data/dialogue1.json")
+	pass
+
+func _on_X_button_down():
+	#$DialogueManager/SpeechBubble.visible = false
+	$DialogueManager.start("res://Data/dialogue1.json")
+	pass
