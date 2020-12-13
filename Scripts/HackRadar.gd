@@ -19,7 +19,7 @@ func pause(b:bool):
 func setTarget(var index):
 	match(index):
 		0:#ssh
-			targetRot = 270
+			targetRot = 225
 		1:#ftp
 			targetRot = 0
 		2:#http
