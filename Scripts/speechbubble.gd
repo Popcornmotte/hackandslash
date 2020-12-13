@@ -43,6 +43,11 @@ func start(var filepath):
 	$SpeechBubble/Text.text = dialogue.get(str(page)).get("text")
 	pass
 
+func stop():
+	get_tree().paused = false
+	global.desktop.get_node("CanvasModulate").hide()
+	pass
+
 func _process(_delta):
 	if running:
 #		$Polygon2D/Name.text = dialogue.get(str(page)).get("name");
