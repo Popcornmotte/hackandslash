@@ -11,6 +11,5 @@
 	"9" : {"name":"","text":"To defend yourself against attacks, you can assign up to 8Mb of RAM to the firewall of your three ports on the right"},
 	"10" : {"name":"","text":"Every Mb will cover 4 damage points, any attacks dealing more damage than you're protected against will decrease your system's health"},
 	"11" : {"name":"","text":"To anticipate which port your opponent will be attacking, you have a Hack-Radar(patent pending) at your disposal"},
-	"12" : {"name":"","text":"However this will require sufficient RAM to be accurate, so manage it carefully"},
-	"13" : {"name":"","text":"The rest should become clear during gameplay, so happy hacking!"}
+	"12" : {"name":"","text":"However this will require sufficient RAM to be accurate, so manage it carefully. The rest should become clear during gameplay, so happy hacking!"},
 }
