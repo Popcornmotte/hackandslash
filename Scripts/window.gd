@@ -64,8 +64,8 @@ func _process(delta):
 func close():
 	get_parent().wincount -= 1
 	miniIcon.kill()
-	if isRadar:
-		global.ram -= $OuterFrame/InnerFrame/WindowContent.get_child(0).allocatedRam
+	#if isRadar:
+	global.ram -= $OuterFrame/InnerFrame/WindowContent.get_child(0).allocatedRam
 	queue_free()
 	
 
