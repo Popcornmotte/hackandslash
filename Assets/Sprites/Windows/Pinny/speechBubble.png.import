@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pinnyEyes1.png-7815746a2641377f6dc15dcd9c853f7c.stex"
+path="res://.import/speechBubble.png-7b1e2e5fd3619056f6127b78180b0ebc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Windows/pinnyEyes1.png"
-dest_files=[ "res://.import/pinnyEyes1.png-7815746a2641377f6dc15dcd9c853f7c.stex" ]
+source_file="res://Assets/Sprites/Windows/Pinny/speechBubble.png"
+dest_files=[ "res://.import/speechBubble.png-7b1e2e5fd3619056f6127b78180b0ebc.stex" ]
 
 [params]
 

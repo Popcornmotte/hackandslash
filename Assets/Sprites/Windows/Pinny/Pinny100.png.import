@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pinnyEyes0.png-644d85ef986f4f63eb2eb85aafea947a.stex"
+path="res://.import/Pinny100.png-1b5ca8a8a5c51e67352d43dcc1e02cd7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Windows/pinnyEyes0.png"
-dest_files=[ "res://.import/pinnyEyes0.png-644d85ef986f4f63eb2eb85aafea947a.stex" ]
+source_file="res://Assets/Sprites/Windows/Pinny/Pinny100.png"
+dest_files=[ "res://.import/Pinny100.png-1b5ca8a8a5c51e67352d43dcc1e02cd7.stex" ]
 
 [params]
 
