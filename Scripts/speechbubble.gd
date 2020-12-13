@@ -55,8 +55,8 @@ func _process(_delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			Audio.playSfx(clickSound)
 			label = $SpeechBubble/Text
-			page+=1
-			dialogue.size()
+			#page+=1
+			#dialogue.size()
 			label.text = dialogue.get(str(page)).get("text") 
 			if label.visible_characters >= label.get_total_character_count():
 				#var temp = page
