@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Bluescreen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=2]
+
+[node name="Bluescreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
+z_index = -1
+color = Color( 0, 0.2, 0.980392, 1 )
+polygon = PoolVector2Array( -53.769, -24.2069, 1095.99, -36.9348, 1118.61, 708.356, -49.5264, 699.871 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+custom_fonts/normal_font = ExtResource( 2 )
+text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}

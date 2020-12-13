@@ -16,6 +16,10 @@ func checkRam(r):
 		return true
 	else:
 		return false
+		
+func crash():
+	get_tree().change_scene("res://Scenes/Bluescreen.tscn")
+	pass
 
 
 

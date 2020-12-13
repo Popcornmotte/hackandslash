@@ -1,0 +1,14 @@
+A problem has been detected and DOORS_OS has decided to shutdown to prevent further damage.
+
+All your personal files have probably been lost or been stolen by whoever or whatever caused this catastrophic system failure.
+Follow these steps:
+
+1. Reboot
+2. git gud
+
+If your system should not reboot successfully or display this message again, you can buy a fresh copy
+of DOORS_OS for a discounted price of just $255.99
+If you are unhappy with your DOORS_OS or other services provided by the Macrohard Corporation, 
+please don't complain as there are no customer services available right now.
+
+Press Alt+F4
