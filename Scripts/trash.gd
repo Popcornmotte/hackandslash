@@ -8,6 +8,7 @@ var paused = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$GameBox/AnimatedSprite.play(str(randi()%5))
 	pass # Replace with function body.
 
 func pause(b:bool):

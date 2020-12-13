@@ -1,7 +1,6 @@
 extends Control
 
 var count = 2
-
 var paused = false
 
 func win():
