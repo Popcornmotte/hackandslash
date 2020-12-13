@@ -7,11 +7,11 @@ var margin2 = 60
 func updateVis(hp):
 	if(hp < margin1):
 		$Base.play(str(2))
-		$Base.play(str(2))
+		$Eyes.play(str(2))
 		return
 	if(hp < margin2):
 		$Base.play(str(1))
-		$Base.play(str(1))
+		$Eyes.play(str(1))
 	pass
 
 func _ready():

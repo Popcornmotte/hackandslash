@@ -40,22 +40,22 @@ light_mode = 1
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "-1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "0",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "-1",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "-1",
+"name": "1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -63,22 +63,22 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "0",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "-1",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "-1",
+"name": "1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -86,15 +86,15 @@ animations = [ {
 "name": "2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "0",
 "speed": 3.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "-1",
+"speed": 5.0
 } ]
 
 [node name="Pinny" type="Node2D"]
@@ -160,7 +160,7 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="DialogueManager"]
-wait_time = 0.05
+wait_time = 0.01
 
 [node name="Carpet" type="AnimatedSprite" parent="."]
 material = SubResource( 9 )

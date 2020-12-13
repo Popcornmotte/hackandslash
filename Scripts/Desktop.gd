@@ -10,6 +10,7 @@ const zeroPos = Vector2(256,100)
 
 func _ready():
 	global.desktop = self
+	$CRTShader.show()
 	Audio.playSfx(jingle)
 	Input.set_custom_mouse_cursor(load("res://Assets/Sprites/mouse.png"),Input.CURSOR_ARROW)
 	pass
