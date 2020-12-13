@@ -260,5 +260,6 @@ position = Vector2( 960, 520 )
 visible = false
 color = Color( 0.27451, 0.27451, 0.27451, 1 )
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="button_down" from="StartMenu/Buttons/Help" to="Pinny" method="_on_Help_button_down"]
 [connection signal="pressed" from="StartMenu/Buttons/Run" to="." method="_on_Run_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/ShutDown" to="." method="_on_ShutDown_pressed"]

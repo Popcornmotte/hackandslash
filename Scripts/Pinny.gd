@@ -32,10 +32,17 @@ func _on_AppearanceTimer_timeout():
 	appearance()
 
 func startHelpDialogue():
+	$DialogueManager/SpeechBubble.visible = true
 	$DialogueManager.start("res://Data/dialogue1.json")
 	pass
 
 func _on_X_button_down():
-	#$DialogueManager/SpeechBubble.visible = false
-	$DialogueManager.start("res://Data/dialogue1.json")
+	$DialogueManager/SpeechBubble.visible = false
+	$DialogueManager.stop()
+	#$DialogueManager.start("res://Data/dialogue1.json")
 	pass
+
+
+func _on_Help_button_down():
+	startHelpDialogue()
+	pass # Replace with function body.
