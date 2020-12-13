@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://crt_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Sprites/Wallpaper/hackN0.jpg" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Assets/ObjectScenes/window.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Assets/ObjectScenes/Icon.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Assets/ObjectScenes/RAM.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Assets/ObjectScenes/Pinny.tscn" type="PackedScene" id=25]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -251,6 +252,13 @@ position = Vector2( 256, 100 )
 margin_left = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
+
+[node name="Pinny" parent="." instance=ExtResource( 25 )]
+position = Vector2( 960, 520 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0.27451, 0.27451, 0.27451, 1 )
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/Run" to="." method="_on_Run_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/ShutDown" to="." method="_on_ShutDown_pressed"]

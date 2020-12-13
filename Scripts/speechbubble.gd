@@ -33,6 +33,7 @@ func loadDialogue(var filepath) -> Dictionary:
 func start(var filepath):
 	#global.inDialogue = true
 	get_tree().paused = true
+	global.desktop.get_node("CanvasModulate").show()
 	Audio.playSfx(clickSound)
 	$SpeechBubble/Text.visible_characters = 0
 	visible = true
@@ -60,12 +61,14 @@ func _process(_delta):
 					label.visible_characters = 0
 				else:
 					visible = false;
-					global.inDialogue = false;
+#					global.inDialogue = false;
 					#print(str(global.inDialogue))
 					page = 0;
 					label.visible_characters = 0;
 					$Timer.stop();
 					running = false;
+					get_tree().paused = false
+					global.desktop.get_node("CanvasModulate").hide()
 
 			else:
 				label.visible_characters = label.get_total_character_count();
