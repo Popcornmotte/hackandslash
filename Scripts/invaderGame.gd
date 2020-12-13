@@ -1,8 +1,14 @@
 extends Control
 
-var count = 2
+var count = 3
 var paused = false
 var sec = 0
+var enemy = preload("res://Assets/ObjectScenes/HackingGames/InvadersInvader.tscn")
+
+func checkWin():
+	if(count <= 0):
+		win()
+	pass
 
 func win():
 	var bonus
@@ -27,7 +33,16 @@ func pause(b:bool):
 		paused = false
 
 func _ready():
-	pass # Replace with function body.
+	spawnEnemy()
+	spawnEnemy()
+	spawnEnemy()
+	pass
+	
+func spawnEnemy():
+	var newEnemy = enemy.instance()
+	add_child(newEnemy)
+	newEnemy.position = Vector2(rand_range(20,340),rand_range(20,200))
+	pass
 
 func _process(delta):
 	if count > 0:

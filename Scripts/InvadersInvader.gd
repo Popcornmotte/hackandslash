@@ -11,6 +11,7 @@ func _process(delta):
 func _on_Invader_area_entered(area):
 	if("Bullet" in area.name):
 		get_parent().count -= 1
+		get_parent().checkWin()
 		area.queue_free()
 		global.invaderbullets -= 1
 		get_parent().get_node("GameBox/BulletCounter").play(str(3-global.invaderbullets))
