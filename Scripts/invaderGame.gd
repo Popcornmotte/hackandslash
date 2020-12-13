@@ -11,6 +11,7 @@ func checkWin():
 	pass
 
 func win():
+	Audio.playSfx(load("res://Assets/Sounds/accept.wav"))
 	var bonus
 	if sec < 3.5:
 		bonus = 3

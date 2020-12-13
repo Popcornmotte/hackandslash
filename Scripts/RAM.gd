@@ -16,6 +16,7 @@ func _process(delta):
 	pass
 
 func notEnoughRam(missingRam):
+	Audio.playSfx(load("res://Assets/Sounds/error.wav"))
 	offset = 6
 	$MarginContainer/Polygon2D/Warning.text = str(missingRam) + " MB more RAM required"
 	$MarginContainer/Polygon2D/Warning.visible = true

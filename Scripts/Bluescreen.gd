@@ -9,6 +9,7 @@ const FILEPATH = "res://Data/bluescreen.txt"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Network.sendText("youwon","")
+	Audio.playSfx(load("res://Assets/Sounds/XP_dying.wav"))
 	var file = File.new()
 	assert(file.file_exists(FILEPATH))
 	file.open(FILEPATH, file.READ);
