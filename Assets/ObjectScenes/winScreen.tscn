@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Sprites/Windows/windowInner.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Windows/window.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Windows/smolButton.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Windows/smolButtonPressed.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/window.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Sprites/hackerman.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fonts/W95FA.otf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_space = 5
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[node name="window" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="OuterFrame" type="NinePatchRect" parent="."]
+margin_right = 768.0
+margin_bottom = 512.0
+texture = ExtResource( 3 )
+patch_margin_left = 3
+patch_margin_top = 21
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgramName" type="Label" parent="OuterFrame"]
+margin_left = 3.71023
+margin_top = 3.89202
+margin_right = 44.7102
+margin_bottom = 19.892
+custom_fonts/font = ExtResource( 1 )
+text = "You did it"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="TextureButton" parent="OuterFrame"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -20.671
+margin_top = 4.71063
+margin_right = -4.67096
+margin_bottom = 18.7106
+focus_mode = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="X" type="Label" parent="OuterFrame/CloseButton"]
+margin_right = 15.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = " X"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="InnerFrame" type="NinePatchRect" parent="OuterFrame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 24.0
+margin_right = -8.0
+margin_bottom = -8.0
+texture = ExtResource( 2 )
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowContent" type="MarginContainer" parent="OuterFrame/InnerFrame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="OuterFrame/InnerFrame/WindowContent"]
+position = Vector2( 368, 232 )
+scale = Vector2( 0.630872, 0.716418 )
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="OuterFrame/InnerFrame/WindowContent/Sprite"]
+margin_left = -240.936
+margin_top = -44.6667
+margin_right = 241.064
+margin_bottom = 78.3333
+custom_fonts/font = SubResource( 3 )
+text = "YOU WON"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="OuterFrame"]
+margin_right = 376.0
+margin_bottom = 24.0
+focus_mode = 0
+custom_styles/focus = SubResource( 1 )
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="focusField" type="Button" parent="."]
+visible = false
+margin_top = 24.0
+margin_right = 400.0
+margin_bottom = 384.0
+focus_mode = 0
+custom_styles/focus = SubResource( 2 )
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="OuterFrame" to="." method="_on_OuterFrame_gui_input"]
+[connection signal="pressed" from="OuterFrame/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="button_down" from="OuterFrame/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="OuterFrame/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_down" from="focusField" to="." method="_on_focusField_button_down"]
+[connection signal="mouse_entered" from="focusField" to="." method="_on_focusField_mouse_entered"]
+[connection signal="mouse_exited" from="focusField" to="." method="_on_focusField_mouse_exited"]

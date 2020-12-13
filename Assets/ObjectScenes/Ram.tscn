@@ -86,6 +86,7 @@ wait_time = 0.05
 autostart = true
 
 [node name="Button" type="Button" parent="."]
+visible = false
 margin_left = 456.0
 margin_top = 96.0
 margin_right = 568.0

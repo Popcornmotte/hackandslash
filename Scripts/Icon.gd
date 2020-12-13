@@ -10,7 +10,7 @@ export var doubleClickTime = 0.3
 export var title : String
 var firstClick = false
 var Window = load("res://Assets/ObjectScenes/window.tscn")
-
+var missing = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,15 +26,19 @@ func _ready():
 func checkEnoughRam():
 	match icon:
 		"http":
+			missing = 4
 			return global.checkRam(4)
 		"ssh":
+			missing = 4
 			return global.checkRam(4)
 		"ftp":
+			missing = 4
 			return global.checkRam(4)
 		_:
 			return true
 
-func notEnoughRam():
+func notEnoughRam(m):
+	global.desktop.get_node("RAM").notEnoughRam(m)
 	pass
 
 func _on_Button_pressed():
@@ -46,7 +50,7 @@ func _on_Button_pressed():
 			window.loadContent(PROGRAM)
 			window.setTitle(title)
 		else:
-			notEnoughRam()
+			notEnoughRam(missing)
 		firstClick = false
 	else:
 		firstClick = true
