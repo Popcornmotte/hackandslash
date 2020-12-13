@@ -15,10 +15,11 @@ export var ad = false
 export var windowName : String
 export var test = false
 export var testScene : String
+export var winScreen = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if !ad:
+	if !ad && !winScreen:
 		position = get_parent().getpos()
 	$OuterFrame/ProgramName.text = windowName
 	miniIcon = MINIICON.instance()
@@ -68,11 +69,12 @@ func _input(event):
 	pass
 	
 func pauseContent(b:bool):
-	if b:
-		$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(true)
-		#print("wuhuu")
-	else:
-		$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(false)
+	if !winScreen:
+		if b:
+			$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(true)
+			#print("wuhuu")
+		else:
+			$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(false)
 	pass
 	
 func _on_Button_button_down():

@@ -31,7 +31,7 @@ func _process(delta):
 		else:
 			$CRTShader.visible = true
 	if Input.is_action_just_pressed("ui_focus_next"):
-		spamAds(4)
+		win()
 	pass
 
 func spamAds(amount):
@@ -42,6 +42,13 @@ func spamAds(amount):
 		add_child(window)
 		window.position = Vector2(rand_range(0,1000),rand_range(20,550))
 	pass
+
+func win():
+	var win = load("res://Assets/ObjectScenes/winScreen.tscn").instance()
+	win.winScreen = true
+	#window.loadContent("res://Assets/ObjectScenes/winScreen.tscn")
+	add_child(win)
+	win.position = Vector2(100,50)
 
 func _on_StartButton_pressed():
 	if $StartMenu.visible:
