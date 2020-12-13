@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Icon.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/icons/trashbin.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Sprites/icons/headphone.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/icons/ftpBoom.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sprites/icons/spam.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/icons/Radar.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -42,6 +43,11 @@ animations = [ {
 "name": "trashbin",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "radar",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "spam",
@@ -55,7 +61,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "spam"
+animation = "radar"
 
 [node name="Button" type="Button" parent="."]
 margin_left = -16.0

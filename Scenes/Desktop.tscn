@@ -208,6 +208,7 @@ texture_hover = ExtResource( 10 )
 position = Vector2( 792, 24 )
 
 [node name="window" parent="." instance=ExtResource( 22 )]
+visible = false
 position = Vector2( 216, 80 )
 windowName = "Test"
 test = true
@@ -250,6 +251,12 @@ position = Vector2( 64, 256 )
 icon = "spam"
 PROGRAM = "res://Assets/ObjectScenes/adSpam.tscn"
 title = "AdSPAM"
+
+[node name="Radar" parent="Icons" instance=ExtResource( 23 )]
+position = Vector2( 128, 192 )
+icon = "radar"
+PROGRAM = "res://Assets/ObjectScenes/HackRadar.tscn"
+title = "HackRadar"
 
 [node name="winPos" type="Position2D" parent="."]
 position = Vector2( 256, 100 )
