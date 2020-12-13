@@ -9,6 +9,7 @@ var text
 var line = 0
 var sec = 0
 const FILEPATH = "res://Data/hackercode.txt"
+var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grab_focus()
@@ -21,19 +22,28 @@ func _ready():
 	#$NinePatchRect/Output.scroll_following = true
 	pass # Replace with function body.
 
+func pause(b:bool):
+	if b:
+		paused = true
+	else:
+		paused = false
+
 func win():
+	Audio.playSfx(load("res://Assets/Sounds/accept.wav"))
 	global.sendSpam(sec)
 	get_parent().get_parent().get_parent().get_parent().close()
 
 func _process(delta):
-	sec += delta
-	if $NinePatchRect/Output.visible_characters >= 1232:
-		win()
+	if !paused:
+		sec += delta
+		if $NinePatchRect/Output.visible_characters >= 1232:
+			win()
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode != KEY_ENTER:
-			$NinePatchRect/Output.visible_characters += 5
-			#line += 1
-			#$NinePatchRect/Output.scroll_to_line(line)
+	if !paused:
+		if event is InputEventKey and event.pressed:
+			if event.scancode != KEY_ENTER:
+				$NinePatchRect/Output.visible_characters += 5
+				#line += 1
+				#$NinePatchRect/Output.scroll_to_line(line)
 

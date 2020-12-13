@@ -4,9 +4,13 @@ var allocatedRam = 0
 var targetRot = 0
 var currentRot = 0
 var rotVel = 0
+var paused = false
 
 func setRam(var value):
 	allocatedRam = value
+	pass
+
+func pause(b:bool):
 	pass
 
 func setTarget(var index):

@@ -16,6 +16,7 @@ export var windowName : String
 export var test = false
 export var testScene : String
 export var winScreen = false
+export var isRadar = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,6 +39,8 @@ func loadContent(c : String):
 
 func setTitle(title):
 	$OuterFrame/ProgramName.text = title
+	if "HackRadar" in title:
+		isRadar = true
 
 func setFocusField(b : bool):
 	if b:
@@ -61,6 +64,8 @@ func _process(delta):
 func close():
 	get_parent().wincount -= 1
 	miniIcon.kill()
+	if isRadar:
+		global.ram -= $OuterFrame/InnerFrame/WindowContent.get_child(0).allocatedRam
 	queue_free()
 	
 
