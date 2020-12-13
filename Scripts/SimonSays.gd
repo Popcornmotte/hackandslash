@@ -11,6 +11,7 @@ var phase = 0
 var paused = false
 var beep = preload("res://Assets/Sounds/beep.wav")
 var sec = 0
+var allocatedRam = 4
 func _ready():
 	randomize()
 	pass

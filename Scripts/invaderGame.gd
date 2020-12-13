@@ -3,6 +3,7 @@ extends Control
 var count = 3
 var paused = false
 var sec = 0
+var allocatedRam = 4
 var enemy = preload("res://Assets/ObjectScenes/HackingGames/InvadersInvader.tscn")
 
 func checkWin():

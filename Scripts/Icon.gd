@@ -34,6 +34,9 @@ func checkEnoughRam():
 		"ftp":
 			missing = 4
 			return global.checkRam(4)
+		"spam":
+			missing = 10
+			return global.checkRam(10)
 		_:
 			missing = 0
 			return true

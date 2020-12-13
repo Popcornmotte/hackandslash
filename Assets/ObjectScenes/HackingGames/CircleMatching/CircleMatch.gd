@@ -13,6 +13,7 @@ var streak = 0.0
 var resets = 0
 var paused = false
 var sec = 0
+var allocatedRam = 4
 func _ready():
 	randomize()
 	var newPos = Vector2(100-randi()%200,100-randi()%200)

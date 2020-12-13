@@ -10,6 +10,7 @@ var line = 0
 var sec = 0
 const FILEPATH = "res://Data/hackercode.txt"
 var paused = false
+var allocatedRam = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	grab_focus()
