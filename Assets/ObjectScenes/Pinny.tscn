@@ -1,0 +1,133 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/pinnyEyes1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/pinnyEyes2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/PinnyEyesHurt2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/pinnyEyes0.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/PinnyBaseHurt2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/carpet1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/carpet0.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/carpet2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/PinnyEyesHurt1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/PinnyBaseHurt1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/pinnyBase.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/Pinny.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Assets/Sprites/Windows/Pinny/speechBubble.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "-1",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "-1",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "0",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "-1",
+"speed": 5.0
+} ]
+
+[node name="Pinny" type="Node2D"]
+script = ExtResource( 12 )
+
+[node name="Carpet" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "0"
+frame = 2
+playing = true
+
+[node name="Base" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 2 )
+animation = "0"
+frame = 1
+playing = true
+
+[node name="Eyes" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+animation = "0"
+frame = 2
+playing = true
+
+[node name="AppearanceTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="SpeechBubble" type="NinePatchRect" parent="."]
+margin_left = -164.0
+margin_top = -72.0
+margin_right = -48.0
+margin_bottom = 8.0
+texture = ExtResource( 14 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 10
+patch_margin_bottom = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="RichTextLabel" parent="SpeechBubble"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -8.0
+margin_bottom = -8.0
+custom_fonts/normal_font = ExtResource( 13 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Hi! I'm Pinny!
+Press F1 for an introduction to Hack&&/ !"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="AppearanceTimer" to="." method="_on_AppearanceTimer_timeout"]
