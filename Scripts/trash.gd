@@ -5,10 +5,10 @@ extends MarginContainer
 # var a = 2
 # var b = "text"
 var paused = false
+var allocatedRam = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$GameBox/AnimatedSprite.play(str(randi()%5))
 	pass # Replace with function body.
 
 func pause(b:bool):

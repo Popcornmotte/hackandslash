@@ -66,9 +66,15 @@ func _on_ShutDown_pressed():
 
 
 func _on_Run_pressed():
+	$StartMenu.hide()
 	var window = WINDOW.instance()
 	window.icon = "console"
 	add_child(window)
 	window.loadContent("res://Assets/ObjectScenes/console.tscn")
 	window.setTitle("console")
+	pass # Replace with function body.
+
+
+func _on_Help_pressed():
+	$StartMenu.hide()
 	pass # Replace with function body.

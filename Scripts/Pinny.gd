@@ -47,3 +47,8 @@ func _on_X_button_down():
 func _on_Help_button_down():
 	startHelpDialogue()
 	pass # Replace with function body.
+
+
+func _on_Help_pressed():
+	startHelpDialogue()
+	pass # Replace with function body.

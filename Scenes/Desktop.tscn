@@ -275,5 +275,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="StartMenu/Buttons/Help" to="Pinny" method="_on_Help_pressed"]
+[connection signal="pressed" from="StartMenu/Buttons/Help" to="." method="_on_Help_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/Run" to="." method="_on_Run_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/ShutDown" to="." method="_on_ShutDown_pressed"]

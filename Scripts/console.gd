@@ -8,7 +8,7 @@ onready var out = $NinePatchRect/Output
 onready var input = $NinePatchRect/Input
 var clack = load("res://Assets/Sounds/singleKey.wav")
 var paused = false
-var allocatedRam = 4
+var allocatedRam = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	global.active_console = self
