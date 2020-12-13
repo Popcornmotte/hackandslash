@@ -2,7 +2,7 @@ extends Control
 
 var count = 2
 
-
+var paused = false
 
 func win():
 	pass
@@ -10,6 +10,12 @@ func win():
 func lose():
 	
 	pass
+
+func pause(b:bool):
+	if b:
+		paused = true
+	else:
+		paused = false
 
 func _ready():
 	pass # Replace with function body.

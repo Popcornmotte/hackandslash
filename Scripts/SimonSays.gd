@@ -8,47 +8,54 @@ var topCooldown = 0.5
 var inputCooldown = 5
 var cooldown = 1
 var phase = 0
-
+var paused = false
 var beep = preload("res://Assets/Sounds/beep.wav")
 
 func _ready():
 	randomize()
 	pass
 
+func pause(b:bool):
+	if b:
+		paused = true
+	else:
+		paused = false
+
 func _process(delta):
-	match(phase):
-		0:
-			pass
-		1:
-			if(cooldown > 0):
-				cooldown -= delta
-			else:
-				#print_debug("bleep, " + str(precounter))
-				cooldown = topCooldown
-				if(sequence.size() <= precounter):
-					phase = 2
+	if !paused:
+		match(phase):
+			0:
+				pass
+			1:
+				if(cooldown > 0):
+					cooldown -= delta
 				else:
-					if(precounter > 0): sequence[precounter-1].play(str(0))
-					sequence[precounter].play(str(1))
-					playsfx(precounter)
-				precounter += 1
-			pass
-		2:
-			sequence.back().play(str(0))
-			cooldown = topCooldown
-			phase = 3
-			pass
-		3:
-			inputCooldown -= delta
-			if(inputCooldown <= 0):
-				phase = 1
-				sequence.clear()
-				topCooldown = 0.5
-				precounter = 0
-				repcounter = 0
-				inputCooldown = 5
-				sequence.append(getButton(randi()%4))
-			pass
+					#print_debug("bleep, " + str(precounter))
+					cooldown = topCooldown
+					if(sequence.size() <= precounter):
+						phase = 2
+					else:
+						if(precounter > 0): sequence[precounter-1].play(str(0))
+						sequence[precounter].play(str(1))
+						playsfx(precounter)
+					precounter += 1
+				pass
+			2:
+				sequence.back().play(str(0))
+				cooldown = topCooldown
+				phase = 3
+				pass
+			3:
+				inputCooldown -= delta
+				if(inputCooldown <= 0):
+					phase = 1
+					sequence.clear()
+					topCooldown = 0.5
+					precounter = 0
+					repcounter = 0
+					inputCooldown = 5
+					sequence.append(getButton(randi()%4))
+				pass
 	pass
 
 func win():

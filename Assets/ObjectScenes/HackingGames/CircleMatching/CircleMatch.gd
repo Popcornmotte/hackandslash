@@ -11,7 +11,7 @@ var vel : Vector2
 var dist : Vector2
 var streak = 0.0
 var resets = 0
-
+var paused = false
 func _ready():
 	pass 
 
@@ -31,33 +31,40 @@ func reset():
 	vel = Vector2(0,0)
 	pass
 
-func _process(delta):
-	if(Input.is_action_pressed("ui_up")): yn = -1 
-	else: yn = 0
-	if(Input.is_action_pressed("ui_down")): yp = 1 
-	else: yp = 0
-	if(Input.is_action_pressed("ui_left")): xn = -1 
-	else: xn = 0
-	if(Input.is_action_pressed("ui_right")): xp = 1 
-	else: xp = 0
-	
-	vel = lerp(vel, speed * Vector2(xp + xn, yp + yn), delta * 2)
-	
-	dist = $GameBox/SmallCircle.global_position - $GameBox/LargeCircle.global_position
-	vel += dist * delta * (80 + resets * 10)/dist.length()
-	
-	if(dist.length() > 160):
-		vel -= dist.normalized() * vel.length()
-	$GameBox/SmallCircle.translate(delta * vel)
-	
-	if(dist.length()/32 < radius):
-		streak += delta/64
-		radius -= (delta + streak)/2
-		$GameBox/LargeCircle.scale = Vector2(max(radius, winRadius),max(radius, winRadius))
+func pause(b:bool):
+	if b:
+		paused = true
 	else:
-		streak = 0
-	
-	if(radius <= winRadius):
-		reset()
-	
+		paused = false
+
+func _process(delta):
+	if !paused:
+		if(Input.is_action_pressed("ui_up")): yn = -1 
+		else: yn = 0
+		if(Input.is_action_pressed("ui_down")): yp = 1 
+		else: yp = 0
+		if(Input.is_action_pressed("ui_left")): xn = -1 
+		else: xn = 0
+		if(Input.is_action_pressed("ui_right")): xp = 1 
+		else: xp = 0
+		
+		vel = lerp(vel, speed * Vector2(xp + xn, yp + yn), delta * 2)
+		
+		dist = $GameBox/SmallCircle.global_position - $GameBox/LargeCircle.global_position
+		vel += dist * delta * (80 + resets * 10)/dist.length()
+		
+		if(dist.length() > 160):
+			vel -= dist.normalized() * vel.length()
+		$GameBox/SmallCircle.translate(delta * vel)
+		
+		if(dist.length()/32 < radius):
+			streak += delta/64
+			radius -= (delta + streak)/2
+			$GameBox/LargeCircle.scale = Vector2(max(radius, winRadius),max(radius, winRadius))
+		else:
+			streak = 0
+		
+		if(radius <= winRadius):
+			reset()
+		
 	pass

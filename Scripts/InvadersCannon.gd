@@ -14,25 +14,26 @@ func _ready():
 	pass
 
 func _process(delta):
-	if(Input.is_action_pressed("ui_left")):
-		turnL = -turnfactor
-	else:
-		turnL = 0
-	if(Input.is_action_pressed("ui_right")):
-		turnR = turnfactor
-	else:
-		turnR = 0
-	
-	currentDeg = max(min(currentDeg + (turnR + turnL) * delta, maxDeg),-maxDeg)
-	set_rotation(deg2rad(currentDeg))
-	
-	if(global.invaderbullets < 3 && Input.is_action_just_pressed("ui_accept")):
-		global.invaderbullets += 1
-		get_parent().get_node("BulletCounter").play(str(3-global.invaderbullets))
-		var bulletInstance = bullet.instance()
-		get_parent().get_parent().add_child(bulletInstance)
-		bulletInstance.set_global_position($SpawnPos.global_position)
-		bulletInstance.setVel(bulletSpeed * Vector2(cos(deg2rad(currentDeg-90)),sin(deg2rad(currentDeg-90))))
+	if !get_parent().get_parent().paused:
+		if(Input.is_action_pressed("ui_left")):
+			turnL = -turnfactor
+		else:
+			turnL = 0
+		if(Input.is_action_pressed("ui_right")):
+			turnR = turnfactor
+		else:
+			turnR = 0
+		
+		currentDeg = max(min(currentDeg + (turnR + turnL) * delta, maxDeg),-maxDeg)
+		set_rotation(deg2rad(currentDeg))
+		
+		if(global.invaderbullets < 3 && Input.is_action_just_pressed("ui_accept")):
+			global.invaderbullets += 1
+			get_parent().get_node("BulletCounter").play(str(3-global.invaderbullets))
+			var bulletInstance = bullet.instance()
+			get_parent().get_parent().add_child(bulletInstance)
+			bulletInstance.set_global_position($SpawnPos.global_position)
+			bulletInstance.setVel(bulletSpeed * Vector2(cos(deg2rad(currentDeg-90)),sin(deg2rad(currentDeg-90))))
 	
 	pass
 

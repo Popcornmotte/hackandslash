@@ -204,6 +204,12 @@ icon = "http"
 PROGRAM = "res://Assets/ObjectScenes/HackingGames/CircleMatching/CircleMatch.tscn"
 title = "HTTP_WORM"
 
+[node name="ftpBoom" parent="Icons" instance=ExtResource( 23 )]
+position = Vector2( 128, 128 )
+icon = "ftp"
+PROGRAM = "res://Assets/ObjectScenes/HackingGames/SimonSays.tscn"
+title = "FTP_BOOM"
+
 [node name="winPos" type="Position2D" parent="."]
 position = Vector2( 256, 100 )
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]

@@ -112,6 +112,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -24.0
 margin_right = 256.0
+mouse_filter = 2
 custom_styles/fg = SubResource( 4 )
 custom_styles/bg = SubResource( 5 )
 max_value = 3.0

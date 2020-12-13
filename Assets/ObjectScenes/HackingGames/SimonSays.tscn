@@ -14,7 +14,7 @@
 [ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=12]
 [ext_resource path="res://Scripts/SimonSays.gd" type="Script" id=13]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -22,55 +22,55 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "1",
 "speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 6 ) ],
+}, {
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "1",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "0",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "0",
 "speed": 5.0
-}, {
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "0",
 "speed": 5.0
 } ]
 
@@ -82,7 +82,7 @@ margin_right = 2.15908
 margin_top = 1.32867
 margin_bottom = 2.32517
 
-[sub_resource type="StyleBoxTexture" id=5]
+[sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 11 )
 region_rect = Rect2( 5, 5, 22, 22 )
 margin_left = 2.32517
@@ -92,18 +92,19 @@ margin_bottom = 2.32517
 
 [sub_resource type="StyleBoxEmpty" id=8]
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [node name="Game" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="nullButton" type="AnimatedSprite" parent="."]
-frames = SubResource( 9 )
+frames = SubResource( 1 )
 
 [node name="Box" type="NinePatchRect" parent="."]
 margin_right = 1024.0
@@ -126,7 +127,7 @@ __meta__ = {
 [node name="icon" type="AnimatedSprite" parent="Box/alpha"]
 position = Vector2( 32, 32 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "0"
 __meta__ = {
 "_edit_lock_": true
@@ -144,7 +145,7 @@ __meta__ = {
 [node name="icon" type="AnimatedSprite" parent="Box/beta"]
 position = Vector2( 32, 32 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "0"
 __meta__ = {
 "_edit_lock_": true
@@ -162,7 +163,7 @@ __meta__ = {
 [node name="icon" type="AnimatedSprite" parent="Box/gamma"]
 position = Vector2( 32, 32 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "0"
 __meta__ = {
 "_edit_lock_": true
@@ -180,7 +181,7 @@ __meta__ = {
 [node name="icon" type="AnimatedSprite" parent="Box/delta"]
 position = Vector2( 32, 32 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "0"
 __meta__ = {
 "_edit_lock_": true
@@ -192,9 +193,9 @@ margin_top = 72.0
 margin_right = 256.0
 margin_bottom = 112.0
 custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 5 )
+custom_styles/pressed = SubResource( 7 )
 custom_styles/focus = SubResource( 8 )
-custom_styles/disabled = SubResource( 7 )
+custom_styles/disabled = SubResource( 9 )
 custom_styles/normal = SubResource( 6 )
 custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )

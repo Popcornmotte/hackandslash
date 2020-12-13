@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/Sprites/Windows/windowInner.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scripts/window.gd" type="Script" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
 
 [node name="window" type="Node2D"]
 script = ExtResource( 6 )
@@ -60,17 +62,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Button" type="Button" parent="OuterFrame"]
-margin_right = 376.0
-margin_bottom = 24.0
-focus_mode = 0
-custom_styles/focus = SubResource( 1 )
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="InnerFrame" type="NinePatchRect" parent="OuterFrame"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -94,9 +85,38 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = -8.0
 margin_bottom = -8.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="OuterFrame"]
+margin_right = 376.0
+margin_bottom = 24.0
+focus_mode = 0
+custom_styles/focus = SubResource( 1 )
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="focusField" type="Button" parent="."]
+visible = false
+margin_top = 24.0
+margin_right = 400.0
+margin_bottom = 384.0
+focus_mode = 0
+custom_styles/focus = SubResource( 2 )
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="OuterFrame" to="." method="_on_OuterFrame_gui_input"]
 [connection signal="pressed" from="OuterFrame/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="button_down" from="OuterFrame/Button" to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="OuterFrame/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_down" from="focusField" to="." method="_on_focusField_button_down"]
+[connection signal="mouse_entered" from="focusField" to="." method="_on_focusField_mouse_entered"]
+[connection signal="mouse_exited" from="focusField" to="." method="_on_focusField_mouse_exited"]

@@ -8,7 +8,7 @@ var httpRam = 0
 var sshRam = 0
 var ftpRam = 0
 var ram = 0
-
+var clickable = true
 var invaderbullets = 0
 
 var focusedWindow = null

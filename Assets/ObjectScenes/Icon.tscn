@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Icon.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/icons/trashbin.png" type="Texture" id=2]
@@ -7,22 +7,28 @@
 [ext_resource path="res://Assets/Sprites/icons/sshInvaders.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/icons/worm.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/icons/headphone.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/icons/ftpBoom.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "ssh",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "http",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": false,
-"name": "music",
+"name": "ssh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "ftp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "trashbin",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -30,9 +36,9 @@ animations = [ {
 "name": "console",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": false,
-"name": "trashbin",
+"name": "music",
 "speed": 5.0
 } ]
 
@@ -43,7 +49,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "music"
+animation = "ftp"
 
 [node name="Button" type="Button" parent="."]
 margin_left = -16.0
