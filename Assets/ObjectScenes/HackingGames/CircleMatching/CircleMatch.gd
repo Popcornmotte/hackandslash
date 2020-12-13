@@ -12,6 +12,7 @@ var dist : Vector2
 var streak = 0.0
 var resets = 0
 var paused = false
+var sec = 0
 func _ready():
 	randomize()
 	var newPos = Vector2(100-randi()%200,100-randi()%200)
@@ -19,6 +20,15 @@ func _ready():
 	pass 
 
 func win():
+	var bonus
+	if sec < 3.5:
+		bonus = 3
+	elif sec < 5:
+		bonus = 2
+	else:
+		bonus = 1
+	global.sendDmg("http:"+str(bonus))
+	
 	get_parent().get_parent().get_parent().get_parent().close()
 	pass
 
@@ -43,6 +53,9 @@ func pause(b:bool):
 
 func _process(delta):
 	if !paused:
+		
+		sec += delta
+		
 		if(Input.is_action_pressed("ui_up")): yn = -1 
 		else: yn = 0
 		if(Input.is_action_pressed("ui_down")): yp = 1 

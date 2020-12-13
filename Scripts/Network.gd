@@ -137,3 +137,8 @@ remote func receiveText(path,function,arg):
 		"chat":
 			if global.active_console != null:
 				global.active_console.printout(arg)
+		"dmg":
+			global.dmg(arg)
+			pass
+		"youwon":
+			global.win()

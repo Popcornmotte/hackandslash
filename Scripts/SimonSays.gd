@@ -10,7 +10,7 @@ var cooldown = 1
 var phase = 0
 var paused = false
 var beep = preload("res://Assets/Sounds/beep.wav")
-
+var sec = 0
 func _ready():
 	randomize()
 	pass
@@ -23,6 +23,7 @@ func pause(b:bool):
 
 func _process(delta):
 	if !paused:
+		sec+=delta
 		match(phase):
 			0:
 				pass
@@ -59,6 +60,14 @@ func _process(delta):
 	pass
 
 func win():
+	var bonus
+	if sec < 3.5:
+		bonus = 3
+	elif sec < 5:
+		bonus = 2
+	else:
+		bonus = 1
+	global.sendDmg("ftp:"+str(bonus))
 	get_parent().get_parent().get_parent().get_parent().close()
 	pass
 

@@ -33,11 +33,6 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "1",
@@ -46,6 +41,11 @@ animations = [ {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -123,7 +123,6 @@ __meta__ = {
 position = Vector2( 240, 312 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -133,7 +132,6 @@ __meta__ = {
 position = Vector2( 128, 312 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 flip_h = true
 __meta__ = {
@@ -144,6 +142,7 @@ __meta__ = {
 position = Vector2( 184, 312 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
