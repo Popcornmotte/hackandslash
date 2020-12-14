@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Fonts/W95FA.otf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 6
+size = 10
 font_data = ExtResource( 4 )
 
 [node name="adSpam" type="Control"]
