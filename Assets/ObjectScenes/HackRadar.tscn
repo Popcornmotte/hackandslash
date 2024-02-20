@@ -1,22 +1,22 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Assets/Sprites/Windows/buttonPressed.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Sprites/Windows/Hackadar.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Windows/HackadarPointer.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Windows/buttonPressed.png" type="Texture2D" id=1]
+[ext_resource path="res://Assets/Sprites/Windows/Hackadar.png" type="Texture2D" id=2]
+[ext_resource path="res://Assets/Sprites/Windows/HackadarPointer.png" type="Texture2D" id=3]
 [ext_resource path="res://Scripts/HackRadar.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar8.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar1.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar4.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/Windows/upArrowPressed.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/Windows/downArrow.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar5.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar7.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar6.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Sprites/Windows/upArrow.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar3.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar2.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Sprites/Windows/downArrowPressed.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/8bar.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar8.png" type="Texture2D" id=5]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar1.png" type="Texture2D" id=6]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar4.png" type="Texture2D" id=7]
+[ext_resource path="res://Assets/Sprites/Windows/upArrowPressed.png" type="Texture2D" id=8]
+[ext_resource path="res://Assets/Sprites/Windows/downArrow.png" type="Texture2D" id=9]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar5.png" type="Texture2D" id=10]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar7.png" type="Texture2D" id=11]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar6.png" type="Texture2D" id=12]
+[ext_resource path="res://Assets/Sprites/Windows/upArrow.png" type="Texture2D" id=13]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar3.png" type="Texture2D" id=14]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar2.png" type="Texture2D" id=15]
+[ext_resource path="res://Assets/Sprites/Windows/downArrowPressed.png" type="Texture2D" id=16]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/8bar.png" type="Texture2D" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -75,8 +75,8 @@ __meta__ = {
 }
 
 [node name="Box" type="NinePatchRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
+offset_right = 1024.0
+offset_bottom = 600.0
 texture = ExtResource( 1 )
 region_rect = Rect2( 5, 5, 22, 22 )
 patch_margin_left = 2
@@ -84,30 +84,30 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="Hackadar" type="Sprite" parent="Box"]
+[node name="Hackadar" type="Sprite2D" parent="Box"]
 position = Vector2( 144, 176 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 
-[node name="Pointer" type="Sprite" parent="Box"]
+[node name="Pointer" type="Sprite2D" parent="Box"]
 position = Vector2( 144, 172 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -6.5 )
 
-[node name="BarBackground" type="Sprite" parent="Box"]
+[node name="BarBackground" type="Sprite2D" parent="Box"]
 position = Vector2( 296, 176 )
 texture = ExtResource( 17 )
 
-[node name="RAM" type="AnimatedSprite" parent="Box/BarBackground"]
+[node name="RAM" type="AnimatedSprite2D" parent="Box/BarBackground"]
 frames = SubResource( 1 )
 animation = "0"
 
 [node name="RAMup" type="TextureButton" parent="Box"]
-margin_left = 280.0
-margin_top = 312.0
-margin_right = 312.0
-margin_bottom = 328.0
+offset_left = 280.0
+offset_top = 312.0
+offset_right = 312.0
+offset_bottom = 328.0
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 8 )
 __meta__ = {
@@ -115,10 +115,10 @@ __meta__ = {
 }
 
 [node name="RAMdown" type="TextureButton" parent="Box"]
-margin_left = 280.0
-margin_top = 332.0
-margin_right = 312.0
-margin_bottom = 348.0
+offset_left = 280.0
+offset_top = 332.0
+offset_right = 312.0
+offset_bottom = 348.0
 texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 16 )
 __meta__ = {

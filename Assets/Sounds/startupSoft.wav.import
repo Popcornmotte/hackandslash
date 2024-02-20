@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/startupSoft.wav-def7484748023fe61188edf52e88419d.sample"
+type="AudioStreamWAV"
+uid="uid://d0vkxkh0u6m37"
+path="res://.godot/imported/startupSoft.wav-def7484748023fe61188edf52e88419d.sample"
 
 [deps]
 
 source_file="res://Assets/Sounds/startupSoft.wav"
-dest_files=[ "res://.import/startupSoft.wav-def7484748023fe61188edf52e88419d.sample" ]
+dest_files=["res://.godot/imported/startupSoft.wav-def7484748023fe61188edf52e88419d.sample"]
 
 [params]
 
@@ -16,6 +17,8 @@ force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
-edit/normalize=false
-edit/loop=false
+edit/normalize=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

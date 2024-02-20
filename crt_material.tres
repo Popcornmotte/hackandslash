@@ -1,21 +1,21 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dqpcs0kpyuw5q"]
 
-[ext_resource path="res://crt_shader.shader" type="Shader" id=1]
+[ext_resource type="Shader" path="res://crt_shader.gdshader" id="1"]
 
 [resource]
-shader = ExtResource( 1 )
-shader_param/screen_size = Vector2( 320, 180 )
-shader_param/show_curvature = true
-shader_param/curvature_x_amount = 6.0
-shader_param/curvature_y_amount = 6.0
-shader_param/corner_color = Color( 0, 0, 0, 1 )
-shader_param/show_vignette = true
-shader_param/vignette_opacity = 0.2
-shader_param/show_horizontal_scan_lines = true
-shader_param/horizontal_scan_lines_amount = 280.0
-shader_param/horizontal_scan_lines_opacity = 1.0
-shader_param/show_vertical_scan_lines = false
-shader_param/vertical_scan_lines_amount = 320.0
-shader_param/vertical_scan_lines_opacity = 1.0
-shader_param/boost = 1.2
-shader_param/aberration_amount = 0.0
+shader = ExtResource("1")
+shader_parameter/screen_size = Vector2(640, 360)
+shader_parameter/show_curvature = true
+shader_parameter/curvature_x_amount = 8.0
+shader_parameter/curvature_y_amount = 8.0
+shader_parameter/corner_color = Color(0, 0, 0, 1)
+shader_parameter/show_vignette = true
+shader_parameter/vignette_opacity = 0.14
+shader_parameter/show_horizontal_scan_lines = true
+shader_parameter/horizontal_scan_lines_amount = 280.0
+shader_parameter/horizontal_scan_lines_opacity = 0.4
+shader_parameter/show_vertical_scan_lines = false
+shader_parameter/vertical_scan_lines_amount = 320.0
+shader_parameter/vertical_scan_lines_opacity = 0.4
+shader_parameter/boost = 1.4
+shader_parameter/aberration_amount = 0.0

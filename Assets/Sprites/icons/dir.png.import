@@ -1,8 +1,9 @@
 [remap]
 
 importer="texture"
-type="StreamTexture"
-path="res://.import/dir.png-ce2535e383a624bbd2c7389bc88476fc.stex"
+type="CompressedTexture2D"
+uid="uid://pd28u5y50wwg"
+path="res://.godot/imported/dir.png-ce2535e383a624bbd2c7389bc88476fc.ctex"
 metadata={
 "vram_texture": false
 }
@@ -10,25 +11,24 @@ metadata={
 [deps]
 
 source_file="res://Assets/Sprites/icons/dir.png"
-dest_files=[ "res://.import/dir.png-ce2535e383a624bbd2c7389bc88476fc.stex" ]
+dest_files=["res://.godot/imported/dir.png-ce2535e383a624bbd2c7389bc88476fc.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
+compress/hdr_compression=1
 compress/normal_map=0
-flags/repeat=0
-flags/filter=false
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-stream=false
-size_limit=0
-detect_3d=false
-svg/scale=1.0
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

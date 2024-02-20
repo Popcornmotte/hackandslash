@@ -22,7 +22,7 @@ func getpos():
 
 func _process(delta):
 	$Label.text = "HP: "+str(global.hp)
-	time = OS.get_datetime()
+	time = Time.get_datetime_dict_from_system()
 	$Taskbar/Time/Label.text = str(time.hour).pad_zeros(2)+":"+str(time.minute).pad_zeros(2)
 	
 	if Input.is_action_just_pressed("mb"):
@@ -38,16 +38,16 @@ func _process(delta):
 
 func spamAds(amount):
 	for i in amount:
-		var window = WINDOW.instance()
+		var window = WINDOW.instantiate()
 		window.ad = true
 		window.loadContent("res://Assets/ObjectScenes/popup.tscn")
 		add_child(window)
-		window.position = Vector2(rand_range(0,1000),rand_range(20,550))
+		window.position = Vector2(randf_range(0,1000),randf_range(20,550))
 	pass
 
 func win():
 	Audio.playMusic(load("res://Assets/Sounds/VaporJingle.wav"))
-	var win = load("res://Assets/ObjectScenes/winScreen.tscn").instance()
+	var win = load("res://Assets/ObjectScenes/winScreen.tscn").instantiate()
 	win.winScreen = true
 	#window.loadContent("res://Assets/ObjectScenes/winScreen.tscn")
 	add_child(win)
@@ -68,7 +68,7 @@ func _on_ShutDown_pressed():
 
 func _on_Run_pressed():
 	$StartMenu.hide()
-	var window = WINDOW.instance()
+	var window = WINDOW.instantiate()
 	window.icon = "console"
 	add_child(window)
 	window.loadContent("res://Assets/ObjectScenes/console.tscn")

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/loginJingle2.wav-91a41edc96cefad1a942f4e42ed19953.sample"
+type="AudioStreamWAV"
+uid="uid://14ac0yvf47ly"
+path="res://.godot/imported/loginJingle2.wav-91a41edc96cefad1a942f4e42ed19953.sample"
 
 [deps]
 
 source_file="res://Assets/Sounds/loginJingle2.wav"
-dest_files=[ "res://.import/loginJingle2.wav-91a41edc96cefad1a942f4e42ed19953.sample" ]
+dest_files=["res://.godot/imported/loginJingle2.wav-91a41edc96cefad1a942f4e42ed19953.sample"]
 
 [params]
 
@@ -16,6 +17,8 @@ force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
-edit/normalize=false
-edit/loop=false
+edit/normalize=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

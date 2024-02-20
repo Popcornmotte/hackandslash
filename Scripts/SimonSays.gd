@@ -76,7 +76,7 @@ func win():
 	get_parent().get_parent().get_parent().get_parent().close()
 	pass
 
-func buttonInput(var index):
+func buttonInput(index):
 	inputCooldown = 5
 	playsfx(index)
 	if(sequence.size() > 0):
@@ -97,7 +97,7 @@ func buttonInput(var index):
 			topCooldown = max(topCooldown-0.05, 0.1)
 	pass
 
-func getButton(var index):
+func getButton(index):
 	match(index):
 		0:
 			return $Box/alpha/icon
@@ -109,7 +109,7 @@ func getButton(var index):
 			return $Box/delta/icon
 	pass
 
-func playsfx(var index):
+func playsfx(index):
 	match(index):
 		0:
 			Audio.playSfx(beep)

@@ -9,14 +9,14 @@ var paused = false
 func _ready():
 	global.hackradar = self
 
-func setRam(var value):
+func setRam(value):
 	allocatedRam = value
 	pass
 
 func pause(b:bool):
 	pass
 
-func setTarget(var index):
+func setTarget(index):
 	match(index):
 		0:#ssh
 			targetRot = 225
@@ -27,7 +27,7 @@ func setTarget(var index):
 	pass
 
 func _process(delta):
-	rotVel += rand_range(-1, 1)
+	rotVel += randf_range(-1, 1)
 	rotVel = max(min(rotVel,8/(allocatedRam+1)),-8/(allocatedRam+1))
 	currentRot += max(min(rotVel * delta * 10, 5*delta),-5*delta)
 	$Box/Pointer.rotation_degrees = lerp($Box/Pointer.rotation_degrees + currentRot, targetRot, delta*(allocatedRam*allocatedRam)/4)

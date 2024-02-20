@@ -2,7 +2,7 @@ extends Node
 
 
 const DEFAULT_PORT = 8190 #whatever
-onready var address = "127.0.0.1"
+@onready var address = "127.0.0.1"
 var port = DEFAULT_PORT
 var status =""
 
@@ -10,11 +10,11 @@ var status =""
 
 func _ready():
 	# Connect all the callbacks related to networking.
-	get_tree().connect("network_peer_connected", self, "_player_connected")
-	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
-	get_tree().connect("connected_to_server", self, "_connected_ok")
-	get_tree().connect("connection_failed", self, "_connected_fail")
-	get_tree().connect("server_disconnected", self, "_server_disconnected")
+	get_tree().connect("peer_connected", Callable(self, "_player_connected"))
+	get_tree().connect("peer_disconnected", Callable(self, "_player_disconnected"))
+	get_tree().connect("connected_to_server", Callable(self, "_connected_ok"))
+	get_tree().connect("connection_failed", Callable(self, "_connected_fail"))
+	get_tree().connect("server_disconnected", Callable(self, "_server_disconnected"))
 
 
 
@@ -30,13 +30,13 @@ func _player_connected(_id):
 	# Connect deferred so we can safely erase it from the callback.
 	#pong.connect("game_finished", self, "_end_game", [], CONNECT_DEFERRED)
 	print("player connected")
-	if get_tree().is_network_server():
+	if get_tree().is_server():
 	# For the server, give control of player 2 to the other peer.
-		set_network_master(get_tree().get_network_connected_peers()[0])
+		set_multiplayer_authority(get_tree().get_peers()[0])
 	else:
 	# For the client, give control of player 2 to itself.
-		set_network_master(get_tree().get_network_unique_id())
-	print("unique id: ", get_tree().get_network_unique_id())
+		set_multiplayer_authority(get_tree().get_unique_id())
+	print("unique id: ", get_tree().get_unique_id())
 	#get_tree().get_root().add_child(pong)
 	if global.active_console != null:
 		global.active_console.printout("valid opponent found! Now attacking:\n"+str(_id))
@@ -44,7 +44,7 @@ func _player_connected(_id):
 
 
 func _player_disconnected(_id):
-	if get_tree().is_network_server():
+	if get_tree().is_server():
 		_end_game("Client disconnected")
 	else:
 		_end_game("Server disconnected")
@@ -61,7 +61,7 @@ func _connected_ok():
 func _connected_fail():
 	_set_status("Couldn't connect", false)
 	
-	get_tree().set_network_peer(null) # Remove peer.
+	get_tree().set_multiplayer_peer(null) # Remove peer.
 	
 	#host_button.set_disabled(false)
 	#join_button.set_disabled(false)
@@ -77,7 +77,7 @@ func _end_game(with_error = ""):
 		# Erase immediately, otherwise network might show errors (this is why we connected deferred above).
 		get_node("/root/Pong").free()
 	
-	get_tree().set_network_peer(null) # Remove peer.
+	get_tree().set_multiplayer_peer(null) # Remove peer.
 	#host_button.set_disabled(false)
 	#join_button.set_disabled(false)
 	
@@ -100,15 +100,15 @@ func _set_status(text, isok):
 
 
 func _on_host_pressed():
-	var host = NetworkedMultiplayerENet.new()
-	host.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
+	var host = ENetMultiplayerPeer.new()
+	#host.set_compression_mode(ENetMultiplayerPeer.COMPRESS_RANGE_CODER)
 	var err = host.create_server(port, 1) # Maximum of 1 peer, since it's a 2-player game.
 	if err != OK:
 		# Is another server running?
 		_set_status("Can't host, address in use.",false)
 		return
 	
-	get_tree().set_network_peer(host)
+	get_tree().set_multiplayer_peer(host)
 	#host_button.set_disabled(true)
 	#join_button.set_disabled(true)
 	_set_status("Waiting for player...", true)
@@ -120,10 +120,10 @@ func _on_join_pressed():
 		_set_status("IP address is invalid", false)
 		return
 	
-	var host = NetworkedMultiplayerENet.new()
-	host.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
-	host.create_client(ip, port)
-	get_tree().set_network_peer(host)
+	var host = ENetMultiplayerPeer.new()
+	#host.set_compression_mode(ENetMultiplayerPeer.COMPRESS_RANGE_CODER)
+	#host.create_client(ip, port)
+	get_tree().set_multiplayer_peer(host)
 	
 	_set_status("Connecting...", true)
 	
@@ -132,7 +132,7 @@ func _on_join_pressed():
 func sendText(function,arg):
 	rpc("receiveText",function,arg)
 	
-remote func receiveText(function,arg):
+@rpc("any_peer") func receiveText(function,arg):
 	match function:
 		"chat":
 			if global.active_console != null:

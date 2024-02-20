@@ -1,22 +1,22 @@
 extends MarginContainer
 
 
-export var type : String
+@export var type : String
 var minimized = false
 var window
 
 func _ready():
 	
-	$Button/AnimatedSprite.play(window.icon)
+	$Button/AnimatedSprite2D.play(window.icon)
 	#print(window.icon)
 	pass # Replace with function body.
 
 func setWindow(x):
 	window = x
-	$Button/AnimatedSprite.play(window.icon)
+	$Button/AnimatedSprite2D.play(window.icon)
 
 func setIcon(i):
-	$Button/AnimatedSprite.play(i)
+	$Button/AnimatedSprite2D.play(i)
 
 func kill():
 	queue_free()

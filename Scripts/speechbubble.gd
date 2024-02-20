@@ -14,7 +14,7 @@ func _ready():
 	#set_process_input(true)
 	pass # Replace with function body.
 
-func loadDialogue(var filepath) -> Dictionary:
+func loadDialogue(filepath) -> Dictionary:
 	var file = File.new()
 	assert(file.file_exists(filepath))
 	file.open(filepath, file.READ);
@@ -24,13 +24,15 @@ func loadDialogue(var filepath) -> Dictionary:
 #	var data = parse_json(file2.get_as_text())
 #	if typeof(data) == TYPE_DICTIONARY:
 #		dialogue = data
-	dialogue = parse_json(file.get_as_text())
+	var test_json_conv = JSON.new()
+	test_json_conv.parse(file.get_as_text())
+	dialogue = test_json_conv.get_data()
 	running = true
 	file.close()
 	return dialogue
 	pass
 
-func start(var filepath):
+func start(filepath):
 	#global.inDialogue = true
 	get_tree().paused = true
 	global.desktop.get_node("CanvasModulate").show()

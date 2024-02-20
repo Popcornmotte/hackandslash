@@ -4,8 +4,8 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var out = $NinePatchRect/Output
-onready var input = $NinePatchRect/Input
+@onready var out = $NinePatchRect/Output
+@onready var input = $NinePatchRect/Input
 var clack = load("res://Assets/Sounds/singleKey.wav")
 var paused = false
 var allocatedRam = 0
@@ -75,8 +75,8 @@ func parse(s : String):
 			if cmd.size() >= 2:
 				cmd.remove(0)
 				text = global.username+": "
-				for s in cmd:
-					text+=s+" "
+				for x in cmd:
+					text+=x+" "
 				Network.sendText("chat",text)
 	printout(text)
 	pass

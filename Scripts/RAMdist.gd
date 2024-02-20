@@ -1,4 +1,4 @@
-extends Sprite
+extends Sprite2D
 
 var dragging = false
 var pos : Vector2
@@ -21,7 +21,7 @@ func _ready():
 	$MarginContainer/VBoxContainer/Stats/http.play(str(httpRam))
 	$MarginContainer/VBoxContainer/Stats/ftp.play(str(ftpRam))
 	$MarginContainer/VBoxContainer/Stats/ssh.play(str(sshRam))
-	miniIcon = MINIICON.instance()
+	miniIcon = MINIICON.instantiate()
 	miniIcon.setWindow(self)
 	get_parent().get_node("Taskbar/minimizedWindows").add_child(miniIcon)
 	pass 
@@ -91,8 +91,8 @@ func pauseContent(b:bool):
 	pass
 
 func _on_Button_button_down():
-	raise()
-	get_tree().set_input_as_handled()
+	#raise()
+	get_viewport().set_input_as_handled()
 	if true:#global.clickable:
 		if global.focusedWindow != null:
 			global.focusedWindow.z_index = 0

@@ -43,7 +43,7 @@ func _process(delta):
 func _input(event):
 	if !paused:
 		if event is InputEventKey and event.pressed:
-			if event.scancode != KEY_ENTER:
+			if event.keycode != KEY_ENTER:
 				$NinePatchRect/Output.visible_characters += 5
 				#line += 1
 				#$NinePatchRect/Output.scroll_to_line(line)

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/VaporJingle.wav-34889ee534bed2c4fb22e0181f58ffc0.sample"
+type="AudioStreamWAV"
+uid="uid://7rqy7wn1l1qd"
+path="res://.godot/imported/VaporJingle.wav-34889ee534bed2c4fb22e0181f58ffc0.sample"
 
 [deps]
 
 source_file="res://Assets/Sounds/VaporJingle.wav"
-dest_files=[ "res://.import/VaporJingle.wav-34889ee534bed2c4fb22e0181f58ffc0.sample" ]
+dest_files=["res://.godot/imported/VaporJingle.wav-34889ee534bed2c4fb22e0181f58ffc0.sample"]
 
 [params]
 
@@ -16,6 +17,8 @@ force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
-edit/normalize=false
-edit/loop=false
+edit/normalize=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

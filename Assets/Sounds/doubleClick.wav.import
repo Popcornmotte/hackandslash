@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/doubleClick.wav-d9d2f67550385e07adcfe82fd9f36763.sample"
+type="AudioStreamWAV"
+uid="uid://dqvrqq30pxoms"
+path="res://.godot/imported/doubleClick.wav-d9d2f67550385e07adcfe82fd9f36763.sample"
 
 [deps]
 
 source_file="res://Assets/Sounds/doubleClick.wav"
-dest_files=[ "res://.import/doubleClick.wav-d9d2f67550385e07adcfe82fd9f36763.sample" ]
+dest_files=["res://.godot/imported/doubleClick.wav-d9d2f67550385e07adcfe82fd9f36763.sample"]
 
 [params]
 
@@ -16,6 +17,8 @@ force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
-edit/normalize=false
-edit/loop=false
+edit/normalize=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -1,23 +1,23 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/Sprites/Windows/RAMdist.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Windows/downArrowPressed.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Windows/upArrow.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/Windows/upArrowPressed.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Windows/downArrow.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar6.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar8.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar2.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar5.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar7.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar4.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar1.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Sprites/Windows/FTPlabel.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Sprites/Windows/HTTPlabel.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Sprites/Windows/SSHlabel.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="FontFile" id=1]
+[ext_resource path="res://Assets/Sprites/Windows/RAMdist.png" type="Texture2D" id=2]
+[ext_resource path="res://Assets/Sprites/Windows/downArrowPressed.png" type="Texture2D" id=3]
+[ext_resource path="res://Assets/Sprites/Windows/upArrow.png" type="Texture2D" id=4]
+[ext_resource path="res://Assets/Sprites/Windows/upArrowPressed.png" type="Texture2D" id=5]
+[ext_resource path="res://Assets/Sprites/Windows/downArrow.png" type="Texture2D" id=6]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar6.png" type="Texture2D" id=7]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar8.png" type="Texture2D" id=8]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar2.png" type="Texture2D" id=9]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar5.png" type="Texture2D" id=10]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar7.png" type="Texture2D" id=11]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar4.png" type="Texture2D" id=12]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar1.png" type="Texture2D" id=13]
+[ext_resource path="res://Assets/Sprites/Windows/FTPlabel.png" type="Texture2D" id=14]
+[ext_resource path="res://Assets/Sprites/Windows/HTTPlabel.png" type="Texture2D" id=15]
+[ext_resource path="res://Assets/Sprites/Windows/SSHlabel.png" type="Texture2D" id=16]
 [ext_resource path="res://Scripts/RAMdist.gd" type="Script" id=17]
-[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar3.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/Windows/DefenseBar/bar3.png" type="Texture2D" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -81,7 +81,7 @@ border_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
-[node name="RAMdist" type="Sprite"]
+[node name="RAMdist" type="Sprite2D"]
 texture = ExtResource( 2 )
 centered = false
 script = ExtResource( 17 )
@@ -90,30 +90,30 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 8.0
-margin_top = 32.0
-margin_right = 168.0
-margin_bottom = 472.0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 168.0
+offset_bottom = 472.0
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 160.0
-margin_bottom = 440.0
+offset_right = 160.0
+offset_bottom = 440.0
 alignment = 2
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Stats" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 366.0
-margin_right = 160.0
-margin_bottom = 366.0
+offset_top = 366.0
+offset_right = 160.0
+offset_bottom = 366.0
 alignment = 1
 
-[node name="http" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Stats"]
+[node name="http" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/Stats"]
 position = Vector2( 130, -178 )
 frames = SubResource( 1 )
 animation = "8"
@@ -121,7 +121,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ssh" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Stats"]
+[node name="ssh" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/Stats"]
 position = Vector2( 30, -178 )
 frames = SubResource( 1 )
 animation = "8"
@@ -129,7 +129,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ftp" type="AnimatedSprite" parent="MarginContainer/VBoxContainer/Stats"]
+[node name="ftp" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer/Stats"]
 position = Vector2( 80, -178 )
 frames = SubResource( 1 )
 animation = "8"
@@ -138,118 +138,118 @@ __meta__ = {
 }
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 370.0
-margin_right = 160.0
-margin_bottom = 406.0
-custom_constants/separation = 19
+offset_top = 370.0
+offset_right = 160.0
+offset_bottom = 406.0
+theme_override_constants/separation = 19
 alignment = 1
 
 [node name="ssh" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 13.0
-margin_right = 45.0
-margin_bottom = 36.0
+offset_left = 13.0
+offset_right = 45.0
+offset_bottom = 36.0
 
 [node name="sshUp" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ssh"]
-margin_right = 32.0
-margin_bottom = 16.0
+offset_right = 32.0
+offset_bottom = 16.0
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 
 [node name="sshDown" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ssh"]
-margin_top = 20.0
-margin_right = 32.0
-margin_bottom = 36.0
+offset_top = 20.0
+offset_right = 32.0
+offset_bottom = 36.0
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 3 )
 
 [node name="ftp" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 64.0
-margin_right = 96.0
-margin_bottom = 36.0
+offset_left = 64.0
+offset_right = 96.0
+offset_bottom = 36.0
 
 [node name="ftpUp" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ftp"]
-margin_right = 32.0
-margin_bottom = 16.0
+offset_right = 32.0
+offset_bottom = 16.0
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 
 [node name="ftpDown" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/ftp"]
-margin_top = 20.0
-margin_right = 32.0
-margin_bottom = 36.0
+offset_top = 20.0
+offset_right = 32.0
+offset_bottom = 36.0
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 3 )
 
 [node name="http" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Buttons"]
-margin_left = 115.0
-margin_right = 147.0
-margin_bottom = 36.0
+offset_left = 115.0
+offset_right = 147.0
+offset_bottom = 36.0
 
 [node name="httpUp" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/http"]
-margin_right = 32.0
-margin_bottom = 16.0
+offset_right = 32.0
+offset_bottom = 16.0
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 
 [node name="httpDown" type="TextureButton" parent="MarginContainer/VBoxContainer/Buttons/http"]
-margin_top = 20.0
-margin_right = 32.0
-margin_bottom = 36.0
+offset_top = 20.0
+offset_right = 32.0
+offset_bottom = 36.0
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 3 )
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-margin_top = 410.0
-margin_right = 160.0
-margin_bottom = 414.0
+offset_top = 410.0
+offset_right = 160.0
+offset_bottom = 414.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-margin_top = 418.0
-margin_right = 160.0
-margin_bottom = 432.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_top = 418.0
+offset_right = 160.0
+offset_bottom = 432.0
+theme_override_fonts/font = ExtResource( 1 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0 / 8 MB"
 
 [node name="RAMavailable" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
-margin_top = 436.0
-margin_right = 160.0
-margin_bottom = 440.0
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
+offset_top = 436.0
+offset_right = 160.0
+offset_bottom = 440.0
+theme_override_styles/fg = SubResource( 2 )
+theme_override_styles/bg = SubResource( 3 )
 max_value = 8.0
 percent_visible = false
 
-[node name="FTPlabel" type="Sprite" parent="."]
+[node name="FTPlabel" type="Sprite2D" parent="."]
 position = Vector2( 88, 67 )
 texture = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HTTPlabel" type="Sprite" parent="."]
+[node name="HTTPlabel" type="Sprite2D" parent="."]
 position = Vector2( 139, 67 )
 texture = ExtResource( 15 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SSHlabel" type="Sprite" parent="."]
+[node name="SSHlabel" type="Sprite2D" parent="."]
 position = Vector2( 38, 67 )
 texture = ExtResource( 16 )
 __meta__ = {
@@ -257,22 +257,22 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_right = 174.0
-margin_bottom = 27.0
+offset_right = 174.0
+offset_bottom = 27.0
 focus_mode = 0
-custom_styles/focus = SubResource( 4 )
-enabled_focus_mode = 0
+theme_override_styles/focus = SubResource( 4 )
+focus_mode = 0
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 6.0
-margin_top = 6.0
-margin_right = 46.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 1 )
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 46.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Firewall Port Protection"
 __meta__ = {
 "_edit_lock_": true,

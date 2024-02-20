@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/XP_dying.wav-cfb2474b04441c8a8854ea9558d9afde.sample"
+type="AudioStreamWAV"
+uid="uid://c21qba76os24u"
+path="res://.godot/imported/XP_dying.wav-cfb2474b04441c8a8854ea9558d9afde.sample"
 
 [deps]
 
 source_file="res://Assets/Sounds/XP_dying.wav"
-dest_files=[ "res://.import/XP_dying.wav-cfb2474b04441c8a8854ea9558d9afde.sample" ]
+dest_files=["res://.godot/imported/XP_dying.wav-cfb2474b04441c8a8854ea9558d9afde.sample"]
 
 [params]
 
@@ -16,6 +17,8 @@ force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
-edit/normalize=false
-edit/loop=false
+edit/normalize=true
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

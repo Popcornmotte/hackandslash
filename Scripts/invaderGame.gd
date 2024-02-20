@@ -41,9 +41,9 @@ func _ready():
 	pass
 	
 func spawnEnemy():
-	var newEnemy = enemy.instance()
+	var newEnemy = enemy.instantiate()
 	add_child(newEnemy)
-	newEnemy.position = Vector2(rand_range(20,340),rand_range(20,200))
+	newEnemy.position = Vector2(randf_range(20,340),randf_range(20,200))
 	pass
 
 func _process(delta):

@@ -27,10 +27,10 @@ func _process(delta):
 		else:
 			$CRTShader.visible = true
 	if Input.is_action_just_pressed("ui_accept"):
-		get_tree().change_scene("res://Scenes/Desktop.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Desktop.tscn")
 	pass
 
 
 func _on_LogInButton_pressed():
-	get_tree().change_scene("res://Scenes/Desktop.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Desktop.tscn")
 	pass # Replace with function body.

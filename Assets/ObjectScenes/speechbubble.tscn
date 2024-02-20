@@ -9,19 +9,19 @@ script = ExtResource( 1 )
 position = Vector2( 3.8147e-06, 4.76837e-07 )
 scale = Vector2( 1.02941, 0.9375 )
 color = Color( 1, 1, 1, 0.290196 )
-polygon = PoolVector2Array( 2.05715, 0, 341.943, -5.08626e-07, 341.943, 128, 2.05715, 128 )
+polygon = PackedVector2Array( 2.05715, 0, 341.943, -5.08626e-07, 341.943, 128, 2.05715, 128 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Polygon2D"]
-margin_left = 8.0
-margin_top = 9.0
-margin_right = 334.0
-margin_bottom = 119.0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 334.0
+offset_bottom = 119.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Polygon2D/MarginContainer"]
-margin_right = 326.0
-margin_bottom = 110.0
+offset_right = 326.0
+offset_bottom = 110.0
 
 [node name="Timer" type="Timer" parent="."]

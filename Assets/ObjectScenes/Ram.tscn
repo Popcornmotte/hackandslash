@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="FontFile" id=1]
 [ext_resource path="res://Scripts/RAM.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -21,9 +21,9 @@ bg_color = Color( 1, 0, 0, 1 )
 [node name="RAM" type="Control"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -512.0
-margin_right = 512.0
-margin_bottom = 600.0
+offset_left = -512.0
+offset_right = 512.0
+offset_bottom = 600.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,19 +32,19 @@ __meta__ = {
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -232.0
-margin_right = 232.0
-margin_bottom = 64.0
+offset_left = -232.0
+offset_right = 232.0
+offset_bottom = 64.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
-margin_right = 464.0
-margin_bottom = 16.0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
-custom_fonts/font = ExtResource( 1 )
+offset_right = 464.0
+offset_bottom = 16.0
+theme_override_styles/fg = SubResource( 1 )
+theme_override_styles/bg = SubResource( 2 )
+theme_override_fonts/font = ExtResource( 1 )
 max_value = 16.0
 step = 1.0
 __meta__ = {
@@ -53,13 +53,13 @@ __meta__ = {
 
 [node name="Polygon2D" type="Polygon2D" parent="MarginContainer"]
 color = Color( 0.0745098, 0.0745098, 0.0745098, 0.47451 )
-polygon = PoolVector2Array( 168, 24, 360, 24, 360, 40, 104, 40, 104, 24 )
+polygon = PackedVector2Array( 168, 24, 360, 24, 360, 40, 104, 40, 104, 24 )
 
 [node name="Label" type="Label" parent="MarginContainer/Polygon2D"]
-margin_top = 25.0
-margin_right = 464.0
-margin_bottom = 39.0
-custom_fonts/font = ExtResource( 1 )
+offset_top = 25.0
+offset_right = 464.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource( 1 )
 text = "Available RAM: 0/16 MB"
 align = 1
 __meta__ = {
@@ -67,13 +67,13 @@ __meta__ = {
 }
 
 [node name="Warning" type="Label" parent="MarginContainer/Polygon2D"]
-margin_left = 152.0
-margin_top = 48.0
-margin_right = 314.0
-margin_bottom = 64.0
-custom_styles/normal = SubResource( 3 )
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_left = 152.0
+offset_top = 48.0
+offset_right = 314.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource( 3 )
+theme_override_fonts/font = ExtResource( 1 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = "X MB more RAM required"
 align = 1
 valign = 1
@@ -87,9 +87,9 @@ autostart = true
 
 [node name="Button" type="Button" parent="."]
 visible = false
-margin_left = 456.0
-margin_top = 96.0
-margin_right = 568.0
-margin_bottom = 176.0
+offset_left = 456.0
+offset_top = 96.0
+offset_right = 568.0
+offset_bottom = 176.0
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]

@@ -11,19 +11,19 @@ var CONTENT
 var icon = "trashbin"
 const MINIICON = preload("res://Assets/ObjectScenes/miniIcon.tscn")
 var miniIcon
-export var ad = false
-export var windowName : String
-export var test = false
-export var testScene : String
-export var winScreen = false
-export var isRadar = false
+@export var ad = false
+@export var windowName : String
+@export var test = false
+@export var testScene : String
+@export var winScreen = false
+@export var isRadar = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if !ad && !winScreen:
 		position = get_parent().getpos()
 	$OuterFrame/ProgramName.text = windowName
-	miniIcon = MINIICON.instance()
+	miniIcon = MINIICON.instantiate()
 	miniIcon.setWindow(self)
 	miniIcon.setIcon(icon)
 	#print(icon)
@@ -34,7 +34,7 @@ func _ready():
 
 func loadContent(c : String):
 	CONTENT = load(c)
-	content = CONTENT.instance()
+	content = CONTENT.instantiate()
 	$OuterFrame/InnerFrame/WindowContent.add_child(content)
 
 func setTitle(title):
@@ -83,8 +83,8 @@ func pauseContent(b:bool):
 	pass
 	
 func _on_Button_button_down():
-	raise()
-	get_tree().set_input_as_handled()
+	#raise()
+	get_viewport().set_input_as_handled()
 	if true:#global.clickable:
 		if global.focusedWindow != null:
 			global.focusedWindow.z_index = 0

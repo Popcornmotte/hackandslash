@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Assets/Fonts/standartx16.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/Sprites/Windows/windowInner.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/Windows/window.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Windows/smolButton.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/Windows/smolButtonPressed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/standartx16.tres" type="FontFile" id=1]
+[ext_resource path="res://Assets/Sprites/Windows/windowInner.png" type="Texture2D" id=2]
+[ext_resource path="res://Assets/Sprites/Windows/window.png" type="Texture2D" id=3]
+[ext_resource path="res://Assets/Sprites/Windows/smolButton.png" type="Texture2D" id=4]
+[ext_resource path="res://Assets/Sprites/Windows/smolButtonPressed.png" type="Texture2D" id=5]
 [ext_resource path="res://Scripts/window.gd" type="Script" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=1]
@@ -15,8 +15,8 @@
 script = ExtResource( 6 )
 
 [node name="OuterFrame" type="NinePatchRect" parent="."]
-margin_right = 400.0
-margin_bottom = 384.0
+offset_right = 400.0
+offset_bottom = 384.0
 texture = ExtResource( 3 )
 patch_margin_left = 3
 patch_margin_top = 21
@@ -27,11 +27,11 @@ __meta__ = {
 }
 
 [node name="ProgramName" type="Label" parent="OuterFrame"]
-margin_left = 3.71023
-margin_top = 3.89202
-margin_right = 44.7102
-margin_bottom = 19.892
-custom_fonts/font = ExtResource( 1 )
+offset_left = 3.71023
+offset_top = 3.89202
+offset_right = 44.7102
+offset_bottom = 19.892
+theme_override_fonts/font = ExtResource( 1 )
 text = "Debug"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -40,12 +40,12 @@ __meta__ = {
 [node name="CloseButton" type="TextureButton" parent="OuterFrame"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -20.671
-margin_top = 4.71063
-margin_right = -4.67096
-margin_bottom = 18.7106
+offset_left = -20.671
+offset_top = 4.71063
+offset_right = -4.67096
+offset_bottom = 18.7106
 focus_mode = 0
-enabled_focus_mode = 0
+focus_mode = 0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
 __meta__ = {
@@ -53,10 +53,10 @@ __meta__ = {
 }
 
 [node name="X" type="Label" parent="OuterFrame/CloseButton"]
-margin_right = 15.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+offset_right = 15.0
+offset_bottom = 16.0
+theme_override_fonts/font = ExtResource( 1 )
+theme_override_colors/font_color = Color( 0, 0, 0, 1 )
 text = " X"
 __meta__ = {
 "_edit_lock_": true
@@ -65,10 +65,10 @@ __meta__ = {
 [node name="InnerFrame" type="NinePatchRect" parent="OuterFrame"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 24.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = -8.0
+offset_bottom = -8.0
 texture = ExtResource( 2 )
 patch_margin_left = 4
 patch_margin_top = 4
@@ -81,21 +81,21 @@ __meta__ = {
 [node name="WindowContent" type="MarginContainer" parent="OuterFrame/InnerFrame"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = -8.0
-margin_bottom = -8.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="OuterFrame"]
-margin_right = 376.0
-margin_bottom = 24.0
+offset_right = 376.0
+offset_bottom = 24.0
 focus_mode = 0
-custom_styles/focus = SubResource( 1 )
-enabled_focus_mode = 0
+theme_override_styles/focus = SubResource( 1 )
+focus_mode = 0
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -103,12 +103,12 @@ __meta__ = {
 
 [node name="focusField" type="Button" parent="."]
 visible = false
-margin_top = 24.0
-margin_right = 400.0
-margin_bottom = 384.0
+offset_top = 24.0
+offset_right = 400.0
+offset_bottom = 384.0
 focus_mode = 0
-custom_styles/focus = SubResource( 2 )
-enabled_focus_mode = 0
+theme_override_styles/focus = SubResource( 2 )
+focus_mode = 0
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false

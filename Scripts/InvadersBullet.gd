@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	vel += Vector2(0,delta*50)
 	translate(vel * delta)
-	rotation = vel.angle() + deg2rad(90)
+	rotation = vel.angle() + deg_to_rad(90)
 	pass
 
 
