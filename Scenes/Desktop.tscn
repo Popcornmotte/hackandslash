@@ -1,16 +1,16 @@
 [gd_scene load_steps=23 format=3 uid="uid://b671oso4ny1c2"]
 
 [ext_resource type="Material" uid="uid://dqpcs0kpyuw5q" path="res://crt_material.tres" id="1"]
-[ext_resource type="Texture2D" uid="uid://btxih4s53tm5q" path="res://Assets/Sprites/Wallpaper/hackN0.jpg" id="2"]
+[ext_resource type="Texture2D" uid="uid://cqh47leo4p5c" path="res://Assets/Sprites/Wallpaper/remOS.png" id="2_awk8p"]
 [ext_resource type="Texture2D" uid="uid://dubhx7dnnb4rl" path="res://Assets/Sprites/debug.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://m122r6sj3r0j" path="res://Assets/Sprites/Windows/taskBar.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://c3r47f5wsut8n" path="res://Assets/Sprites/Windows/button.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bxw0tiv5wr17x" path="res://Assets/Sprites/Windows/taskBarFlip.png" id="5_a0i68"]
 [ext_resource type="FontFile" path="res://Assets/Fonts/standartx16.tres" id="6"]
-[ext_resource type="Texture2D" uid="uid://cnp0x71y321i7" path="res://Assets/Sprites/Windows/startButton.png" id="7"]
-[ext_resource type="Texture2D" uid="uid://cevuhh07f4wda" path="res://Assets/Sprites/Windows/startButtonPressed.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://b5gij6ispjw2y" path="res://Assets/Sprites/Windows/startButtonAlt.png" id="6_pht05"]
+[ext_resource type="Texture2D" uid="uid://cmmnbqj38fq4o" path="res://Assets/Sprites/Windows/startButtonAltPressed.png" id="7_camni"]
 [ext_resource type="Script" path="res://Scripts/Desktop.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://cq4hjf7jjc53w" path="res://Assets/Sprites/Windows/StarMenuButtons/ShutDown2.png" id="10"]
-[ext_resource type="Texture2D" uid="uid://bb5clg5skseq4" path="res://Assets/Sprites/Windows/startMenu.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://d0c58thiiidux" path="res://Assets/Sprites/Windows/startMenuAlt.png" id="10_f4288"]
 [ext_resource type="Texture2D" uid="uid://cc4u1s7op2uwh" path="res://Assets/Sprites/Windows/StarMenuButtons/ShutDown1.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://bphf0n3c1y21w" path="res://Assets/Sprites/Windows/StarMenuButtons/Run2.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://dioqjn7bfq8i8" path="res://Assets/Sprites/Windows/StarMenuButtons/Run1.png" id="14"]
@@ -33,13 +33,15 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("9")
 
 [node name="wallpaper" type="Sprite2D" parent="."]
 z_index = -1000
 position = Vector2(576, 324)
 scale = Vector2(0.96, 0.754366)
-texture = ExtResource("2")
+texture = ExtResource("2_awk8p")
 
 [node name="CRTShader" type="Sprite2D" parent="."]
 z_index = 1000
@@ -50,29 +52,33 @@ texture = ExtResource("3")
 
 [node name="Taskbar" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_top = 616.0
 offset_right = 1152.0
-offset_bottom = 648.0
-texture = ExtResource("4")
+offset_bottom = 32.0
+texture = ExtResource("5_a0i68")
 patch_margin_top = 6
 
 [node name="Start" type="MarginContainer" parent="Taskbar"]
 layout_mode = 0
-offset_right = 96.0
+offset_left = 8.0
+offset_right = 104.0
 offset_bottom = 32.0
 
 [node name="StartButton" type="TextureButton" parent="Taskbar/Start"]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("7")
-texture_pressed = ExtResource("8")
+texture_normal = ExtResource("6_pht05")
+texture_pressed = ExtResource("7_camni")
 
 [node name="Time" type="NinePatchRect" parent="Taskbar"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -71.0
-offset_bottom = 36.0
+offset_left = -72.0
+offset_top = -3.0
+offset_right = -1.0
+offset_bottom = 33.0
+grow_horizontal = 0
 texture = ExtResource("5")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -95,26 +101,26 @@ text = "04:20"
 
 [node name="VSeparator" type="VSeparator" parent="Taskbar"]
 layout_mode = 0
-offset_left = 64.0
+offset_left = 80.0
 offset_top = 8.0
-offset_right = 68.0
+offset_right = 84.0
 offset_bottom = 24.0
 theme_override_styles/separator = SubResource("1")
 
 [node name="minimizedWindows" type="HBoxContainer" parent="Taskbar"]
 layout_mode = 0
-offset_left = 64.0
-offset_right = 928.0
+offset_left = 96.0
+offset_right = 960.0
 offset_bottom = 32.0
 theme_override_constants/separation = -5
 
 [node name="StartMenu" type="TextureRect" parent="."]
 visible = false
 layout_mode = 0
-offset_top = 440.0
+offset_top = 32.0
 offset_right = 164.0
-offset_bottom = 615.0
-texture = ExtResource("11")
+offset_bottom = 207.0
+texture = ExtResource("10_f4288")
 
 [node name="Buttons" type="VBoxContainer" parent="StartMenu"]
 layout_mode = 0
@@ -158,6 +164,7 @@ texture_hover = ExtResource("10")
 
 [node name="Icons" type="Node2D" parent="."]
 z_index = -2
+position = Vector2(0, 192)
 
 [node name="trashbin" parent="Icons" instance=ExtResource("23")]
 position = Vector2(64, 64)
@@ -210,9 +217,9 @@ color = Color(0.27451, 0.27451, 0.27451, 1)
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 16.0
-offset_right = 59.0
-offset_bottom = 30.0
+offset_top = 544.0
+offset_right = 63.0
+offset_bottom = 560.0
 theme_override_fonts/font = ExtResource("6")
 text = "HP: 100"
 
