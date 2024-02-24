@@ -18,6 +18,9 @@ var active_console
 
 var userfiles : Array[Userfile]
 
+func _ready():
+	loadGame()
+
 func makeSaveDict():
 	var saveDict = {
 		"userfiles" : userfiles,

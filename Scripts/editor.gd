@@ -14,4 +14,5 @@ func pause(b:bool):
 
 func _on_save_button_pressed():
 	file.content = code.text
+	global.saveGame()
 	pass # Replace with function body.

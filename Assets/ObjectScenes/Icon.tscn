@@ -111,10 +111,12 @@ flat = true
 offset_left = -32.0
 offset_top = 16.0
 offset_right = 32.0
-offset_bottom = 40.0
+offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("4")
 text = "Label"
 horizontal_alignment = 1
+autowrap_mode = 1
+clip_text = true
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="timeout" from="doubleclickTimer" to="." method="_on_doubleclickTimer_timeout"]
