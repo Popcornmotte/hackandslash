@@ -1,236 +1,209 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=22 format=3 uid="uid://bfv4mwh7ybch1"]
 
-[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/gamma0.png" type="Texture2D" id=1]
-[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/delta0.png" type="Texture2D" id=2]
-[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/alpha1.png" type="Texture2D" id=3]
-[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/alpha0.png" type="Texture2D" id=4]
-[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/beta1.png" type="Texture2D" id=5]
-[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/beta0.png" type="Texture2D" id=6]
-[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/gamma1.png" type="Texture2D" id=7]
-[ext_resource path="res://Assets/Sprites/HackingGames/cannonGameBG.png" type="Texture2D" id=8]
-[ext_resource path="res://Assets/Sprites/HackingGames/simonSays/delta1.png" type="Texture2D" id=9]
-[ext_resource path="res://Assets/Sprites/Windows/button.png" type="Texture2D" id=10]
-[ext_resource path="res://Assets/Sprites/Windows/buttonPressed.png" type="Texture2D" id=11]
-[ext_resource path="res://Assets/Fonts/standartx16.tres" type="FontFile" id=12]
-[ext_resource path="res://Scripts/SimonSays.gd" type="Script" id=13]
+[ext_resource type="Texture2D" uid="uid://cvu2am3jsgdli" path="res://Assets/Sprites/HackingGames/simonSays/gamma0.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dm317gncnr1lg" path="res://Assets/Sprites/HackingGames/simonSays/delta0.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cuskx4o2os8qe" path="res://Assets/Sprites/HackingGames/simonSays/alpha1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://rsth0cy77b4r" path="res://Assets/Sprites/HackingGames/simonSays/alpha0.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://crbsn4p18p0tj" path="res://Assets/Sprites/HackingGames/simonSays/beta1.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dsbm6cfrhs38c" path="res://Assets/Sprites/HackingGames/simonSays/beta0.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cjkwf7lhw6d12" path="res://Assets/Sprites/HackingGames/simonSays/gamma1.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://p1b1pl73c8h2" path="res://Assets/Sprites/HackingGames/cannonGameBG.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://dmcoi8w8ikcuj" path="res://Assets/Sprites/HackingGames/simonSays/delta1.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://c3r47f5wsut8n" path="res://Assets/Sprites/Windows/button.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://boq1q7wcg01ou" path="res://Assets/Sprites/Windows/buttonPressed.png" id="11"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/standartx16.tres" id="12"]
+[ext_resource type="Script" path="res://Scripts/SimonSays.gd" id="13"]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 3 ) ],
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
 "loop": true,
-"name": "1",
+"name": &"0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
 "loop": true,
-"name": "0",
+"name": &"1",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 5 ) ],
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}],
 "loop": true,
-"name": "1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "1",
+"name": &"0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5")
+}],
 "loop": true,
-"name": "0",
+"name": &"1",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 9 ) ],
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}],
 "loop": true,
-"name": "1",
+"name": &"0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
 "loop": true,
-"name": "0",
+"name": &"1",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 10 )
-region_rect = Rect2( 5, 5, 22, 22 )
-offset_left = 1.49475
-offset_right = 2.15908
-offset_top = 1.32867
-offset_bottom = 2.32517
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}]
 
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 11 )
-region_rect = Rect2( 5, 5, 22, 22 )
-offset_left = 2.32517
-offset_right = 2.32517
-offset_top = 2.49125
-offset_bottom = 2.32517
+[sub_resource type="StyleBoxTexture" id="5"]
+texture = ExtResource("10")
+region_rect = Rect2(5, 5, 22, 22)
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxTexture" id="6"]
+texture = ExtResource("11")
+region_rect = Rect2(5, 5, 22, 22)
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id="8"]
 
-[sub_resource type="StyleBoxFlat" id=9]
-bg_color = Color( 0, 1, 0, 1 )
-
-[sub_resource type="StyleBoxFlat" id=10]
-bg_color = Color( 0.501961, 0.501961, 0.501961, 1 )
-
-[sub_resource type="StyleBoxFlat" id=11]
-bg_color = Color( 1, 0, 0, 1 )
+[sub_resource type="StyleBoxEmpty" id="7"]
 
 [node name="Game" type="MarginContainer"]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("13")
 
 [node name="Box" type="NinePatchRect" parent="."]
-offset_right = 1024.0
-offset_bottom = 600.0
-texture = ExtResource( 8 )
+layout_mode = 2
+texture = ExtResource("8")
 patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
 [node name="alpha" type="Button" parent="Box"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 128.0
 offset_right = 80.0
 offset_bottom = 192.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="icon" type="AnimatedSprite2D" parent="Box/alpha"]
-position = Vector2( 32, 32 )
-scale = Vector2( 4, 4 )
-frames = SubResource( 1 )
-animation = "0"
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("1")
+animation = &"0"
 
 [node name="beta" type="Button" parent="Box"]
+layout_mode = 0
 offset_left = 96.0
 offset_top = 128.0
 offset_right = 160.0
 offset_bottom = 192.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="icon" type="AnimatedSprite2D" parent="Box/beta"]
-position = Vector2( 32, 32 )
-scale = Vector2( 4, 4 )
-frames = SubResource( 2 )
-animation = "0"
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("2")
+animation = &"0"
 
 [node name="gamma" type="Button" parent="Box"]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 128.0
 offset_right = 240.0
 offset_bottom = 192.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="icon" type="AnimatedSprite2D" parent="Box/gamma"]
-position = Vector2( 32, 32 )
-scale = Vector2( 4, 4 )
-frames = SubResource( 3 )
-animation = "0"
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("3")
+animation = &"0"
 
 [node name="delta" type="Button" parent="Box"]
+layout_mode = 0
 offset_left = 256.0
 offset_top = 128.0
 offset_right = 320.0
 offset_bottom = 192.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="icon" type="AnimatedSprite2D" parent="Box/delta"]
-position = Vector2( 32, 32 )
-scale = Vector2( 4, 4 )
-frames = SubResource( 4 )
-animation = "0"
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(32, 32)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("4")
+animation = &"0"
 
 [node name="start" type="Button" parent="Box"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 72.0
 offset_right = 256.0
 offset_bottom = 112.0
-theme_override_styles/hover = SubResource( 5 )
-theme_override_styles/pressed = SubResource( 6 )
-theme_override_styles/focus = SubResource( 7 )
-theme_override_styles/disabled = SubResource( 8 )
-theme_override_styles/normal = SubResource( 5 )
-theme_override_fonts/font = ExtResource( 12 )
-theme_override_colors/font_disabled_color = Color( 0, 0, 0, 1 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
-theme_override_colors/font_hover_color = Color( 0, 0, 0, 1 )
-theme_override_colors/font_pressed_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12")
+theme_override_styles/normal = SubResource("5")
+theme_override_styles/hover = SubResource("5")
+theme_override_styles/pressed = SubResource("6")
+theme_override_styles/disabled = SubResource("8")
+theme_override_styles/focus = SubResource("7")
 text = "Are you human?"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Progress" type="ProgressBar" parent="Box"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 24.0
 offset_right = 256.0
 offset_bottom = 48.0
-theme_override_styles/fg = SubResource( 9 )
-theme_override_styles/bg = SubResource( 10 )
 max_value = 6.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Countdown" type="ProgressBar" parent="Box"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 232.0
 offset_right = 256.0
 offset_bottom = 256.0
-theme_override_styles/fg = SubResource( 11 )
-theme_override_styles/bg = SubResource( 10 )
 max_value = 5.0
 value = 5.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
 [connection signal="button_down" from="Box/alpha" to="." method="_on_alpha_button_down"]
 [connection signal="button_up" from="Box/alpha" to="." method="_on_alpha_button_up"]
 [connection signal="button_down" from="Box/beta" to="." method="_on_beta_button_down"]

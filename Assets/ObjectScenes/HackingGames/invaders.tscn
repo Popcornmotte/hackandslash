@@ -1,107 +1,124 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=20 format=3 uid="uid://c6x2tnsdl8qh4"]
 
-[ext_resource path="res://Assets/Sprites/HackingGames/directionalKey0.png" type="Texture2D" id=1]
-[ext_resource path="res://Assets/Sprites/HackingGames/cannonBase.png" type="Texture2D" id=2]
-[ext_resource path="res://Assets/Sprites/HackingGames/cannonGameBG.png" type="Texture2D" id=3]
-[ext_resource path="res://Assets/Sprites/HackingGames/directionalKey1.png" type="Texture2D" id=4]
-[ext_resource path="res://Assets/Sprites/HackingGames/cannonBarrel.png" type="Texture2D" id=5]
-[ext_resource path="res://Assets/Sprites/HackingGames/spaceBar0.png" type="Texture2D" id=6]
-[ext_resource path="res://Assets/Sprites/HackingGames/spaceBar1.png" type="Texture2D" id=7]
-[ext_resource path="res://Scripts/InvadersCannon.gd" type="Script" id=8]
-[ext_resource path="res://Scripts/invaderGame.gd" type="Script" id=10]
-[ext_resource path="res://Assets/Sprites/HackingGames/bulletCounter0.png" type="Texture2D" id=11]
-[ext_resource path="res://Assets/Sprites/HackingGames/bulletCounter1.png" type="Texture2D" id=12]
-[ext_resource path="res://Assets/Sprites/HackingGames/bulletCounter2.png" type="Texture2D" id=13]
-[ext_resource path="res://Assets/Sprites/HackingGames/bulletCounter3.png" type="Texture2D" id=14]
+[ext_resource type="Texture2D" uid="uid://8idt4o3lf0rc" path="res://Assets/Sprites/HackingGames/directionalKey0.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://ca2snr7e2kgrm" path="res://Assets/Sprites/HackingGames/cannonBase.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://p1b1pl73c8h2" path="res://Assets/Sprites/HackingGames/cannonGameBG.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://8edhj0ld37ae" path="res://Assets/Sprites/HackingGames/directionalKey1.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://8eam54has6rv" path="res://Assets/Sprites/HackingGames/cannonBarrel.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cjxo7v41fv1ou" path="res://Assets/Sprites/HackingGames/spaceBar0.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cm6mn0npcp6e4" path="res://Assets/Sprites/HackingGames/spaceBar1.png" id="7"]
+[ext_resource type="Script" path="res://Scripts/InvadersCannon.gd" id="8"]
+[ext_resource type="Script" path="res://Scripts/invaderGame.gd" id="10"]
+[ext_resource type="Texture2D" uid="uid://dv8fbgfxnawmd" path="res://Assets/Sprites/HackingGames/bulletCounter0.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://d2m7o3vtbjok4" path="res://Assets/Sprites/HackingGames/bulletCounter1.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://sfnjhwa0j5ek" path="res://Assets/Sprites/HackingGames/bulletCounter2.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://u3724qxl1h7j" path="res://Assets/Sprites/HackingGames/bulletCounter3.png" id="14"]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 4 ) ],
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 1.0
-} ]
+}]
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 1.0
-} ]
+}]
 
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 12 ) ],
+[sub_resource type="SpriteFrames" id="3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11")
+}],
 "loop": true,
-"name": "1",
+"name": &"0",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12")
+}],
 "loop": true,
-"name": "2",
+"name": &"1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13")
+}],
 "loop": true,
-"name": "3",
+"name": &"2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14")
+}],
 "loop": true,
-"name": "0",
+"name": &"3",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 16, 176 )
+[sub_resource type="RectangleShape2D" id="4"]
+size = Vector2(32, 352)
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 16, 176 )
+[sub_resource type="RectangleShape2D" id="5"]
+size = Vector2(32, 352)
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 200, 24 )
+[sub_resource type="RectangleShape2D" id="6"]
+size = Vector2(400, 48)
 
 [node name="InvadersGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("10")
 
 [node name="GameBox" type="NinePatchRect" parent="."]
+layout_mode = 0
 offset_right = 368.0
 offset_bottom = 336.0
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 16, 16 )
+texture = ExtResource("3")
+region_rect = Rect2(0, 0, 16, 16)
 patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 3
 patch_margin_bottom = 2
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [node name="Barrel" type="Sprite2D" parent="GameBox"]
-position = Vector2( 184, 280 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 5 )
-offset = Vector2( 0, -8 )
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(184, 280)
+scale = Vector2(2, 2)
+texture = ExtResource("5")
+offset = Vector2(0, -8)
+script = ExtResource("8")
 
 [node name="SpawnPos" type="Marker2D" parent="GameBox/Barrel"]
-position = Vector2( 0, -16 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(0, -16)
 
 [node name="Base" type="TextureRect" parent="GameBox"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -111,69 +128,47 @@ offset_top = -82.0
 offset_right = 20.0
 offset_bottom = -42.0
 mouse_filter = 2
-texture = ExtResource( 2 )
+texture = ExtResource("2")
 stretch_mode = 1
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [node name="RightArrow" type="AnimatedSprite2D" parent="GameBox"]
-position = Vector2( 240, 312 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 1 )
+position = Vector2(240, 312)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("1")
 frame = 1
-playing = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="LeftArrow" type="AnimatedSprite2D" parent="GameBox"]
-position = Vector2( 128, 312 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 1 )
+position = Vector2(128, 312)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("1")
 frame = 1
-playing = true
 flip_h = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="SpaceBar" type="AnimatedSprite2D" parent="GameBox"]
-position = Vector2( 184, 312 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 2 )
-playing = true
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(184, 312)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("2")
 
 [node name="BulletCounter" type="AnimatedSprite2D" parent="GameBox"]
-position = Vector2( 352, 304 )
-scale = Vector2( 2, 2 )
-frames = SubResource( 3 )
-animation = "3"
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2(352, 304)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("3")
+animation = &"3"
 
 [node name="leftWall" type="Area2D" parent="GameBox"]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBox/leftWall"]
-position = Vector2( -16, 160 )
-shape = SubResource( 4 )
+position = Vector2(-16, 160)
+shape = SubResource("4")
 
 [node name="rightWall" type="Area2D" parent="GameBox"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBox/rightWall"]
-position = Vector2( 384, 160 )
-shape = SubResource( 5 )
+position = Vector2(384, 160)
+shape = SubResource("5")
 
 [node name="borromWall" type="Area2D" parent="GameBox"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBox/borromWall"]
-position = Vector2( 192, 360 )
-shape = SubResource( 6 )
+position = Vector2(192, 360)
+shape = SubResource("6")

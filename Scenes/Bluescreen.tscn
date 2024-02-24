@@ -1,45 +1,53 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://bmi6ndvgu0n5v"]
 
-[ext_resource path="res://Scripts/Bluescreen.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Fonts/standartx16.tres" type="FontFile" id=2]
-[ext_resource path="res://Assets/Sprites/debug.png" type="Texture2D" id=3]
-[ext_resource path="res://crt_material.tres" type="Material" id=4]
-[ext_resource path="res://Assets/Sprites/icons/blue.png" type="Texture2D" id=5]
+[ext_resource type="Script" path="res://Scripts/Bluescreen.gd" id="1"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/standartx16.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://dubhx7dnnb4rl" path="res://Assets/Sprites/debug.png" id="3"]
+[ext_resource type="Material" uid="uid://dqpcs0kpyuw5q" path="res://crt_material.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://o1dytu8sb42w" path="res://Assets/Sprites/icons/blue.png" id="5"]
 
 [node name="Bluescreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
 
 [node name="Polygon2D" type="Sprite2D" parent="."]
-position = Vector2( 548, 316 )
-scale = Vector2( 35.25, 20.75 )
 z_index = -1
 z_as_relative = false
-texture = ExtResource( 5 )
+position = Vector2(548, 316)
+scale = Vector2(35.25, 20.75)
+texture = ExtResource("5")
 
 [node name="CRTShader" type="Sprite2D" parent="."]
-material = ExtResource( 4 )
-position = Vector2( 512, 300 )
-scale = Vector2( 32, 18.75 )
-texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
+material = ExtResource("4")
+position = Vector2(512, 300)
+scale = Vector2(32, 18.75)
+texture = ExtResource("3")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
 offset_top = 24.0
 offset_right = -16.0
 offset_bottom = -16.0
-theme_override_fonts/normal_font = ExtResource( 2 )
-text = "Test"
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+theme_override_fonts/normal_font = ExtResource("2")
+text = "A problem has been detected and DOORS_OS has decided to shutdown to prevent further damage.
+
+All your personal files have probably been lost or been stolen by whoever or whatever caused this catastrophic system failure.
+Follow these steps:
+
+1. Reboot
+2. git gud
+
+If your system should not reboot successfully or display this message again, you can buy a fresh copy
+of DOORS_OS for a discounted price of just $255.99
+If you are unhappy with your DOORS_OS or other services provided by the Macrohard Corporation, 
+please don't complain as there are no customer services available right now.
+
+Press Alt+F4"

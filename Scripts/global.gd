@@ -1,7 +1,9 @@
 extends Node
 
+const SAVEFILE_NAME = "projectHackSlash.save"
 
 const MAXRAM = 16
+const MAXSTORAGE = 12 #MB?
 var username = "not_found"
 var hp = 100
 var ram = 0
@@ -14,46 +16,76 @@ var pinny
 var focusedWindow = null
 var active_console
 
-func checkRam(r):
-	if(ram+r <= MAXRAM):
-		return true
+var userfiles : Array[Userfile]
+
+func makeSaveDict():
+	var saveDict = {
+		"userfiles" : userfiles,
+		"username" : username,
+	}
+	return saveDict
+
+func saveGame():
+	var file = FileAccess.open_encrypted_with_pass(SAVEFILE_NAME, FileAccess.WRITE, "superorganism")
+	file.store_string(JSON.stringify(makeSaveDict()))
+	file.close()
+
+#param(dict): the JSON dictionary object returned parsed from saveFile
+#param(value): the Global variable that should be set to the data from the savefile
+#param(data): the data name to be fetched from the json dict
+func loadDataFromDictSafe(dict, value, data : String):
+	var temp = dict.get(data)
+	if(temp != null):
+		return temp
 	else:
-		return false
+		printerr("[Global.loadDataFromDictSafe] dict.get("+data+") returned null")
+		return value
 
-func dmg(arg): #arg-format beispiel: "http:2"
-	var args = arg.split(":")
-	match args[0]:
-		"http":
-			var dmg = (4*int(args[1])+6)-firewall.httpRam*4
-			if dmg >= 0:
-				hp -= dmg
-		"ssh":
-			var dmg = (4*int(args[1])+6)-firewall.sshRam*4
-			if dmg >= 0:
-				hp -= dmg
-		"ftp":
-			var dmg = (4*int(args[1])+6)-firewall.ftpRam*4
-			if dmg >= 0:
-				hp -= dmg
-	pinny.updateVis(hp)
-	if hp <= 0:
-		crash()
-
-func sendDmg(arg):
-	Network.sendText("dmg",arg)
-
-func sendSpam(sec):
-	var amount = 3
-	if sec < 2:
-		amount+=3
-	elif sec < 4:
-		amount+=1
+func loadGame():
+	if FileAccess.file_exists(SAVEFILE_NAME):
+		var file = FileAccess.open_encrypted_with_pass(SAVEFILE_NAME, FileAccess.READ, "superorganism")
+		#file.open(FILE_NAME, File.READ)
+		var dict = JSON.parse_string(file.get_as_text())
+		#var data = parse_json(file.get_as_text())
+		file.close()
+		if typeof(dict) == TYPE_DICTIONARY:
+			userfiles = loadDataFromDictSafe(dict, userfiles, "userfiles")
+			username = loadDataFromDictSafe(dict,username,"username")
+			#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(masterVolume))
+			#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(musicVolume))
+			#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Effects"), linear_to_db(effectsVolume))
+		else:
+			printerr("Corrupted data!")
 	else:
-		amount+=0
-	Network.sendText("spam",str(amount))
+		saveGame();
+		printerr("No saved data!")
 
-func sendTip(port):
-	Network.sendText("tip",port)
+func newFile(title : String) -> bool:
+	for file in userfiles:
+		if title == file.title:
+			return false
+	userfiles.append(Userfile.new(title))
+	desktop.addIcon(userfiles.size()-1)
+	return true
+
+func removeFile(title : String)->bool:
+	var index = -1
+	var ret = false
+	for file in global.userfiles:
+		index += 1
+		if file.title == title:
+			global.userfiles.remove_at(index)
+			ret = true
+			break
+	if(ret):
+		desktop.removeIcon(title)
+	return ret
+
+func getFile(title : String):
+	for file in userfiles:
+		if file.title == title:
+			return file
+	return null
 
 func win():
 	desktop.win()

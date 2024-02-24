@@ -8,12 +8,12 @@ var text
 const FILEPATH = "res://Data/bluescreen.txt"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Network.sendText("youwon","")
+	#Network.sendText("youwon","")
 	Audio.playSfx(load("res://Assets/Sounds/XP_dying.wav"))
-	var file = File.new()
-	assert(file.file_exists(FILEPATH))
-	file.open(FILEPATH, file.READ);
-	text = file.get_as_text()
+	#var file = File.new()
+	#assert(file.file_exists(FILEPATH))
+	#file.open(FILEPATH, file.READ);
+	#text = file.get_as_text()
 	$RichTextLabel.text =text
 	pass # Replace with function body.
 

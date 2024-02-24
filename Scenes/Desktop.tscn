@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://txgt6vuive07" path="res://Assets/Sprites/Windows/StarMenuButtons/Find2.png" id="18"]
 [ext_resource type="Texture2D" uid="uid://b7xpbto5xo03e" path="res://Assets/Sprites/Windows/StarMenuButtons/Help2.png" id="19"]
 [ext_resource type="Texture2D" uid="uid://c2amuxsqxx57n" path="res://Assets/Sprites/Windows/StarMenuButtons/Help1.png" id="20"]
-[ext_resource type="PackedScene" path="res://Assets/ObjectScenes/Icon.tscn" id="23"]
+[ext_resource type="PackedScene" uid="uid://c2m0k61bjiyr3" path="res://Assets/ObjectScenes/Icon.tscn" id="23"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
 bg_color = Color(0, 0, 0, 1)
@@ -164,48 +164,18 @@ texture_hover = ExtResource("10")
 
 [node name="Icons" type="Node2D" parent="."]
 z_index = -2
-position = Vector2(0, 192)
+position = Vector2(64, 320)
 
 [node name="trashbin" parent="Icons" instance=ExtResource("23")]
-position = Vector2(64, 64)
+position = Vector2(0, -64)
 PROGRAM = "res://Assets/ObjectScenes/trash.tscn"
 title = "trash"
 
 [node name="console" parent="Icons" instance=ExtResource("23")]
-position = Vector2(64, 128)
+position = Vector2(64, -64)
 icon = "console"
 PROGRAM = "res://Assets/ObjectScenes/console.tscn"
 title = "console"
-
-[node name="SSH_Invader" parent="Icons" instance=ExtResource("23")]
-position = Vector2(144, 64)
-icon = "ssh"
-PROGRAM = "res://Assets/ObjectScenes/HackingGames/invaders.tscn"
-title = "SSH_Invader"
-
-[node name="HTTP_WORM" parent="Icons" instance=ExtResource("23")]
-position = Vector2(64, 192)
-icon = "http"
-PROGRAM = "res://Assets/ObjectScenes/HackingGames/CircleMatching/CircleMatch.tscn"
-title = "HTTP_WORM"
-
-[node name="ftpBoom" parent="Icons" instance=ExtResource("23")]
-position = Vector2(144, 128)
-icon = "ftp"
-PROGRAM = "res://Assets/ObjectScenes/HackingGames/SimonSays.tscn"
-title = "FTP_BOOM"
-
-[node name="spam" parent="Icons" instance=ExtResource("23")]
-position = Vector2(64, 256)
-icon = "spam"
-PROGRAM = "res://Assets/ObjectScenes/adSpam.tscn"
-title = "AdSPAM"
-
-[node name="Radar" parent="Icons" instance=ExtResource("23")]
-position = Vector2(144, 192)
-icon = "radar"
-PROGRAM = "res://Assets/ObjectScenes/HackRadar.tscn"
-title = "HackRadar"
 
 [node name="winPos" type="Marker2D" parent="."]
 position = Vector2(256, 100)

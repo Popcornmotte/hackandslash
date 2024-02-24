@@ -1,30 +1,36 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://bcwa2013ry17u"]
 
-[ext_resource path="res://Assets/Sprites/HackingGames/enemy0.png" type="Texture2D" id=1]
-[ext_resource path="res://Assets/Sprites/HackingGames/enemy1.png" type="Texture2D" id=2]
-[ext_resource path="res://Scripts/InvadersInvader.gd" type="Script" id=3]
+[ext_resource type="Texture2D" uid="uid://0yrjt6ovhq1t" path="res://Assets/Sprites/HackingGames/enemy0.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cfy0sb42nyppy" path="res://Assets/Sprites/HackingGames/enemy1.png" id="2"]
+[ext_resource type="Script" path="res://Scripts/InvadersInvader.gd" id="3"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(16, 16)
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 1.0
-} ]
+}]
 
 [node name="Invader" type="Area2D"]
-scale = Vector2( 2, 2 )
+scale = Vector2(2, 2)
 collision_layer = 2147483650
 collision_mask = 5
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource("1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = SubResource( 2 )
-playing = true
+sprite_frames = SubResource("2")
+
 [connection signal="area_entered" from="." to="." method="_on_Invader_area_entered"]

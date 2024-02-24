@@ -67,6 +67,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2")
 theme_override_styles/normal = ExtResource("4")
 theme_override_styles/read_only = ExtResource("4")
+selecting_enabled = false
 secret = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect"]

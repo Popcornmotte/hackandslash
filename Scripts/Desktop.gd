@@ -4,7 +4,8 @@ extends Control
 var heavyClick = preload("res://Assets/Sounds/heavyClick.wav")
 var time
 var jingle = preload("res://Assets/Sounds/loginJingle0.wav")
-var wincount = 0 
+var wincount = 0
+const ICON = preload("res://Assets/ObjectScenes/Icon.tscn") 
 const WINDOW = preload("res://Assets/ObjectScenes/window.tscn")
 const zeroPos = Vector2(256,100)
 
@@ -12,7 +13,7 @@ func _ready():
 	global.desktop = self
 	$CRTShader.show()
 	Audio.playSfx(jingle)
-	Input.set_custom_mouse_cursor(load("res://Assets/Sprites/mouse.png"),Input.CURSOR_ARROW)
+	#Input.set_custom_mouse_cursor(load("res://Assets/Sprites/mouse.png"),Input.CURSOR_ARROW)
 	pass
 
 func getpos():
@@ -35,6 +36,29 @@ func _process(delta):
 #	if Input.is_action_just_pressed("ui_focus_next"):
 #		win()
 	pass
+
+func addIcon(index):
+	var icon = ICON.instantiate()
+	icon.title = global.userfiles[index].title
+	icon.name = icon.title
+	icon.icon = "file"
+	icon.PROGRAM = "res://Assets/ObjectScenes/editor.tscn"
+	$Icons.add_child(icon)
+	icon.global_position = Vector2($Icons.global_position.x+(index%3)*64,$Icons.global_position.y+floor(index/3)*64)
+
+#this is called by removeFile in global
+func removeIcon(title : String):
+	#remove Icon of a deleted file
+	for child in $Icons.get_children():
+		if child.title == title:
+			child.queue_free()
+			break
+	#rearrange icons by new indices
+	for i in range(global.userfiles.size()):
+		var t = global.userfiles[i].title
+		for child in $Icons.get_children():
+			if child.title == t:
+				child.global_position = Vector2($Icons.global_position.x+(i%3)*64,$Icons.global_position.y+floor(i/3)*64)
 
 func spamAds(amount):
 	for i in amount:

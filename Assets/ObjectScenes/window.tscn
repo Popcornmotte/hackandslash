@@ -1,84 +1,99 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://dpumiiqupmqkm"]
 
-[ext_resource path="res://Assets/Fonts/standartx16.tres" type="FontFile" id=1]
-[ext_resource path="res://Assets/Sprites/Windows/windowInner.png" type="Texture2D" id=2]
-[ext_resource path="res://Assets/Sprites/Windows/window.png" type="Texture2D" id=3]
-[ext_resource path="res://Assets/Sprites/Windows/smolButton.png" type="Texture2D" id=4]
-[ext_resource path="res://Assets/Sprites/Windows/smolButtonPressed.png" type="Texture2D" id=5]
-[ext_resource path="res://Scripts/window.gd" type="Script" id=6]
+[ext_resource type="FontFile" path="res://Assets/Fonts/standartx16.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://qp26crfcuni" path="res://Assets/Sprites/Windows/windowInner.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://iu24u1ag0bpm" path="res://Assets/Sprites/Windows/window.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bid1ogqsvaisl" path="res://Assets/Sprites/Windows/smolButton.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://lqoviodq1vii" path="res://Assets/Sprites/Windows/smolButtonPressed.png" id="5"]
+[ext_resource type="Script" path="res://Scripts/window.gd" id="6"]
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxEmpty" id="1"]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id="2"]
 
 [node name="window" type="Node2D"]
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [node name="OuterFrame" type="NinePatchRect" parent="."]
 offset_right = 400.0
 offset_bottom = 384.0
-texture = ExtResource( 3 )
+texture = ExtResource("3")
 patch_margin_left = 3
 patch_margin_top = 21
 patch_margin_right = 3
 patch_margin_bottom = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ProgramName" type="Label" parent="OuterFrame"]
+layout_mode = 0
 offset_left = 3.71023
 offset_top = 3.89202
 offset_right = 44.7102
 offset_bottom = 19.892
-theme_override_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("1")
 text = "Debug"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="CloseButton" type="TextureButton" parent="OuterFrame"]
+[node name="MinimizeButton" type="TextureButton" parent="OuterFrame"]
+layout_mode = 1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -20.671
-offset_top = 4.71063
-offset_right = -4.67096
-offset_bottom = 18.7106
+offset_left = -44.0
+offset_top = 4.0
+offset_right = -28.0
+offset_bottom = 18.0
+grow_horizontal = 0
 focus_mode = 0
+texture_normal = ExtResource("4")
+texture_pressed = ExtResource("5")
+
+[node name="_" type="Label" parent="OuterFrame/MinimizeButton"]
+layout_mode = 0
+offset_top = -4.0
+offset_right = 16.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1")
+text = " _
+"
+
+[node name="CloseButton" type="TextureButton" parent="OuterFrame"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = 4.0
+offset_right = -7.99997
+offset_bottom = 18.0
+grow_horizontal = 0
 focus_mode = 0
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture_normal = ExtResource("4")
+texture_pressed = ExtResource("5")
 
 [node name="X" type="Label" parent="OuterFrame/CloseButton"]
+layout_mode = 0
 offset_right = 15.0
 offset_bottom = 16.0
-theme_override_fonts/font = ExtResource( 1 )
-theme_override_colors/font_color = Color( 0, 0, 0, 1 )
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1")
 text = " X"
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="InnerFrame" type="NinePatchRect" parent="OuterFrame"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 24.0
 offset_right = -8.0
 offset_bottom = -8.0
-texture = ExtResource( 2 )
+texture = ExtResource("2")
 patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="WindowContent" type="MarginContainer" parent="OuterFrame/InnerFrame"]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
@@ -86,20 +101,14 @@ offset_top = 8.0
 offset_right = -8.0
 offset_bottom = -8.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button" type="Button" parent="OuterFrame"]
-offset_right = 376.0
+layout_mode = 0
+offset_right = 352.0
 offset_bottom = 24.0
 focus_mode = 0
-theme_override_styles/focus = SubResource( 1 )
-focus_mode = 0
+theme_override_styles/focus = SubResource("1")
 flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="focusField" type="Button" parent="."]
 visible = false
@@ -107,13 +116,11 @@ offset_top = 24.0
 offset_right = 400.0
 offset_bottom = 384.0
 focus_mode = 0
-theme_override_styles/focus = SubResource( 2 )
-focus_mode = 0
+theme_override_styles/focus = SubResource("2")
 flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
 [connection signal="gui_input" from="OuterFrame" to="." method="_on_OuterFrame_gui_input"]
+[connection signal="pressed" from="OuterFrame/MinimizeButton" to="." method="_on_minimize_button_pressed"]
 [connection signal="pressed" from="OuterFrame/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="button_down" from="OuterFrame/Button" to="." method="_on_Button_button_down"]
 [connection signal="button_up" from="OuterFrame/Button" to="." method="_on_Button_button_up"]

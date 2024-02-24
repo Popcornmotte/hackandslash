@@ -14,6 +14,7 @@ func _ready():
 	if arr.size() >= 3:
 		global.username = arr[2]
 	$NinePatchRect/Username.text = global.username
+	$NinePatchRect/Password.grab_focus()
 	pass # Replace with function body.
 
 

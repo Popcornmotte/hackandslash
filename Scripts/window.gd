@@ -8,7 +8,7 @@ var dragging = false
 var pos : Vector2
 var content
 var CONTENT 
-var icon = "trashbin"
+var icon = "file"
 const MINIICON = preload("res://Assets/ObjectScenes/miniIcon.tscn")
 var miniIcon
 @export var ad = false
@@ -32,9 +32,11 @@ func _ready():
 		loadContent(testScene)
 	pass # Replace with function body.
 
-func loadContent(c : String):
+func loadContent(c : String, title = ""):
 	CONTENT = load(c)
 	content = CONTENT.instantiate()
+	if content.name == "editor":
+		content.file = global.getFile(title)
 	$OuterFrame/InnerFrame/WindowContent.add_child(content)
 
 func setTitle(title):
@@ -65,7 +67,7 @@ func close():
 	get_parent().wincount -= 1
 	miniIcon.kill()
 	#if isRadar:
-	global.ram -= $OuterFrame/InnerFrame/WindowContent.get_child(0).allocatedRam
+	#global.ram -= $OuterFrame/InnerFrame/WindowContent.get_child(0).allocatedRam
 	queue_free()
 	
 
@@ -81,7 +83,15 @@ func pauseContent(b:bool):
 		else:
 			$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(false)
 	pass
-	
+
+func minimize(b : bool):
+	if b:
+		pauseContent(true)
+		hide()
+	else:
+		pauseContent(false)
+		show()
+
 func _on_Button_button_down():
 	#raise()
 	get_viewport().set_input_as_handled()
@@ -151,3 +161,8 @@ func _on_CloseButton_pressed():
 
 
 
+
+
+func _on_minimize_button_pressed():
+	minimize(true)
+	pass # Replace with function body.

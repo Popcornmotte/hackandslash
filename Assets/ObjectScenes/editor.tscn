@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj4r66lunaphl"]
+
+[ext_resource type="Script" path="res://Scripts/editor.gd" id="1_b8vl0"]
+[ext_resource type="Texture2D" uid="uid://cn8u1m8wa6ssp" path="res://Assets/Sprites/black.png" id="2_84ck6"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/standartx16.tres" id="3_2bqgu"]
+[ext_resource type="StyleBox" uid="uid://c7goxkkmtdbmt" path="res://Styles/ButtonNormal.tres" id="3_dse5b"]
+[ext_resource type="StyleBox" uid="uid://dbrqkp0ditsj" path="res://Styles/ButtonPressed.tres" id="4_lu7h0"]
+
+[sub_resource type="Theme" id="Theme_o6i4n"]
+default_font = ExtResource("3_2bqgu")
+
+[node name="editor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -728.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_b8vl0")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_84ck6")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="CodeEdit" type="CodeEdit" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 296.0
+theme_override_fonts/font = ExtResource("3_2bqgu")
+line_folding = true
+gutters_draw_breakpoints_gutter = true
+gutters_draw_line_numbers = true
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_top = 315.0
+offset_right = 40.0
+offset_bottom = 338.0
+theme_override_fonts/font = ExtResource("3_2bqgu")
+text = "Filename"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_o6i4n")
+theme_override_constants/separation = 16
+
+[node name="SaveButton" type="Button" parent="NinePatchRect/HBoxContainer"]
+layout_mode = 2
+focus_mode = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2bqgu")
+theme_override_styles/normal = ExtResource("3_dse5b")
+theme_override_styles/hover = ExtResource("3_dse5b")
+theme_override_styles/pressed = ExtResource("4_lu7h0")
+theme_override_styles/focus = ExtResource("3_dse5b")
+text = "Save"
+
+[connection signal="pressed" from="NinePatchRect/HBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]

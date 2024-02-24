@@ -23,10 +23,15 @@ func kill():
 
 
 func _on_Button_pressed():
-	if minimized:
-		minimized = false
-		window.show()
-	else:
-		minimized = true
-		window.hide()
-	pass # Replace with function body.
+	if window:
+		if window.visible:
+			window.minimize(true)
+		else:
+			window.minimize(false)
+	#if minimized:
+	#	minimized = false
+	#	window.show()
+	#else:
+	#	minimized = true
+	#	window.hide()
+	#pass # Replace with function body.
