@@ -22,8 +22,17 @@ func _ready():
 	loadGame()
 
 func makeSaveDict():
+	
+	var filenames = Array()
+	var filecontents = Array()
+	
+	for file in userfiles:
+		filenames.append(file.title)
+		filecontents.append(file.content)
+	
 	var saveDict = {
-		"userfiles" : userfiles,
+		"filenames" : filenames,
+		"filecontents" : filecontents,
 		"username" : username,
 	}
 	return saveDict
@@ -51,8 +60,15 @@ func loadGame():
 		var dict = JSON.parse_string(file.get_as_text())
 		#var data = parse_json(file.get_as_text())
 		file.close()
+		
+		var filenames = Array()
+		var filecontents = Array()
+		
 		if typeof(dict) == TYPE_DICTIONARY:
-			userfiles = loadDataFromDictSafe(dict, userfiles, "userfiles")
+			filenames = loadDataFromDictSafe(dict, filenames, "filenames")
+			filecontents = loadDataFromDictSafe(dict, filecontents, "filecontents")
+			for i in range(filenames.size()):
+				userfiles.append(Userfile.new(filenames[i], filecontents[i]))
 			username = loadDataFromDictSafe(dict,username,"username")
 			#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(masterVolume))
 			#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(musicVolume))

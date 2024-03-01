@@ -13,6 +13,10 @@ func _ready():
 	global.desktop = self
 	$CRTShader.show()
 	Audio.playSfx(jingle)
+	
+	#create Icons of files loaded on startup
+	for i in range(global.userfiles.size()):
+		addIcon(i)
 	#Input.set_custom_mouse_cursor(load("res://Assets/Sprites/mouse.png"),Input.CURSOR_ARROW)
 	pass
 
