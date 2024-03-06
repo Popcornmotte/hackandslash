@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b671oso4ny1c2"]
+[gd_scene load_steps=24 format=3 uid="uid://b671oso4ny1c2"]
 
 [ext_resource type="Material" uid="uid://dqpcs0kpyuw5q" path="res://crt_material.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://cqh47leo4p5c" path="res://Assets/Sprites/Wallpaper/remOS.png" id="2_awk8p"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://txgt6vuive07" path="res://Assets/Sprites/Windows/StarMenuButtons/Find2.png" id="18"]
 [ext_resource type="Texture2D" uid="uid://b7xpbto5xo03e" path="res://Assets/Sprites/Windows/StarMenuButtons/Help2.png" id="19"]
 [ext_resource type="Texture2D" uid="uid://c2amuxsqxx57n" path="res://Assets/Sprites/Windows/StarMenuButtons/Help1.png" id="20"]
+[ext_resource type="PackedScene" uid="uid://cpaqiu28vj37q" path="res://Assets/ObjectScenes/drone.tscn" id="22_oow2x"]
 [ext_resource type="PackedScene" uid="uid://c2m0k61bjiyr3" path="res://Assets/ObjectScenes/Icon.tscn" id="23"]
 
 [sub_resource type="StyleBoxFlat" id="1"]
@@ -192,6 +193,12 @@ offset_right = 63.0
 offset_bottom = 560.0
 theme_override_fonts/font = ExtResource("6")
 text = "HP: 100"
+
+[node name="Drones" type="Node" parent="."]
+
+[node name="Drone0" parent="Drones" instance=ExtResource("22_oow2x")]
+position = Vector2(600, 480)
+debug = true
 
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="StartMenu/Buttons/Help" to="." method="_on_Help_pressed"]

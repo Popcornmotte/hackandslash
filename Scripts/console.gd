@@ -108,6 +108,25 @@ func parse(s : String):
 				pass
 				text = "Too few/much arguments!\nUsage:\njoin [IP] [PORT]\n"\
 				+"leave [PORT] empty for default_port"
+		"upload":
+			if cmd.size() == 3:
+				for file in global.userfiles:
+					if file.title == cmd[1]:
+						for drone in global.drones:
+							if drone.id == cmd[2]:
+								drone.loadProgram(file)
+								if drone.errorCode == 0:
+									text = "Program uploaded!"
+								else:
+									if drone.errorCode == 1:
+										text = "line "+str(drone.errorLine)+": Unknown OpCode"
+									if drone.errorCode == 2:
+										text = "line "+str(drone.errorLine)+": Wrong Params"
+								break
+						break
+			else:
+				text = "Wrong number of arguments!\n"
+		
 		"chat":
 			if cmd.size() >= 2:
 				cmd.remove(0)

@@ -14,22 +14,22 @@ func _ready():
 	#set_process_input(true)
 	pass # Replace with function body.
 
-func loadDialogue(filepath) -> Dictionary:
-	var file = File.new()
-	assert(file.file_exists(filepath))
-	file.open(filepath, file.READ);
-#	var file2 = File.new()
-#	file2.open(name, file2.WRITE_READ);
-#	file2.store_string(to_json(file.get_as_text()))
-#	var data = parse_json(file2.get_as_text())
-#	if typeof(data) == TYPE_DICTIONARY:
-#		dialogue = data
-	var test_json_conv = JSON.new()
-	test_json_conv.parse(file.get_as_text())
-	dialogue = test_json_conv.get_data()
-	running = true
-	file.close()
-	return dialogue
+func loadDialogue(filepath):# -> Dictionary:
+	#var file = File.new()
+	#assert(file.file_exists(filepath))
+	#file.open(filepath, file.READ);
+#	#var file2 = File.new()
+#	#file2.open(name, file2.WRITE_READ);
+#	#file2.store_string(to_json(file.get_as_text()))
+#	#var data = parse_json(file2.get_as_text())
+#	#if typeof(data) == TYPE_DICTIONARY:
+#	#	dialogue = data
+	#var test_json_conv = JSON.new()
+	#test_json_conv.parse(file.get_as_text())
+	#dialogue = test_json_conv.get_data()
+	#running = true
+	#file.close()
+	#return dialogue
 	pass
 
 func start(filepath):

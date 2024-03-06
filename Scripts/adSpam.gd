@@ -13,14 +13,14 @@ var paused = false
 var allocatedRam = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	grab_focus()
-	var file = File.new()
-	assert(file.file_exists(FILEPATH))
-	file.open(FILEPATH, file.READ);
-	text = file.get_as_text()
-	$NinePatchRect/Output.text = text
-	$NinePatchRect/Output.visible_characters = 0
-	#$NinePatchRect/Output.scroll_following = true
+	#grab_focus()
+	##var file = File.new()
+	#assert(file.file_exists(FILEPATH))
+	#file.open(FILEPATH, file.READ);
+	#text = file.get_as_text()
+	#$NinePatchRect/Output.text = text
+	#$NinePatchRect/Output.visible_characters = 0
+	##$NinePatchRect/Output.scroll_following = true
 	pass # Replace with function body.
 
 func pause(b:bool):

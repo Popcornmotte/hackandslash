@@ -17,6 +17,7 @@ var focusedWindow = null
 var active_console
 
 var userfiles : Array[Userfile]
+var drones = []
 
 func _ready():
 	loadGame()
@@ -113,6 +114,18 @@ func crash():
 	get_tree().change_scene_to_file("res://Scenes/Bluescreen.tscn")
 	pass
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_right"):
+		get_tree().call_group("Executors", "step")
+	if Input.is_action_just_pressed("ui_up"):
+		if $Timer.is_stopped():
+			$Timer.start(1)
+		else:
+			$Timer.stop()
 
 
 
+
+func _on_timer_timeout():
+	get_tree().call_group("Executors", "step")
+	pass # Replace with function body.
