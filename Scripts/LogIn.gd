@@ -8,11 +8,16 @@ var heavyClick = preload("res://Assets/Sounds/heavyClick.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Input.set_custom_mouse_cursor(load("res://Assets/Sprites/mouse.png"),Input.CURSOR_ARROW)
-	var path = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP)
-	var arr = path.split("\\")
-	if arr.size() >= 3:
-		global.username = arr[2]
+	#make mouse invisibly, so sprite mouse hack works (needed so mouse is affected by shader)
+	Input.set_custom_mouse_cursor(load("res://Assets/Sprites/empty.png"),Input.CURSOR_ARROW)
+	var path = OS.get_system_dir(OS.SYSTEM_DIR_DCIM)
+	var arr = path.split("\\",false)
+	if arr.size() < 2:
+		arr = path.split("/",false)
+	for a in arr:
+		print(a)
+	if arr.size() >= 2:
+		global.username = arr[1]
 	$NinePatchRect/Username.text = global.username
 	$NinePatchRect/Password.grab_focus()
 	pass # Replace with function body.

@@ -8,8 +8,10 @@ extends Node2D
 @export var PROGRAM : String
 @export var doubleClickTime = 0.3
 @export var title : String
+@export var useStaticWindows = true
 var firstClick = false
 var _window = load("res://Assets/ObjectScenes/window.tscn")
+var STATICWINDOW = preload("res://Assets/ObjectScenes/windowStatic.tscn")
 var missing = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -49,7 +51,11 @@ func _on_Button_pressed():
 	if firstClick: #bedeutet der first click war gerade, also jetzt nach dem zweiten wenn true
 		if true:#checkEnoughRam():
 			#global.ram += missing
-			var window = _window.instantiate()
+			var window
+			if useStaticWindows:
+				window = STATICWINDOW.instantiate()
+			else:
+				window = _window.instantiate()
 			window.icon = $AnimatedSprite2D.animation
 			get_parent().get_parent().add_child(window)
 			window.loadContent(PROGRAM,title)

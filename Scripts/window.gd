@@ -11,24 +11,36 @@ var CONTENT
 var icon = "file"
 const MINIICON = preload("res://Assets/ObjectScenes/miniIcon.tscn")
 var miniIcon
-@export var ad = false
 @export var windowName : String
+@export var noDragging = false
 @export var test = false
 @export var testScene : String
-@export var winScreen = false
-@export var isRadar = false
+
+#these two pos need to match with the ones in desktop.gd!!!
+const leftPos = Vector2i(0,0)
+const rightPos= Vector2i(576,0)
+
+var ignorePosCheck = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if !ad && !winScreen:
-		position = get_parent().getpos()
+	if !is_in_group("Windows"):
+		add_to_group("Windows")
 	$OuterFrame/ProgramName.text = windowName
-	miniIcon = MINIICON.instantiate()
-	miniIcon.setWindow(self)
-	miniIcon.setIcon(icon)
-	#print(icon)
-	get_parent().get_node("Taskbar/minimizedWindows").add_child(miniIcon)
-	if test:
+	if noDragging:
+		$OuterFrame/Button.set_disabled(true)
+	if !test:
+		if noDragging:
+			position = get_parent().getpos(true)
+		else:
+			position = get_parent().getpos()
+		miniIcon = MINIICON.instantiate()
+		miniIcon.setWindow(self)
+		miniIcon.setIcon(icon)
+		miniIcon.name = icon
+		#print(icon)
+		get_parent().get_node("Taskbar/minimizedWindows").add_child(miniIcon)
+	else:
 		loadContent(testScene)
 	pass # Replace with function body.
 
@@ -41,8 +53,6 @@ func loadContent(c : String, title = ""):
 
 func setTitle(title):
 	$OuterFrame/ProgramName.text = title
-	if "HackRadar" in title:
-		isRadar = true
 
 func setFocusField(b : bool):
 	if b:
@@ -65,9 +75,8 @@ func _process(delta):
 
 func close():
 	get_parent().wincount -= 1
-	miniIcon.kill()
-	#if isRadar:
-	#global.ram -= $OuterFrame/InnerFrame/WindowContent.get_child(0).allocatedRam
+	if !test:
+		miniIcon.kill()
 	queue_free()
 	
 
@@ -76,19 +85,23 @@ func _input(event):
 	pass
 	
 func pauseContent(b:bool):
-	if !winScreen:
-		if b:
-			$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(true)
-			#print("wuhuu")
-		else:
-			$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(false)
+	if b:
+		$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(true)
+		#print("wuhuu")
+	else:
+		$OuterFrame/InnerFrame/WindowContent.get_child(0).pause(false)
 	pass
 
 func minimize(b : bool):
 	if b:
+		miniIcon.minimized = true
 		pauseContent(true)
 		hide()
 	else:
+		miniIcon.minimized = false
+		ignorePosCheck = true
+		get_tree().call_group("Windows","staticWindowPosCheck",Vector2i(position))
+		ignorePosCheck = false
 		pauseContent(false)
 		show()
 
@@ -159,10 +172,29 @@ func _on_CloseButton_pressed():
 #				get_tree().set_input_as_handled()
 #	pass # Replace with function body.
 
-
-
+#to be called on group when changing between the two possible pos of staticWindows
+func staticWindowPosCheck(pos : Vector2i):
+	if ignorePosCheck: return
+	if Vector2i(position) == pos:
+		minimize(true)
 
 
 func _on_minimize_button_pressed():
 	minimize(true)
+	pass # Replace with function body.
+
+
+func _on_left_button_pressed():
+	position = leftPos
+	ignorePosCheck = true
+	get_tree().call_group("Windows","staticWindowPosCheck",leftPos)
+	ignorePosCheck = false
+	pass # Replace with function body.
+
+
+func _on_right_button_pressed():
+	position = rightPos
+	ignorePosCheck = true
+	get_tree().call_group("Windows","staticWindowPosCheck",rightPos)
+	ignorePosCheck = false
 	pass # Replace with function body.

@@ -35,12 +35,29 @@ patch_margin_top = 1
 patch_margin_right = 1
 patch_margin_bottom = 1
 
-[node name="CodeEdit" type="CodeEdit" parent="NinePatchRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 288.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Editor" type="HBoxContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+
+[node name="ItemList" type="ItemList" parent="NinePatchRect/VBoxContainer/Editor"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+same_column_width = true
+fixed_column_width = 32
+
+[node name="CodeEdit" type="CodeEdit" parent="NinePatchRect/VBoxContainer/Editor"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_colors/background_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_2bqgu")
 theme_override_font_sizes/font_size = 18
@@ -48,35 +65,43 @@ line_folding = true
 gutters_draw_breakpoints_gutter = true
 gutters_draw_line_numbers = true
 
-[node name="Label" type="Label" parent="NinePatchRect"]
-visible = false
-layout_mode = 0
-offset_top = 315.0
-offset_right = 40.0
-offset_bottom = 338.0
-theme_override_fonts/font = ExtResource("3_2bqgu")
-text = "Filename"
+[node name="FileNameBox" type="MarginContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -40.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="LineEdit" type="LineEdit" parent="NinePatchRect/VBoxContainer/FileNameBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_2bqgu")
+placeholder_text = "Enter Filename"
+
+[node name="Controls" type="MarginContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HBox" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
+[node name="HBox" type="HBoxContainer" parent="NinePatchRect/VBoxContainer/Controls"]
 layout_mode = 2
+size_flags_vertical = 3
 theme = SubResource("Theme_o6i4n")
 theme_override_constants/separation = 16
 
-[node name="SaveButton" type="Button" parent="NinePatchRect/MarginContainer/HBox"]
+[node name="NewFileButton" type="Button" parent="NinePatchRect/VBoxContainer/Controls/HBox"]
+layout_mode = 2
+focus_mode = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2bqgu")
+theme_override_styles/normal = ExtResource("3_dse5b")
+theme_override_styles/hover = ExtResource("3_dse5b")
+theme_override_styles/pressed = ExtResource("4_lu7h0")
+theme_override_styles/focus = ExtResource("3_dse5b")
+text = "New File"
+
+[node name="SaveButton" type="Button" parent="NinePatchRect/VBoxContainer/Controls/HBox"]
 layout_mode = 2
 focus_mode = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -87,7 +112,7 @@ theme_override_styles/pressed = ExtResource("4_lu7h0")
 theme_override_styles/focus = ExtResource("3_dse5b")
 text = "Save"
 
-[node name="RenameButton" type="Button" parent="NinePatchRect/MarginContainer/HBox"]
+[node name="DeleteButton" type="Button" parent="NinePatchRect/VBoxContainer/Controls/HBox"]
 layout_mode = 2
 focus_mode = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -96,6 +121,20 @@ theme_override_styles/normal = ExtResource("3_dse5b")
 theme_override_styles/hover = ExtResource("3_dse5b")
 theme_override_styles/pressed = ExtResource("4_lu7h0")
 theme_override_styles/focus = ExtResource("3_dse5b")
-text = "Rename"
+text = "Delete
+"
 
-[connection signal="pressed" from="NinePatchRect/MarginContainer/HBox/SaveButton" to="." method="_on_save_button_pressed"]
+[node name="InfoLabel" type="Label" parent="NinePatchRect/VBoxContainer/Controls/HBox"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="InfoLabelTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="item_activated" from="NinePatchRect/VBoxContainer/Editor/ItemList" to="." method="_on_item_list_item_activated"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Controls/HBox/NewFileButton" to="." method="_on_new_file_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Controls/HBox/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Controls/HBox/DeleteButton" to="." method="_on_delete_button_pressed"]
+[connection signal="timeout" from="InfoLabelTimer" to="." method="_on_timer_timeout"]

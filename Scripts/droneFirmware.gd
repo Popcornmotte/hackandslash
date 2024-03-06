@@ -28,7 +28,7 @@ var T #General-Purpose, but also write/read dest of SPOT, CMP and JMP instr
 func _ready():
 	if !is_in_group("Executors"):
 		add_to_group("Executors")
-	id = "drone"+str(global.drones.size()+1)
+	id = "drone"+str(global.drones.size())
 	global.drones.append(self)
 	$NameTag.text = id
 	if codeFile == null:
@@ -49,12 +49,20 @@ func validate(file : Userfile) -> bool:
 		var instr = line.split(' ',false)
 		var instrSize = 0
 		match instr[0]:
+			#Math Instruction
 			"COPY":
 				instrSize = 3
 			"ADDI":
 				instrSize = 4
 			"SUBI":
 				instrSize = 4
+			"MULI":
+				instrSize = 4
+			"DIVI":
+				instrSize = 4
+			"MODI":
+				instrSize = 4
+			#Logic Instructions
 			"MARK":
 				instrSize = 2
 				var l = JumpLabel.new()
@@ -67,6 +75,9 @@ func validate(file : Userfile) -> bool:
 				instrSize = 2
 			"FJMP":
 				instrSize = 2
+			"TEST":
+				instrSize = 4
+			#Peripheral Instructions
 			"MOVE":
 				instrSize = 1
 			"TURN":
@@ -101,7 +112,11 @@ func loadProgram(code = null):
 		$Sprite.play("invalid")
 
 func runtimeError():
+	debug = true
+	$DebugLabel.show()
 	valid = false
+	$Sprite.play("invalid")
+	$DebugLabel.set("theme_override_colors/font_color",Color.RED)
 	#also return instruction pointer and so on bla bla
 
 func readReg(reg : String):
@@ -112,6 +127,7 @@ func readReg(reg : String):
 			return T
 		_:
 			runtimeError()
+			return 0
 	pass
 
 func writeReg(value, reg):
@@ -178,8 +194,10 @@ func execute(instr):
 				v = readReg(instr[1])
 			if v < 0:
 				direction = direction.rotated(deg_to_rad(-90))
+				$Sprite.rotate(deg_to_rad(-90))
 			elif v > 0:
 				direction = direction.rotated(deg_to_rad(-90))
+				$Sprite.rotate(deg_to_rad(90))
 			incrIP()
 		"FIRE":
 			incrIP()
@@ -222,12 +240,16 @@ func execute(instr):
 
 func step():
 	if valid:
-		
 		execute(program[instructionPointer])
 		if debug:
 			var debugText = ""
 			for s in program[instructionPointer]:
 				debugText+=s+" "
 			$DebugLabel.text = "Instr:\n"+debugText
+	#elif debug:
+	#	var debugText = ""
+	#	for s in program[instructionPointer]:
+	#		debugText+=s+" "
+	#	$DebugLabel.text = "ERROR:\n"+debugText
 		
 		

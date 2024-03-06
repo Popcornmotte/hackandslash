@@ -1,0 +1,180 @@
+[gd_scene load_steps=9 format=3 uid="uid://ff6nuc6qphfu"]
+
+[ext_resource type="Script" path="res://Scripts/window.gd" id="1_p2fuy"]
+[ext_resource type="Texture2D" uid="uid://iu24u1ag0bpm" path="res://Assets/Sprites/Windows/window.png" id="2_gtvyw"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/standartx16.tres" id="3_mp327"]
+[ext_resource type="Texture2D" uid="uid://bid1ogqsvaisl" path="res://Assets/Sprites/Windows/smolButton.png" id="4_tyaev"]
+[ext_resource type="Texture2D" uid="uid://lqoviodq1vii" path="res://Assets/Sprites/Windows/smolButtonPressed.png" id="5_30bdn"]
+[ext_resource type="Texture2D" uid="uid://qp26crfcuni" path="res://Assets/Sprites/Windows/windowInner.png" id="6_hv1un"]
+
+[sub_resource type="StyleBoxEmpty" id="1"]
+
+[sub_resource type="StyleBoxEmpty" id="2"]
+
+[node name="windowStatic" type="Node2D"]
+script = ExtResource("1_p2fuy")
+noDragging = true
+testScene = "res://Assets/ObjectScenes/editor.tscn"
+
+[node name="OuterFrame" type="NinePatchRect" parent="."]
+offset_top = 32.0
+offset_right = 576.0
+offset_bottom = 648.0
+texture = ExtResource("2_gtvyw")
+patch_margin_left = 3
+patch_margin_top = 21
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="ProgramName" type="Label" parent="OuterFrame"]
+layout_mode = 0
+offset_left = 3.71023
+offset_top = 3.89202
+offset_right = 44.7102
+offset_bottom = 19.892
+theme_override_fonts/font = ExtResource("3_mp327")
+text = "Debug"
+
+[node name="MinimizeButton" type="TextureButton" parent="OuterFrame"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_top = 4.0
+offset_right = -28.0
+offset_bottom = 18.0
+grow_horizontal = 0
+focus_mode = 0
+texture_normal = ExtResource("4_tyaev")
+texture_pressed = ExtResource("5_30bdn")
+
+[node name="_" type="Label" parent="OuterFrame/MinimizeButton"]
+layout_mode = 0
+offset_top = -4.0
+offset_right = 16.0
+offset_bottom = 12.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mp327")
+text = " _
+"
+
+[node name="LeftButton" type="TextureButton" parent="OuterFrame"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -96.0
+offset_top = 4.0
+offset_right = -80.0
+offset_bottom = 18.0
+grow_horizontal = 0
+focus_mode = 0
+texture_normal = ExtResource("4_tyaev")
+texture_pressed = ExtResource("5_30bdn")
+
+[node name="<" type="Label" parent="OuterFrame/LeftButton"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mp327")
+theme_override_font_sizes/font_size = 14
+text = " <"
+
+[node name="RightButton" type="TextureButton" parent="OuterFrame"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_top = 4.0
+offset_right = -60.0
+offset_bottom = 18.0
+grow_horizontal = 0
+focus_mode = 0
+texture_normal = ExtResource("4_tyaev")
+texture_pressed = ExtResource("5_30bdn")
+
+[node name=">" type="Label" parent="OuterFrame/RightButton"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mp327")
+theme_override_font_sizes/font_size = 14
+text = " >"
+
+[node name="CloseButton" type="TextureButton" parent="OuterFrame"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = 4.0
+offset_right = -7.99997
+offset_bottom = 18.0
+grow_horizontal = 0
+focus_mode = 0
+texture_normal = ExtResource("4_tyaev")
+texture_pressed = ExtResource("5_30bdn")
+
+[node name="X" type="Label" parent="OuterFrame/CloseButton"]
+layout_mode = 0
+offset_right = 15.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mp327")
+text = " X"
+
+[node name="InnerFrame" type="NinePatchRect" parent="OuterFrame"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = -8.0
+offset_bottom = -8.0
+texture = ExtResource("6_hv1un")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="WindowContent" type="MarginContainer" parent="OuterFrame/InnerFrame"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="OuterFrame"]
+layout_mode = 0
+offset_right = 352.0
+offset_bottom = 24.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("1")
+flat = true
+
+[node name="focusField" type="Button" parent="."]
+visible = false
+offset_top = 24.0
+offset_right = 400.0
+offset_bottom = 384.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("2")
+flat = true
+
+[connection signal="gui_input" from="OuterFrame" to="." method="_on_OuterFrame_gui_input"]
+[connection signal="pressed" from="OuterFrame/MinimizeButton" to="." method="_on_minimize_button_pressed"]
+[connection signal="pressed" from="OuterFrame/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="OuterFrame/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="OuterFrame/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="button_down" from="OuterFrame/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="OuterFrame/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_down" from="focusField" to="." method="_on_focusField_button_down"]
+[connection signal="mouse_entered" from="focusField" to="." method="_on_focusField_mouse_entered"]
+[connection signal="mouse_exited" from="focusField" to="." method="_on_focusField_mouse_exited"]

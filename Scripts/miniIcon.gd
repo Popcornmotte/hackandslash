@@ -26,8 +26,10 @@ func _on_Button_pressed():
 	if window:
 		if window.visible:
 			window.minimize(true)
+			minimized = true
 		else:
 			window.minimize(false)
+			minimized = false
 	#if minimized:
 	#	minimized = false
 	#	window.show()

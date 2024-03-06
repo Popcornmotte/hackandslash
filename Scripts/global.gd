@@ -81,11 +81,25 @@ func loadGame():
 		printerr("No saved data!")
 
 func newFile(title : String) -> bool:
+	if userfiles.size() < MAXSTORAGE:
+		for file in userfiles:
+			if title == file.title:
+				return false
+		userfiles.append(Userfile.new(title))
+		desktop.addIcon(userfiles.size()-1)
+		return true
+	else:
+		return false
+
+func renameFile(oldTitle : String, newTitle : String)->bool:
 	for file in userfiles:
-		if title == file.title:
-			return false
-	userfiles.append(Userfile.new(title))
-	desktop.addIcon(userfiles.size()-1)
+			if newTitle == file.title:
+				return false
+	var temp = getFile(oldTitle)
+	removeFile(oldTitle)
+	newFile(newTitle)
+	var new = getFile(newTitle)
+	new.content = temp.content
 	return true
 
 func removeFile(title : String)->bool:

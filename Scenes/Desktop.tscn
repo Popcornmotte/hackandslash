@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://b671oso4ny1c2"]
+[gd_scene load_steps=25 format=3 uid="uid://b671oso4ny1c2"]
 
 [ext_resource type="Material" uid="uid://dqpcs0kpyuw5q" path="res://crt_material.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://cqh47leo4p5c" path="res://Assets/Sprites/Wallpaper/remOS.png" id="2_awk8p"]
+[ext_resource type="PackedScene" uid="uid://dxt7gchg2wgi" path="res://Assets/ObjectScenes/mouse_pointer.tscn" id="2_cg2ia"]
 [ext_resource type="Texture2D" uid="uid://dubhx7dnnb4rl" path="res://Assets/Sprites/debug.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://c3r47f5wsut8n" path="res://Assets/Sprites/Windows/button.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://bxw0tiv5wr17x" path="res://Assets/Sprites/Windows/taskBarFlip.png" id="5_a0i68"]
@@ -15,11 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://bphf0n3c1y21w" path="res://Assets/Sprites/Windows/StarMenuButtons/Run2.png" id="13"]
 [ext_resource type="Texture2D" uid="uid://dioqjn7bfq8i8" path="res://Assets/Sprites/Windows/StarMenuButtons/Run1.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://d1vstjgo3s2mh" path="res://Assets/Sprites/Windows/StarMenuButtons/Settings1.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://6vgddwcgmqqx" path="res://Assets/Sprites/Windows/StarMenuButtons/Editor1.png" id="15_wtxxh"]
 [ext_resource type="Texture2D" uid="uid://f2iu7sq2b0b6" path="res://Assets/Sprites/Windows/StarMenuButtons/Settings2.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://5odfdwgtmbho" path="res://Assets/Sprites/Windows/StarMenuButtons/Editor2.png" id="16_1ugts"]
 [ext_resource type="Texture2D" uid="uid://dogtsqkrokwn1" path="res://Assets/Sprites/Windows/StarMenuButtons/Find1.png" id="17"]
 [ext_resource type="Texture2D" uid="uid://txgt6vuive07" path="res://Assets/Sprites/Windows/StarMenuButtons/Find2.png" id="18"]
-[ext_resource type="Texture2D" uid="uid://b7xpbto5xo03e" path="res://Assets/Sprites/Windows/StarMenuButtons/Help2.png" id="19"]
-[ext_resource type="Texture2D" uid="uid://c2amuxsqxx57n" path="res://Assets/Sprites/Windows/StarMenuButtons/Help1.png" id="20"]
 [ext_resource type="PackedScene" uid="uid://cpaqiu28vj37q" path="res://Assets/ObjectScenes/drone.tscn" id="22_oow2x"]
 [ext_resource type="PackedScene" uid="uid://c2m0k61bjiyr3" path="res://Assets/ObjectScenes/Icon.tscn" id="23"]
 
@@ -37,6 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9")
+useStaticWindows = true
 
 [node name="wallpaper" type="Sprite2D" parent="."]
 z_index = -1000
@@ -44,12 +46,17 @@ position = Vector2(576, 324)
 scale = Vector2(0.96, 0.754366)
 texture = ExtResource("2_awk8p")
 
-[node name="CRTShader" type="Sprite2D" parent="."]
+[node name="ShaderCanvas" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="CRTShader" type="Sprite2D" parent="ShaderCanvas"]
 z_index = 1000
 material = ExtResource("1")
 position = Vector2(576, 324)
 scale = Vector2(36, 20.25)
 texture = ExtResource("3")
+
+[node name="mousePointer" parent="ShaderCanvas" instance=ExtResource("2_cg2ia")]
 
 [node name="Taskbar" type="NinePatchRect" parent="."]
 layout_mode = 0
@@ -115,48 +122,52 @@ offset_right = 960.0
 offset_bottom = 32.0
 theme_override_constants/separation = -5
 
-[node name="StartMenu" type="TextureRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="StartMenu" type="TextureRect" parent="CanvasLayer"]
 visible = false
-layout_mode = 0
+z_index = 20
 offset_top = 32.0
 offset_right = 164.0
 offset_bottom = 207.0
+mouse_filter = 0
 texture = ExtResource("10_f4288")
 
-[node name="Buttons" type="VBoxContainer" parent="StartMenu"]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/StartMenu"]
 layout_mode = 0
 anchor_right = 1.0
 theme_override_constants/separation = 0
 
-[node name="Settings" type="TextureButton" parent="StartMenu/Buttons"]
+[node name="Settings" type="TextureButton" parent="CanvasLayer/StartMenu/Buttons"]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("15")
 texture_pressed = ExtResource("16")
 texture_hover = ExtResource("16")
 
-[node name="Find" type="TextureButton" parent="StartMenu/Buttons"]
+[node name="Find" type="TextureButton" parent="CanvasLayer/StartMenu/Buttons"]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("17")
 texture_pressed = ExtResource("18")
 texture_hover = ExtResource("18")
 
-[node name="Help" type="TextureButton" parent="StartMenu/Buttons"]
+[node name="Editor" type="TextureButton" parent="CanvasLayer/StartMenu/Buttons"]
 layout_mode = 2
 focus_mode = 0
-texture_normal = ExtResource("20")
-texture_pressed = ExtResource("19")
-texture_hover = ExtResource("19")
+texture_normal = ExtResource("15_wtxxh")
+texture_pressed = ExtResource("16_1ugts")
+texture_hover = ExtResource("16_1ugts")
 
-[node name="Run" type="TextureButton" parent="StartMenu/Buttons"]
+[node name="Run" type="TextureButton" parent="CanvasLayer/StartMenu/Buttons"]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("14")
 texture_pressed = ExtResource("13")
 texture_hover = ExtResource("13")
 
-[node name="ShutDown" type="TextureButton" parent="StartMenu/Buttons"]
+[node name="ShutDown" type="TextureButton" parent="CanvasLayer/StartMenu/Buttons"]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("12")
@@ -185,15 +196,6 @@ position = Vector2(256, 100)
 visible = false
 color = Color(0.27451, 0.27451, 0.27451, 1)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 544.0
-offset_right = 63.0
-offset_bottom = 560.0
-theme_override_fonts/font = ExtResource("6")
-text = "HP: 100"
-
 [node name="Drones" type="Node" parent="."]
 
 [node name="Drone0" parent="Drones" instance=ExtResource("22_oow2x")]
@@ -201,6 +203,6 @@ position = Vector2(600, 480)
 debug = true
 
 [connection signal="pressed" from="Taskbar/Start/StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="StartMenu/Buttons/Help" to="." method="_on_Help_pressed"]
-[connection signal="pressed" from="StartMenu/Buttons/Run" to="." method="_on_Run_pressed"]
-[connection signal="pressed" from="StartMenu/Buttons/ShutDown" to="." method="_on_ShutDown_pressed"]
+[connection signal="pressed" from="CanvasLayer/StartMenu/Buttons/Editor" to="." method="_on_editor_pressed"]
+[connection signal="pressed" from="CanvasLayer/StartMenu/Buttons/Run" to="." method="_on_Run_pressed"]
+[connection signal="pressed" from="CanvasLayer/StartMenu/Buttons/ShutDown" to="." method="_on_ShutDown_pressed"]

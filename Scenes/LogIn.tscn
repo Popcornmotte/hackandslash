@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://buxt6qj48ouq4"]
+[gd_scene load_steps=12 format=3 uid="uid://buxt6qj48ouq4"]
 
 [ext_resource type="Texture2D" uid="uid://iu24u1ag0bpm" path="res://Assets/Sprites/Windows/window.png" id="1"]
 [ext_resource type="FontFile" path="res://Assets/Fonts/standartx16.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://dxt7gchg2wgi" path="res://Assets/ObjectScenes/mouse_pointer.tscn" id="2_fwlnl"]
 [ext_resource type="Texture2D" uid="uid://c3r47f5wsut8n" path="res://Assets/Sprites/Windows/button.png" id="3"]
 [ext_resource type="StyleBox" path="res://Styles/textField.tres" id="4"]
 [ext_resource type="Script" path="res://Scripts/LogIn.gd" id="5"]
@@ -20,6 +21,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5")
+
+[node name="mousePointer" parent="." instance=ExtResource("2_fwlnl")]
 
 [node name="CRTShader" type="Sprite2D" parent="."]
 z_index = 100
