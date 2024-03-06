@@ -21,8 +21,8 @@ var direction = Vector2.UP
 var instructionPointer = 0
 
 #Register
-var X #General-Purpose
-var T #General-Purpose, but also write/read dest of SPOT, CMP and JMP instr
+var X = 0 #General-Purpose
+var T = 0#General-Purpose, but also write/read dest of SPOT, CMP and JMP instr
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +42,8 @@ func _ready():
 
 func validate(file : Userfile) -> bool:
 	var temp = file.content.split('\n',false)
+	for t in temp:
+		t = t.to_upper()
 	var prog = []
 	var i = -1
 	for line in temp:
@@ -183,6 +185,45 @@ func execute(instr):
 				v2 = readReg(instr[2])
 			writeReg((v1-v2), instr[3])
 			incrIP()
+		"MULI":
+			var v1
+			if instr[1].is_valid_int():
+				v1 = instr[1].to_int()
+			else:
+				v1 = readReg(instr[1])
+			var v2
+			if instr[2].is_valid_int():
+				v2 = instr[2].to_int()
+			else:
+				v2 = readReg(instr[2])
+			writeReg((v1*v2), instr[3])
+			incrIP()
+		"DIVI":
+			var v1
+			if instr[1].is_valid_int():
+				v1 = instr[1].to_int()
+			else:
+				v1 = readReg(instr[1])
+			var v2
+			if instr[2].is_valid_int():
+				v2 = instr[2].to_int()
+			else:
+				v2 = readReg(instr[2])
+			writeReg((v1/v2), instr[3])
+			incrIP()
+		"MODI":
+			var v1
+			if instr[1].is_valid_int():
+				v1 = instr[1].to_int()
+			else:
+				v1 = readReg(instr[1])
+			var v2
+			if instr[2].is_valid_int():
+				v2 = instr[2].to_int()
+			else:
+				v2 = readReg(instr[2])
+			writeReg((v1%v2), instr[3])
+			incrIP()
 		"MOVE":
 			global_position += 32 * direction
 			incrIP()
@@ -222,6 +263,8 @@ func execute(instr):
 						break
 				if !found:
 					runtimeError()
+			else:
+				incrIP()
 		"FJMP":
 			if readReg("T") == 0:
 				var found = false
@@ -232,6 +275,8 @@ func execute(instr):
 						break
 				if !found:
 					runtimeError()
+			else:
+				incrIP()
 		"SPOT":
 			incrIP()
 		"AIMW":
@@ -241,6 +286,7 @@ func execute(instr):
 func step():
 	if valid:
 		execute(program[instructionPointer])
+		$Register.text = "X: "+str(X)+"\nT: "+str(T)
 		if debug:
 			var debugText = ""
 			for s in program[instructionPointer]:
